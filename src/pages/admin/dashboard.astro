@@ -84,11 +84,9 @@ import Footer from '@/components/Footer.astro';
           <div class="grid grid-cols-2 gap-4">
             <div>
               <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                Categoría
+                Categorías (separadas por coma)
               </label>
-              <select id="categoria" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary">
-                <option value="">Seleccionar categoría</option>
-              </select>
+              <input type="text" id="categoria" placeholder="plato_principal, postre" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary" />
             </div>
             <div>
               <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
@@ -173,28 +171,34 @@ import Footer from '@/components/Footer.astro';
       try {
         const recipesData = await import('@/data/recetas.json').then(m => m.default);
         categories = [...new Set(recipesData.map(r => r.categoria))].filter(Boolean).sort();
-        const select = document.getElementById('categoria') as HTMLSelectElement;
-        if (select) {
-          categories.forEach(cat => {
-            const option = document.createElement('option');
-            option.value = cat;
-            option.textContent = cat.replace('_', ' ');
-            select.appendChild(option);
-          });
-        }
       } catch (err) {
         console.error('Error loading categories:', err);
       }
     }
 
-    // Load recipes
+    // Load recipes from Supabase
     async function loadRecipes() {
       try {
-        const recipesData = await import('@/data/recetas.json').then(m => m.default);
-        recipes = recipesData;
+        const { data, error } = await supabase
+          .from('recipes')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (error) throw error;
+        if (data && data.length > 0) {
+          recipes = data;
+        } else {
+          // Fallback to JSON if no recipes in Supabase
+          const recipesData = await import('@/data/recetas.json').then(m => m.default);
+          recipes = recipesData;
+        }
         renderRecipes(recipes);
       } catch (err) {
         console.error('Error loading recipes:', err);
+        // Fallback to JSON
+        const recipesData = await import('@/data/recetas.json').then(m => m.default);
+        recipes = recipesData;
+        renderRecipes(recipes);
       }
     }
 
@@ -211,7 +215,7 @@ import Footer from '@/components/Footer.astro';
         <div class="bg-white dark:bg-gray-700 rounded-lg p-4 flex items-center justify-between hover:shadow-md transition-shadow">
           <div class="flex-1">
             <h3 class="font-semibold text-lg text-gray-900 dark:text-white">${recipe.titulo}</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400">${recipe.categoria} • ${recipe.dificultad}</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">${(recipe.categoria || 'otros').replace('_', ' ')} • ${recipe.dificultad}</p>
           </div>
           <div class="flex gap-2">
             <button class="edit-btn px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90" data-id="${recipe.id || recipe.slug}">
@@ -233,12 +237,12 @@ import Footer from '@/components/Footer.astro';
     function openRecipeModal(recipe) {
       currentRecipeId = recipe.id || recipe.slug;
       uploadedImages = recipe.imagenes_locales || [];
-      document.getElementById('titulo').value = recipe.titulo;
-      document.getElementById('descripcion').value = recipe.descripcion || '';
-      document.getElementById('categoria').value = recipe.categoria;
-      document.getElementById('dificultad').value = recipe.dificultad;
-      document.getElementById('tiempo').value = recipe.tiempo || '';
-      document.getElementById('porciones').value = recipe.porciones || '';
+      (document.getElementById('titulo') as HTMLInputElement).value = recipe.titulo;
+      (document.getElementById('descripcion') as HTMLTextAreaElement).value = recipe.descripcion || '';
+      (document.getElementById('categoria') as HTMLInputElement).value = recipe.categoria || '';
+      (document.getElementById('dificultad') as HTMLSelectElement).value = recipe.dificultad || '';
+      (document.getElementById('tiempo') as HTMLInputElement).value = recipe.tiempo || '';
+      (document.getElementById('porciones') as HTMLInputElement).value = recipe.porciones || '';
       document.getElementById('successMessage')?.classList.add('hidden');
 
       renderImagePreview();
@@ -297,12 +301,13 @@ import Footer from '@/components/Footer.astro';
       if (success) success.classList.add('hidden');
 
       try {
+        const titulo = (document.getElementById('titulo') as HTMLInputElement).value;
         const body = {
           id: currentRecipeId,
-          titulo: (document.getElementById('titulo') as HTMLInputElement).value,
-          slug: currentRecipeId || (document.getElementById('titulo') as HTMLInputElement).value.toLowerCase().replace(/\s+/g, '-'),
+          titulo: titulo,
+          slug: currentRecipeId || titulo.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, ''),
           descripcion: (document.getElementById('descripcion') as HTMLTextAreaElement).value,
-          categoria: (document.getElementById('categoria') as HTMLSelectElement).value,
+          categoria: (document.getElementById('categoria') as HTMLInputElement).value,
           dificultad: (document.getElementById('dificultad') as HTMLSelectElement).value,
           tiempo: (document.getElementById('tiempo') as HTMLInputElement).value,
           porciones: (document.getElementById('porciones') as HTMLInputElement).value,
@@ -311,6 +316,7 @@ import Footer from '@/components/Footer.astro';
           imagenes_locales: uploadedImages
         };
 
+        console.log('Enviando:', body);
         const res = await fetch('/admin/api/recipes', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -318,6 +324,8 @@ import Footer from '@/components/Footer.astro';
         });
 
         const data = await res.json();
+        console.log('Respuesta:', res.status, data);
+
         if (!res.ok) {
           throw new Error(data.error || 'Error al guardar');
         }
