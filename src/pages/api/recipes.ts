@@ -3,7 +3,10 @@ import { supabase } from '@/lib/supabase';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
+    console.log('Recipe POST request received');
     const body = await request.json();
+    console.log('Body parsed:', { titulo: body.titulo, id: body.id });
+
     const { id, titulo, slug, descripcion, categoria, dificultad, tiempo, porciones, ingredientes, preparacion, imagenes_locales } = body;
 
     if (!titulo) {
@@ -11,7 +14,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     if (id) {
-      // Update existing recipe
+      console.log('Updating recipe:', id);
       const { error } = await supabase
         .from('recipes')
         .update({
@@ -28,9 +31,13 @@ export const POST: APIRoute = async ({ request }) => {
         })
         .eq('id', id);
 
-      if (error) throw error;
+      if (error) {
+        console.error('Update error:', error);
+        throw error;
+      }
+      console.log('Update successful');
     } else {
-      // Insert new recipe
+      console.log('Inserting new recipe');
       const { error } = await supabase
         .from('recipes')
         .insert({
@@ -46,11 +53,14 @@ export const POST: APIRoute = async ({ request }) => {
           imagenes_locales: imagenes_locales || []
         });
 
-      if (error) throw error;
+      if (error) {
+        console.error('Insert error:', error);
+        throw error;
+      }
+      console.log('Insert successful');
     }
 
-    const response = JSON.stringify({ success: true });
-    return new Response(response, { status: 200, headers: { 'Content-Type': 'application/json' } });
+    return new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
   } catch (error: any) {
     const errorMsg = error?.message || 'Unknown error';
     console.error('Recipe save error:', errorMsg, error);
