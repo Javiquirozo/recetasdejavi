@@ -1,13 +1,8 @@
 import type { APIRoute } from 'astro';
 import { supabase } from '@/lib/supabase';
 
-export const POST: APIRoute = async ({ request, cookies }) => {
+export const POST: APIRoute = async ({ request }) => {
   try {
-    const authToken = request.headers.get('authorization');
-    if (!authToken) {
-      return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401, headers: { 'Content-Type': 'application/json' } });
-    }
-
     const body = await request.json();
     const { id, titulo, slug, descripcion, categoria, dificultad, tiempo, porciones, ingredientes, preparacion, imagenes_locales } = body;
 
@@ -59,11 +54,6 @@ export const POST: APIRoute = async ({ request, cookies }) => {
 
 export const DELETE: APIRoute = async ({ request }) => {
   try {
-    const authToken = request.headers.get('authorization');
-    if (!authToken) {
-      return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401, headers: { 'Content-Type': 'application/json' } });
-    }
-
     const { id } = await request.json();
 
     const { error } = await supabase
