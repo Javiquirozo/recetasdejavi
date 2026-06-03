@@ -286,34 +286,30 @@ import Footer from '@/components/Footer.astro';
     // Load recipes
     async function loadRecipes() {
       try {
+        // Load from JSON first
+        console.log('📄 Leyendo /data/recetas.json...');
+        const jsonResponse = await fetch('/data/recetas.json');
+        const jsonData = await jsonResponse.json();
+        console.log('✅ Recetas cargadas de JSON:', jsonData.length);
+
+        // Load from Supabase
         console.log('🔍 Intentando cargar recetas de Supabase...');
-        const { data, error } = await supabase
+        const { data: supabaseData, error } = await supabase
           .from('recipes')
           .select('*')
           .order('created_at', { ascending: false });
 
-        console.log('Supabase response:', { data, error });
         if (error) throw error;
-        if (!data || data.length === 0) {
-          throw new Error('No recipes in Supabase');
-        }
-        console.log('✅ Recetas cargadas de Supabase:', data.length);
-        recipes = data;
+
+        // Merge: Supabase recipes override JSON recipes by slug
+        const supabaseMap = new Map((supabaseData || []).map(r => [r.slug, r]));
+        recipes = jsonData.map(jsonRecipe => supabaseMap.get(jsonRecipe.slug) || jsonRecipe);
+
+        console.log('✅ Total recetas:', recipes.length, '(', jsonData.length, 'from JSON +', (supabaseData || []).length, 'from Supabase)');
         renderRecipes(recipes);
       } catch (err) {
-        console.log('⚠️ Fallback a JSON:', err);
-        try {
-          console.log('📄 Leyendo /data/recetas.json...');
-          const response = await fetch('/data/recetas.json');
-          console.log('Response status:', response.status);
-          const recipesData = await response.json();
-          console.log('✅ Recetas cargadas de JSON:', recipesData.length);
-          recipes = recipesData || [];
-          renderRecipes(recipes);
-        } catch (jsonErr) {
-          console.error('❌ Error al cargar JSON:', jsonErr);
-          document.getElementById('recipesList').innerHTML = '<p class="text-red-500">Error: ' + jsonErr.message + '</p>';
-        }
+        console.error('❌ Error al cargar recetas:', err);
+        document.getElementById('recipesList').innerHTML = '<p class="text-red-500">Error: ' + err.message + '</p>';
       }
     }
 
