@@ -5,6 +5,8 @@ import Footer from '@/components/Footer.astro';
 import RecipeCard from '@/components/RecipeCard.astro';
 import ImageCarousel from '@/components/ImageCarousel.astro';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const recipes = await import('@/data/recetas.json').then(m => m.default);
   return recipes.map((recipe: any) => ({
