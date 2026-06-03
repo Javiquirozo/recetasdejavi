@@ -291,21 +291,30 @@ import Footer from '@/components/Footer.astro';
           .select('*')
           .order('created_at', { ascending: false });
 
-        if (error) throw error;
-        recipes = data || [];
+        if (error || !data || data.length === 0) {
+          throw new Error('No recipes in Supabase');
+        }
+        recipes = data;
         renderRecipes(recipes);
       } catch (err) {
-        console.error('Error loading recipes:', err);
-        const recipesData = await import('@/data/recetas.json').then(m => m.default);
-        recipes = recipesData;
-        renderRecipes(recipes);
+        console.log('Loading from JSON fallback:', err);
+        try {
+          const response = await fetch('/data/recetas.json');
+          const recipesData = await response.json();
+          recipes = recipesData || [];
+          renderRecipes(recipes);
+        } catch (jsonErr) {
+          console.error('Error loading from JSON:', jsonErr);
+          document.getElementById('recipesList').innerHTML = '<p class="text-red-500">Error al cargar recetas</p>';
+        }
       }
     }
 
     // Load categories
     async function loadCategories() {
       try {
-        const recipesData = await import('@/data/recetas.json').then(m => m.default);
+        const response = await fetch('/data/recetas.json');
+        const recipesData = await response.json();
         categories = [...new Set(recipesData.map(r => r.categoria))].filter(Boolean).sort();
 
         // Render checkboxes in recipe modal
