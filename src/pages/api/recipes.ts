@@ -22,27 +22,59 @@ export const POST: APIRoute = async ({ request }) => {
 
     if (id) {
       console.log('Updating recipe:', id);
-      const { error } = await supabase
+      const { data: existing } = await supabase
         .from('recipes')
-        .update({
-          titulo,
-          descripcion,
-          categoria,
-          dificultad,
-          tiempo,
-          porciones,
-          ingredientes: ingredientes || [],
-          preparacion: preparacion || [],
-          imagenes_locales: imagenes_locales || [],
-          updated_at: new Date().toISOString()
-        })
-        .eq('slug', id);
+        .select('id')
+        .eq('slug', id)
+        .single();
 
-      if (error) {
-        console.error('Update error:', error);
-        throw error;
+      if (existing?.id) {
+        // Recipe exists, update it
+        const { error } = await supabase
+          .from('recipes')
+          .update({
+            titulo,
+            descripcion,
+            categoria,
+            dificultad,
+            tiempo,
+            porciones,
+            ingredientes: ingredientes || [],
+            preparacion: preparacion || [],
+            imagenes_locales: imagenes_locales || [],
+            updated_at: new Date().toISOString()
+          })
+          .eq('id', existing.id);
+
+        if (error) {
+          console.error('Update error:', error);
+          throw error;
+        }
+        console.log('Update successful');
+      } else {
+        // Recipe doesn't exist, insert it
+        console.log('Recipe not found, inserting');
+        const { error } = await supabase
+          .from('recipes')
+          .insert({
+            titulo,
+            slug: id,
+            descripcion,
+            categoria,
+            dificultad,
+            tiempo,
+            porciones,
+            ingredientes: ingredientes || [],
+            preparacion: preparacion || [],
+            imagenes_locales: imagenes_locales || []
+          });
+
+        if (error) {
+          console.error('Insert error:', error);
+          throw error;
+        }
+        console.log('Insert successful');
       }
-      console.log('Update successful');
     } else {
       console.log('Inserting new recipe');
       const { error } = await supabase
