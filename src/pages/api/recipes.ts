@@ -36,7 +36,7 @@ export const POST: APIRoute = async ({ request }) => {
           imagenes_locales: imagenes_locales || [],
           updated_at: new Date().toISOString()
         })
-        .eq('id', id);
+        .eq('slug', id);
 
       if (error) {
         console.error('Update error:', error);
