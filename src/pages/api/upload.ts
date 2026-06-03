@@ -1,6 +1,13 @@
 import type { APIRoute } from 'astro';
 import { supabase } from '@/lib/supabase';
 
+export const GET: APIRoute = () => {
+  return new Response(JSON.stringify({ error: 'Use POST to upload files' }), {
+    status: 405,
+    headers: { 'Content-Type': 'application/json' }
+  });
+};
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     const { data: { session } } = await supabase.auth.getSession();
