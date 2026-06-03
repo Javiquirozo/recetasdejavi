@@ -599,21 +599,34 @@ import Footer from '@/components/Footer.astro';
       };
 
       try {
+        console.log('📤 Enviando receta:', body);
         const res = await fetch('/admin/api/recipes', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(body)
         });
 
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error);
+        console.log('📥 Response status:', res.status);
+        const responseText = await res.text();
+        console.log('📥 Response text:', responseText);
 
+        let data;
+        try {
+          data = JSON.parse(responseText);
+        } catch {
+          throw new Error(`Invalid JSON response: ${responseText.substring(0, 100)}`);
+        }
+
+        if (!res.ok) throw new Error(data.error || 'Error guardando receta');
+
+        console.log('✅ Receta guardada');
         document.getElementById('successMessage')?.classList.remove('hidden');
         setTimeout(() => {
           document.getElementById('recipeModal')?.classList.add('hidden');
           loadRecipes();
         }, 1500);
       } catch (err: any) {
+        console.error('❌ Error:', err);
         alert('Error: ' + err.message);
       }
     });

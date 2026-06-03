@@ -6,6 +6,10 @@ export const POST: APIRoute = async ({ request }) => {
     const body = await request.json();
     const { id, titulo, slug, descripcion, categoria, dificultad, tiempo, porciones, ingredientes, preparacion, imagenes_locales } = body;
 
+    if (!titulo) {
+      return new Response(JSON.stringify({ error: 'Título es requerido' }), { status: 400, headers: { 'Content-Type': 'application/json' } });
+    }
+
     if (id) {
       // Update existing recipe
       const { error } = await supabase
@@ -45,10 +49,12 @@ export const POST: APIRoute = async ({ request }) => {
       if (error) throw error;
     }
 
-    return new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    const response = JSON.stringify({ success: true });
+    return new Response(response, { status: 200, headers: { 'Content-Type': 'application/json' } });
   } catch (error: any) {
-    console.error('Recipe save error:', error);
-    return new Response(JSON.stringify({ error: error.message }), { status: 500, headers: { 'Content-Type': 'application/json' } });
+    const errorMsg = error?.message || 'Unknown error';
+    console.error('Recipe save error:', errorMsg, error);
+    return new Response(JSON.stringify({ error: errorMsg }), { status: 500, headers: { 'Content-Type': 'application/json' } });
   }
 };
 
