@@ -534,7 +534,7 @@ import Footer from '@/components/Footer.astro';
         formData.append('file', file);
 
         try {
-          const res = await fetch('/admin/api/upload', {
+          const res = await fetch('/api/upload', {
             method: 'POST',
             body: formData
           });
@@ -558,7 +558,7 @@ import Footer from '@/components/Footer.astro';
       formData.append('file', file);
 
       try {
-        const res = await fetch('/admin/api/upload', {
+        const res = await fetch('/api/upload', {
           method: 'POST',
           body: formData
         });
@@ -600,7 +600,7 @@ import Footer from '@/components/Footer.astro';
 
       try {
         console.log('📤 Enviando receta:', body);
-        const res = await fetch('/admin/api/recipes', {
+        const res = await fetch('/api/recipes', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(body)
@@ -638,7 +638,7 @@ import Footer from '@/components/Footer.astro';
       const name = (document.getElementById('categoryName') as HTMLInputElement).value.replace(' ', '_');
 
       try {
-        const res = await fetch('/admin/api/categories', {
+        const res = await fetch('/api/categories', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ id: currentCategoryId, name })
@@ -674,7 +674,7 @@ import Footer from '@/components/Footer.astro';
       };
 
       try {
-        const res = await fetch('/admin/api/blog', {
+        const res = await fetch('/api/blog', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(body)
@@ -697,7 +697,7 @@ import Footer from '@/components/Footer.astro';
     document.getElementById('deleteRecipeBtn')?.addEventListener('click', async () => {
       if (!confirm('¿Borrar receta?')) return;
       try {
-        const res = await fetch('/admin/api/recipes', {
+        const res = await fetch('/api/recipes', {
           method: 'DELETE',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ id: currentRecipeId })
@@ -713,7 +713,7 @@ import Footer from '@/components/Footer.astro';
     document.getElementById('deleteCategoryBtn')?.addEventListener('click', async () => {
       if (!confirm('¿Borrar categoría?')) return;
       try {
-        const res = await fetch('/admin/api/categories', {
+        const res = await fetch('/api/categories', {
           method: 'DELETE',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ id: currentCategoryId })
@@ -729,7 +729,7 @@ import Footer from '@/components/Footer.astro';
     document.getElementById('deleteBlogBtn')?.addEventListener('click', async () => {
       if (!confirm('¿Borrar post?')) return;
       try {
-        const res = await fetch('/admin/api/blog', {
+        const res = await fetch('/api/blog', {
           method: 'DELETE',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ id: currentBlogId })
