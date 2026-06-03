@@ -152,6 +152,7 @@ import Footer from '@/components/Footer.astro';
     import { supabase } from '@/lib/supabase';
 
     let recipes = [];
+    let categories = [];
     let currentRecipeId = null;
     let uploadedImages = [];
 
@@ -165,6 +166,25 @@ import Footer from '@/components/Footer.astro';
     const { data: { session } } = await supabase.auth.getSession();
     if (!session) {
       window.location.href = '/admin';
+    }
+
+    // Load categories
+    async function loadCategories() {
+      try {
+        const recipesData = await import('@/data/recetas.json').then(m => m.default);
+        categories = [...new Set(recipesData.map(r => r.categoria))].filter(Boolean).sort();
+        const select = document.getElementById('categoria') as HTMLSelectElement;
+        if (select) {
+          categories.forEach(cat => {
+            const option = document.createElement('option');
+            option.value = cat;
+            option.textContent = cat.replace('_', ' ');
+            select.appendChild(option);
+          });
+        }
+      } catch (err) {
+        console.error('Error loading categories:', err);
+      }
     }
 
     // Load recipes
@@ -219,6 +239,7 @@ import Footer from '@/components/Footer.astro';
       document.getElementById('dificultad').value = recipe.dificultad;
       document.getElementById('tiempo').value = recipe.tiempo || '';
       document.getElementById('porciones').value = recipe.porciones || '';
+      document.getElementById('successMessage')?.classList.add('hidden');
 
       renderImagePreview();
       document.getElementById('recipeModal')?.classList.remove('hidden');
@@ -262,6 +283,7 @@ import Footer from '@/components/Footer.astro';
           }
         } catch (err) {
           console.error('Upload error:', err);
+          alert('Error al subir imagen: ' + err.message);
         }
       }
     });
@@ -284,6 +306,8 @@ import Footer from '@/components/Footer.astro';
           dificultad: (document.getElementById('dificultad') as HTMLSelectElement).value,
           tiempo: (document.getElementById('tiempo') as HTMLInputElement).value,
           porciones: (document.getElementById('porciones') as HTMLInputElement).value,
+          ingredientes: [],
+          preparacion: [],
           imagenes_locales: uploadedImages
         };
 
@@ -293,15 +317,20 @@ import Footer from '@/components/Footer.astro';
           body: JSON.stringify(body)
         });
 
-        if (res.ok) {
-          if (success) success.classList.remove('hidden');
-          setTimeout(() => {
-            document.getElementById('recipeModal')?.classList.add('hidden');
-            loadRecipes();
-          }, 1500);
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.error || 'Error al guardar');
         }
+
+        if (success) success.classList.remove('hidden');
+        setTimeout(() => {
+          document.getElementById('recipeModal')?.classList.add('hidden');
+          document.getElementById('recipeForm')?.reset();
+          loadRecipes();
+        }, 2000);
       } catch (err) {
         console.error('Save error:', err);
+        alert('Error: ' + err.message);
       } finally {
         if (loading) loading.classList.add('hidden');
       }
@@ -317,6 +346,7 @@ import Footer from '@/components/Footer.astro';
       currentRecipeId = null;
       uploadedImages = [];
       document.getElementById('recipeForm')?.reset();
+      document.getElementById('successMessage')?.classList.add('hidden');
       document.getElementById('deleteRecipeBtn')?.classList.add('hidden');
       document.getElementById('recipeModal')?.classList.remove('hidden');
     });
@@ -327,6 +357,7 @@ import Footer from '@/components/Footer.astro';
       renderRecipes(filtered);
     });
 
+    loadCategories();
     loadRecipes();
   </script>
 </BaseLayout>
