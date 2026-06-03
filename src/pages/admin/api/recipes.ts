@@ -1,11 +1,11 @@
 import type { APIRoute } from 'astro';
 import { supabase } from '@/lib/supabase';
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, cookies }) => {
   try {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
-      return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
+    const authToken = request.headers.get('authorization');
+    if (!authToken) {
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401, headers: { 'Content-Type': 'application/json' } });
     }
 
     const body = await request.json();
@@ -44,25 +44,24 @@ export const POST: APIRoute = async ({ request }) => {
           porciones,
           ingredientes: ingredientes || [],
           preparacion: preparacion || [],
-          imagenes_locales: imagenes_locales || [],
-          created_by: session.user.id
+          imagenes_locales: imagenes_locales || []
         });
 
       if (error) throw error;
     }
 
-    return new Response(JSON.stringify({ success: true }), { status: 200 });
+    return new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
   } catch (error: any) {
     console.error('Recipe save error:', error);
-    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+    return new Response(JSON.stringify({ error: error.message }), { status: 500, headers: { 'Content-Type': 'application/json' } });
   }
 };
 
 export const DELETE: APIRoute = async ({ request }) => {
   try {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
-      return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 });
+    const authToken = request.headers.get('authorization');
+    if (!authToken) {
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401, headers: { 'Content-Type': 'application/json' } });
     }
 
     const { id } = await request.json();
@@ -70,13 +69,12 @@ export const DELETE: APIRoute = async ({ request }) => {
     const { error } = await supabase
       .from('recipes')
       .delete()
-      .eq('id', id)
-      .eq('created_by', session.user.id);
+      .eq('id', id);
 
     if (error) throw error;
 
-    return new Response(JSON.stringify({ success: true }), { status: 200 });
+    return new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
   } catch (error: any) {
-    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+    return new Response(JSON.stringify({ error: error.message }), { status: 500, headers: { 'Content-Type': 'application/json' } });
   }
 };
