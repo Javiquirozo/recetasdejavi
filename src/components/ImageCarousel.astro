@@ -1,0 +1,255 @@
+---
+interface Props {
+  imagenes: string[];
+  titulo: string;
+}
+
+const { imagenes, titulo } = Astro.props;
+---
+
+<div class="image-carousel-container">
+  <div class="carousel">
+    {imagenes.map((img, idx) => (
+      <div class="carousel-slide" data-slide={idx}>
+        <img
+          src={img}
+          alt={`${titulo} - Foto ${idx + 1}`}
+          class="carousel-image"
+          onclick={`window.openImageModal('${img}', '${titulo}')`}
+        />
+      </div>
+    ))}
+  </div>
+
+  <div class="carousel-indicators">
+    {imagenes.map((_, idx) => (
+      <button
+        class="indicator"
+        data-slide={idx}
+        onclick={`window.goToSlide(${idx})`}
+        title={`Foto ${idx + 1}`}
+      />
+    ))}
+  </div>
+
+  <button class="carousel-nav prev" onclick="window.prevSlide()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    </svg>
+  </button>
+  <button class="carousel-nav next" onclick="window.nextSlide()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+    </svg>
+  </button>
+</div>
+
+<!-- Modal para ver imagen en grande -->
+<div id="imageModal" class="modal hidden" onclick="this.classList.add('hidden')">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="document.getElementById('imageModal').classList.add('hidden')">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <img id="modalImage" src="" alt="" class="modal-image" />
+  </div>
+</div>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const indicators = document.querySelectorAll('.indicator');
+
+  function showSlide(n) {
+    if (slides.length === 0) return;
+    currentSlide = (n + slides.length) % slides.length;
+
+    slides.forEach((slide, idx) => {
+      slide.classList.toggle('active', idx === currentSlide);
+    });
+
+    indicators.forEach((indicator, idx) => {
+      indicator.classList.toggle('active', idx === currentSlide);
+    });
+  }
+
+  window.nextSlide = () => {
+    showSlide(currentSlide + 1);
+  };
+
+  window.prevSlide = () => {
+    showSlide(currentSlide - 1);
+  };
+
+  window.goToSlide = (n) => {
+    showSlide(n);
+  };
+
+  window.openImageModal = (src, title) => {
+    const modal = document.getElementById('imageModal');
+    const img = document.getElementById('modalImage');
+    img.src = src;
+    img.alt = title;
+    modal.classList.remove('hidden');
+  };
+
+  // Initialize
+  showSlide(0);
+</script>
+
+<style>
+  .image-carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .carousel {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: #f3f4f6;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+  }
+
+  .carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .carousel-image:hover {
+    transform: scale(1.02);
+  }
+
+  .carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem;
+    transition: background 0.3s;
+    z-index: 10;
+  }
+
+  .carousel-nav:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .carousel-nav.prev {
+    left: 1rem;
+  }
+
+  .carousel-nav.next {
+    right: 1rem;
+  }
+
+  .carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .indicator {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    border: 2px solid #d1d5db;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .indicator.active {
+    background: #9a659b;
+    border-color: #9a659b;
+    width: 1.5rem;
+    border-radius: 0.375rem;
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+  }
+
+  .modal.hidden {
+    display: none;
+  }
+
+  .modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+
+  .modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 640px) {
+    .carousel {
+      aspect-ratio: 1;
+    }
+
+    .carousel-nav {
+      padding: 0.375rem;
+      font-size: 0.875rem;
+    }
+
+    .carousel-nav.prev {
+      left: 0.5rem;
+    }
+
+    .carousel-nav.next {
+      right: 0.5rem;
+    }
+  }
+</style>

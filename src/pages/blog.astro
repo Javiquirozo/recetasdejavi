@@ -1,0 +1,65 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+
+const title = 'Blog - Vlog de Javi';
+const description = 'Artículos sobre salud, nutrición y estilo de vida vegano';
+
+const posts = [
+  {
+    slug: 'mi-experiencia-con-artritis',
+    titulo: 'Mi experiencia con la Artritis',
+    fecha: '2024-01-15',
+    resumen: 'Cómo cambié mi vida a través de la alimentación vegana y el manejo del estrés para controlar los síntomas de artritis.',
+    categoria: 'Salud'
+  }
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="section-title">Blog</h1>
+    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-12">
+      Artículos y reflexiones sobre salud, nutrición y el estilo de vida vegano.
+    </p>
+
+    <div class="space-y-8">
+      {posts.map(post => (
+        <article class="card p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h2 class="text-2xl font-bold font-poppins mb-2">
+                <a href={`/blog/${post.slug}`} class="hover:text-primary transition-colors">
+                  {post.titulo}
+                </a>
+              </h2>
+              <div class="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+                <time datetime={post.fecha}>
+                  {new Date(post.fecha).toLocaleDateString('es-CL', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </time>
+                <span class="px-3 py-1 bg-primary text-white rounded-full text-xs font-semibold">
+                  {post.categoria}
+                </span>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 dark:text-gray-300 mb-4">
+            {post.resumen}
+          </p>
+          <a href={`/blog/${post.slug}`} class="text-primary hover:text-secondary-teal font-semibold transition-colors">
+            Leer más →
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <Footer />
+</BaseLayout>

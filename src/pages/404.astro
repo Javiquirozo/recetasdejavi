@@ -1,0 +1,25 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+
+const title = 'Página no encontrada - Vlog de Javi';
+---
+
+<BaseLayout title={title} description="La página que buscas no existe">
+  <Header />
+
+  <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+    <h1 class="text-6xl font-bold font-poppins text-primary mb-4">404</h1>
+    <h2 class="text-3xl font-bold font-poppins mb-4">Página no encontrada</h2>
+    <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">
+      Lo sentimos, la página que buscas no existe. Pero no te preocupes, encontrarás muchas recetas deliciosas en nuestro sitio.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="/" class="btn-primary">Volver al inicio</a>
+      <a href="/recetas" class="btn-secondary">Explorar recetas</a>
+    </div>
+  </div>
+
+  <Footer />
+</BaseLayout>

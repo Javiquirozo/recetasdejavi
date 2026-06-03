@@ -1,0 +1,79 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import RecipeCard from '@/components/RecipeCard.astro';
+
+const recipes = await import('@/data/recetas.json').then(m => m.default);
+const categories = [...new Set(recipes.map(r => r.categoria).filter(Boolean))];
+
+export async function getStaticPaths() {
+  const recipes = await import('@/data/recetas.json').then(m => m.default);
+  const categories = [...new Set(recipes.map(r => r.categoria).filter(Boolean))];
+
+  return categories.map(cat => ({
+    params: { categoria: cat }
+  }));
+}
+
+const { categoria } = Astro.params;
+const categoryRecipes = recipes.filter(r => r.categoria === categoria);
+const categoryTitle = categoria.replace('_', ' ').toUpperCase();
+---
+
+<BaseLayout title={`${categoryTitle} - Recetas Veganas`} description={`Recetas veganas en la categoría ${categoryTitle}`}>
+  <Header />
+
+  <!-- Category Header -->
+  <section class="bg-gradient-to-r from-primary via-secondary-teal to-secondary-lime py-12 sm:py-16 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h1 class="text-4xl sm:text-5xl font-bold font-poppins mb-4 capitalize">
+          {categoryTitle.toLowerCase()}
+        </h1>
+        <p class="text-lg opacity-95">
+          {categoryRecipes.length} recetas veganas deliciosas en esta categoría
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Back Link -->
+    <div class="mb-8">
+      <a href="/recetas" class="text-primary hover:text-secondary-teal font-semibold transition-colors flex items-center gap-2">
+        ← Volver a todas las recetas
+      </a>
+    </div>
+
+    <!-- Recipes Grid -->
+    {categoryRecipes.length > 0 ? (
+      <div>
+        <p class="text-gray-600 dark:text-gray-400 mb-6">
+          Mostrando {categoryRecipes.length} recetas
+        </p>
+        <div class="recipe-grid">
+          {categoryRecipes.map(recipe => (
+            <RecipeCard
+              titulo={recipe.titulo}
+              slug={recipe.slug}
+              categoria={recipe.categoria}
+              dificultad={recipe.dificultad}
+              tiempo={recipe.tiempo}
+              descripcion={recipe.descripcion}
+              imagenes_locales={recipe.imagenes_locales}
+            />
+          ))}
+        </div>
+      </div>
+    ) : (
+      <div class="text-center py-12">
+        <p class="text-xl text-gray-600 dark:text-gray-400">
+          No hay recetas en esta categoría aún.
+        </p>
+      </div>
+    )}
+  </div>
+
+  <Footer />
+</BaseLayout>

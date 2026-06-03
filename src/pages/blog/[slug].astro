@@ -1,0 +1,145 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+
+export async function getStaticPaths() {
+  return [
+    { params: { slug: 'mi-experiencia-con-artritis' } }
+  ];
+}
+
+const posts = {
+  'mi-experiencia-con-artritis': {
+    titulo: 'Mi experiencia con la Artritis',
+    fecha: '2024-01-15',
+    categoria: 'Salud',
+    contenido: `
+    <h2>El comienzo de mi viaje</h2>
+    <p>Hace algunos años fui diagnosticada con artritis reumatoide. Los dolores en las articulaciones me limitaban para hacer las cosas que amaba, desde cocinar hasta hacer yoga. Los medicamentos ayudaban, pero venían acompañados de efectos secundarios que no deseaba continuar tolerando.</p>
+
+    <p>Fue entonces cuando decidí investigar sobre la conexión entre la alimentación y la inflamación. Descubrí que muchas personas habían encontrado alivio significativo al cambiar sus hábitos dietéticos y adoptar una alimentación basada en plantas.</p>
+
+    <h2>Cambio a una dieta vegana</h2>
+    <p>La transición no fue fácil al principio. Dejé todos los productos de origen animal y me enfoqué en alimentos integrales: frutas, verduras, granos enteros, legumbres y frutos secos. Mi cuerpo necesitaba aprender a digerir estos nuevos alimentos, y la energía fue inestable durante los primeros meses.</p>
+
+    <p>Pero después de 3-4 semanas, algo cambió. El dolor articular comenzó a disminuir gradualmente. Mis articulaciones se sentían menos inflamadas por las mañanas, y podía hacer más actividad física sin tanto dolor.</p>
+
+    <h2>El poder de los alimentos antiinflamatorios</h2>
+    <p>Aprendí que ciertos alimentos son especialmente beneficiosos para combatir la inflamación:</p>
+
+    <ul>
+      <li><strong>Ácidos grasos omega-3:</strong> Semillas de lino, chía, nueces y aceite de oliva virgen extra ayudan a reducir la inflamación</li>
+      <li><strong>Cúrcuma y jengibre:</strong> Especias con poderosas propiedades antiinflamatorias</li>
+      <li><strong>Verduras crucíferas:</strong> Brócoli, coliflor y col rizada contienen sulforafano, muy beneficioso para las articulaciones</li>
+      <li><strong>Arándanos y frutas rojas:</strong> Ricas en antioxidantes que protegen las células</li>
+      <li><strong>Alimentos fermentados:</strong> Mejoran la salud intestinal, fundamental para la inflamación</li>
+    </ul>
+
+    <h2>Gestión del estrés y movimiento</h2>
+    <p>Aunque la alimentación fue transformadora, también implementé otras prácticas que potenciaron mis resultados:</p>
+
+    <p>Empecé con yoga suave y estiramientos diarios. No se trata de ejercicio intenso, sino de movimiento consciente que fortalece sin sobrecargar las articulaciones. El yoga no solo mejoró mi flexibilidad, sino que también me conectó con mi cuerpo de manera más profunda.</p>
+
+    <p>La meditación y el manejo del estrés fueron igual de importantes. El estrés crónico amplifica la inflamación, así que dedicar tiempo a la calma mental fue fundamental en mi recuperación.</p>
+
+    <h2>Mis recetas sanadoras</h2>
+    <p>En mi blog encontrarás recetas específicamente diseñadas para aprovechar estos alimentos antiinflamatorios. Mis favoritas incluyen:</p>
+
+    <ul>
+      <li>Smoothie bowls con arándanos y semillas</li>
+      <li>Curry de verduras con cúrcuma y jengibre</li>
+      <li>Ensaladas coloridas con verduras crucíferas</li>
+      <li>Leches vegetales caseras</li>
+      <li>Postres saludables sin inflamación</li>
+    </ul>
+
+    <h2>Resultados y esperanza</h2>
+    <p>Después de un año siguiendo este estilo de vida, mis analíticas mejoraron significativamente. Mi médico quedó sorprendido por la reducción de marcadores inflamatorios. Pude reducir la dosis de algunos medicamentos bajo supervisión profesional.</p>
+
+    <p>Pero lo más importante es cómo me siento día a día. Tengo energía, puedo hacer yoga con mayor intensidad, vuelvo a cocinar sin dolor, y sobre todo, tengo esperanza en mi salud.</p>
+
+    <h2>Mensaje final</h2>
+    <p>Si tú o alguien que conoces padece de artritis, quiero que sepas que el cambio es posible. No digo que sea una cura milagrosa ni que todos tengan los mismos resultados, pero la evidencia científica es clara: una dieta basada en plantas reduce la inflamación de manera significativa.</p>
+
+    <p>Este viaje me enseñó que nuestra salud está en gran parte en nuestras manos. Cada bocado es una oportunidad para sanar o para inflamar. Yo elegí sanar.</p>
+
+    <p>Si quieres empezar este camino, te invito a explorar las recetas de este blog. Todas están diseñadas pensando en ingredientes que apoyan la salud y el bienestar. Que cada comida sea una medicina para tu cuerpo.</p>
+
+    <p>Con amor y salud,<br/><strong>Javi 🌱</strong></p>
+    `
+  }
+};
+
+const { slug } = Astro.params;
+const post = posts[slug];
+
+if (!post) {
+  return Astro.redirect('/blog');
+}
+---
+
+<BaseLayout title={post.titulo} description={`Artículo sobre ${post.titulo.toLowerCase()} - Vlog de Javi`}>
+  <Header />
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Article Header -->
+    <article>
+      <div class="mb-8">
+        <div class="flex items-center gap-4 mb-4">
+          <span class="px-3 py-1 bg-primary text-white rounded-full text-sm font-semibold">
+            {post.categoria}
+          </span>
+          <time datetime={post.fecha} class="text-gray-600 dark:text-gray-400">
+            {new Date(post.fecha).toLocaleDateString('es-CL', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+        </div>
+        <h1 class="section-title">{post.titulo}</h1>
+      </div>
+
+      <!-- Content -->
+      <div class="prose dark:prose-invert max-w-none">
+        <div set:html={post.contenido} />
+      </div>
+
+      <!-- Back Link -->
+      <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+        <a href="/blog" class="text-primary hover:text-secondary-teal font-semibold transition-colors">
+          ← Volver al blog
+        </a>
+      </div>
+    </article>
+  </div>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  :global(.prose) {
+    @apply space-y-4;
+  }
+
+  :global(.prose h2) {
+    @apply text-2xl font-bold font-poppins mt-8 mb-4 text-gray-900 dark:text-white;
+  }
+
+  :global(.prose p) {
+    @apply text-gray-700 dark:text-gray-300 leading-relaxed;
+  }
+
+  :global(.prose ul) {
+    @apply list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300;
+  }
+
+  :global(.prose li) {
+    @apply pl-2;
+  }
+
+  :global(.prose strong) {
+    @apply font-semibold text-gray-900 dark:text-white;
+  }
+</style>

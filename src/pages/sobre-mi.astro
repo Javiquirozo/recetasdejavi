@@ -1,0 +1,84 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+
+const title = 'Sobre mí - Vlog de Javi';
+const description = 'Conoce la historia de Javi y su pasión por la cocina vegana';
+
+const aboutText = `Hola, soy Javi, creadora de contenido dedicada al mundo de la cocina vegana. A través de "Vlog de Javi", comparto mi pasión por mostrar que la alimentación vegana es deliciosa, nutritiva y accesible para todos.
+
+Mi viaje hacia el veganismo comenzó como una búsqueda personal por mejorar mi salud y bienestar. Descubrí que la cocina vegana no es solo una dieta, sino un estilo de vida consciente que respeta tanto nuestro cuerpo como el planeta.
+
+Con más de 7 años de experiencia creando recetas, he aprendido que lo importante es que cada plato sea fácil de preparar, delicioso y nutritivo. En este sitio encontrarás 167 recetas probadas y perfeccionadas, desde platos principales hasta postres irresistibles.
+
+Mi objetivo es inspirarte a explorar nuevas sabores y demostrar que la cocina vegana es para todos. ¡Espero que disfrutes explorando las recetas y que se conviertan en parte de tu rutina diaria!`;
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="section-title text-center">Sobre mí</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-12">
+      <!-- Fotos -->
+      <div class="space-y-4">
+        <div class="aspect-square rounded-lg overflow-hidden">
+          <img
+            src="/images/javi-vaquita.jpg"
+            alt="Javi con vaquita"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="aspect-square rounded-lg overflow-hidden">
+          <img
+            src="/images/javi-chef.jpg"
+            alt="Javi en clase de cocina"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
+      <!-- Texto -->
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-bold font-poppins mb-6">Hola, soy Javi</h2>
+        <div class="prose dark:prose-invert max-w-none">
+          {aboutText.split('\n\n').map(paragraph => (
+            <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+        <a
+          href="https://instagram.com/vlogdejavi"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary mt-8 inline-block"
+        >
+          Sígueme en Instagram @vlogdejavi
+        </a>
+      </div>
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="bg-gradient-to-r from-primary via-secondary-teal to-secondary-lime rounded-lg p-8 text-white text-center mb-12">
+      <div class="grid grid-cols-3 gap-8">
+        <div>
+          <div class="text-4xl font-bold font-poppins">167</div>
+          <p class="text-sm mt-2">Recetas creadas</p>
+        </div>
+        <div>
+          <div class="text-4xl font-bold font-poppins">7+</div>
+          <p class="text-sm mt-2">Años de experiencia</p>
+        </div>
+        <div>
+          <div class="text-4xl font-bold font-poppins">♥</div>
+          <p class="text-sm mt-2">Pasión por cocinar</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</BaseLayout>

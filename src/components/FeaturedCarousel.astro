@@ -1,0 +1,344 @@
+---
+interface Props {
+  recipes: Array<{
+    titulo: string;
+    slug: string;
+    descripcion: string;
+    imagenes_locales?: string[];
+    tiempo?: string;
+    dificultad?: string;
+    porciones?: string;
+  }>;
+}
+
+const { recipes } = Astro.props;
+const recipeList = recipes.slice(0, 5);
+---
+
+<div class="featured-carousel" id="carousel">
+  <div class="carousel-container">
+    {recipeList.map((recipe, index) => (
+      <div class="carousel-slide" data-index={index}>
+        <div class="slide-image">
+          {recipe.imagenes_locales?.[0] ? (
+            <img
+              src={recipe.imagenes_locales[0]}
+              alt={recipe.titulo}
+              class="w-full h-full object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
+            />
+          ) : (
+            <div class="w-full h-full bg-gradient-to-br from-primary to-secondary-teal flex items-center justify-center">
+              <span class="text-white text-lg font-bold">🌱 {recipe.titulo}</span>
+            </div>
+          )}
+        </div>
+        <div class="slide-content">
+          <h3 class="carousel-title">{recipe.titulo}</h3>
+          <p class="carousel-desc">{recipe.descripcion}</p>
+          <div class="carousel-meta">
+            {recipe.tiempo && (
+              <div class="meta-item">
+                <span class="meta-icon">⏱️</span>
+                <span>{recipe.tiempo}</span>
+              </div>
+            )}
+            {recipe.dificultad && (
+              <div class="meta-item">
+                <span class="meta-icon">⭐</span>
+                <span>{recipe.dificultad}</span>
+              </div>
+            )}
+          </div>
+          <a href={`/recetas/${recipe.slug}`} class="carousel-cta">
+            Ver Receta →
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Controles -->
+  <div class="carousel-controls">
+    <button class="control-btn prev" aria-label="Anterior" id="prevBtn">
+      ←
+    </button>
+    <div class="carousel-indicators">
+      {recipeList.map((_, index) => (
+        <button
+          class="indicator"
+          data-slide={index}
+          aria-label={`Ir a la receta ${index + 1}`}
+          aria-current={index === 0 ? "true" : "false"}
+        />
+      ))}
+    </div>
+    <button class="control-btn next" aria-label="Siguiente" id="nextBtn">
+      →
+    </button>
+  </div>
+</div>
+
+<style>
+  .featured-carousel {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .featured-carousel {
+      height: 400px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .featured-carousel {
+      height: 350px;
+      border-radius: 8px;
+    }
+  }
+
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+  }
+
+  .carousel-slide[data-index="0"] {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .slide-image {
+    width: 60%;
+    height: 100%;
+    overflow: hidden;
+    background: #f3f4f6;
+  }
+
+  .slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .slide-content {
+    width: 40%;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    @apply dark:bg-gray-800;
+  }
+
+  @media (max-width: 768px) {
+    .slide-image {
+      width: 100%;
+      position: absolute;
+      height: 100%;
+      opacity: 0.3;
+    }
+
+    .slide-content {
+      width: 100%;
+      padding: 1.5rem;
+      justify-content: flex-end;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0)
+      );
+      color: white;
+    }
+
+    .slide-content {
+      @apply dark:bg-gradient-to-t dark:from-gray-950 dark:to-transparent;
+    }
+  }
+
+  .carousel-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0.5rem;
+    @apply text-gray-900 dark:text-white;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-title {
+      font-size: 1.5rem;
+      @apply text-white;
+    }
+  }
+
+  .carousel-desc {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    @apply dark:text-gray-300;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-desc {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.9rem;
+    }
+  }
+
+  .carousel-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    @apply text-gray-700 dark:text-gray-200;
+  }
+
+  @media (max-width: 768px) {
+    .meta-item {
+      @apply text-white;
+    }
+  }
+
+  .meta-icon {
+    font-size: 1rem;
+  }
+
+  .carousel-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, #9a659b 0%, #6ba3a8 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: fit-content;
+  }
+
+  .carousel-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(154, 101, 155, 0.3);
+  }
+
+  .carousel-controls {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 10;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-controls {
+      bottom: 1rem;
+      gap: 0.75rem;
+    }
+  }
+
+  .control-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-weight: bold;
+  }
+
+  .control-btn:hover {
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .carousel-indicators {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .indicator[aria-current="true"] {
+    background: white;
+    width: 32px;
+    border-radius: 6px;
+  }
+
+  .indicator:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.getElementById('carousel');
+    if (!carousel) return;
+
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const indicators = carousel.querySelectorAll('.indicator');
+    const prevBtn = carousel.querySelector('#prevBtn');
+    const nextBtn = carousel.querySelector('#nextBtn');
+
+    let currentSlide = 0;
+
+    function showSlide(n) {
+      slides.forEach((slide) => (slide.style.opacity = '0'));
+      indicators.forEach((ind) => ind.setAttribute('aria-current', 'false'));
+
+      currentSlide = (n + slides.length) % slides.length;
+      slides[currentSlide].style.opacity = '1';
+      indicators[currentSlide].setAttribute('aria-current', 'true');
+    }
+
+    prevBtn?.addEventListener('click', () => showSlide(currentSlide - 1));
+    nextBtn?.addEventListener('click', () => showSlide(currentSlide + 1));
+
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => showSlide(index));
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
+      if (e.key === 'ArrowRight') showSlide(currentSlide + 1);
+    });
+  });
+</script>

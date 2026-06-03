@@ -1,0 +1,43 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --primary: #9a659b;
+  --secondary-lime: #bcc65e;
+  --secondary-teal: #6bb29c;
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:opacity-90 transition-opacity;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-secondary-teal text-white rounded-lg font-semibold hover:opacity-90 transition-opacity;
+  }
+
+  .card {
+    @apply bg-gray-50 dark:bg-gray-800 rounded-lg shadow hover:shadow-lg transition-shadow overflow-hidden;
+  }
+
+  .recipe-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .section-title {
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold font-poppins mb-8 text-gray-900 dark:text-white;
+  }
+
+  .recipe-meta {
+    @apply flex gap-4 text-sm text-gray-600 dark:text-gray-400;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  transition: background-color 0.3s, color 0.3s;
+}

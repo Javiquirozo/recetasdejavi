@@ -1,0 +1,112 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import RecipeCard from '@/components/RecipeCard.astro';
+import FeaturedCarousel from '@/components/FeaturedCarousel.astro';
+
+const recipes = await import('@/data/recetas.json').then(m => m.default);
+const latestRecipes = recipes.filter(r => r.imagenes_locales?.length > 0).slice(0, 6);
+const title = 'Vlog de Javi - Recetas Veganas';
+const description = 'Recetas veganas deliciosas y nutritivas. Aprende a preparar platillos saludables con Javi.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+
+  <!-- Hero mejorado -->
+  <section class="bg-gradient-to-r from-primary via-secondary-teal to-secondary-lime py-12 sm:py-16 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-8">
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold font-poppins mb-4">
+          Recetas Veganas Deliciosas
+        </h1>
+        <p class="text-base sm:text-lg mb-8 opacity-95">
+          Descubre más de 167 recetas nutritivas y fáciles de preparar para una vida más saludable. Desde desayunos hasta postres, encuentra tu próxima comida favorita.
+        </p>
+        <a href="/recetas" class="inline-block bg-white text-primary font-semibold px-8 py-3 rounded-lg hover:shadow-lg transition-shadow">
+          Ver todas las recetas
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carrusel destacado -->
+  <section class="py-12 sm:py-16 bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold font-poppins mb-8 text-gray-900 dark:text-white">
+        Recetas Destacadas
+      </h2>
+      <FeaturedCarousel recipes={recipes} />
+    </div>
+  </section>
+
+  <!-- Recetas populares -->
+  <section class="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title">Más Recetas Populares</h2>
+      <div class="recipe-grid">
+        {latestRecipes.map(recipe => (
+          <RecipeCard
+            titulo={recipe.titulo}
+            slug={recipe.slug}
+            categoria={recipe.categoria}
+            dificultad={recipe.dificultad}
+            tiempo={recipe.tiempo}
+            descripcion={recipe.descripcion}
+            imagenes_locales={recipe.imagenes_locales}
+          />
+        ))}
+      </div>
+      <div class="text-center mt-12">
+        <a href="/recetas" class="btn-secondary inline-block">
+          Explorar más recetas →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categorías -->
+  <section class="py-20 bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title text-center mb-12">Explora por Categoría</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {['plato_principal', 'postre', 'bebida', 'entrada', 'desayuno', 'sopa', 'salsa', 'acompañamiento'].map(cat => {
+          const recipesInCat = recipes.filter(r => r.categoria === cat && r.imagenes_locales?.length > 0);
+          const randomRecipe = recipesInCat[Math.floor(Math.random() * recipesInCat.length)];
+          const image = randomRecipe?.imagenes_locales?.[0];
+
+          return (
+            <a
+              href={`/recetas/${cat}`}
+              class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
+            >
+              {image ? (
+                <img
+                  src={image}
+                  alt={cat}
+                  class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
+                />
+              ) : (
+                <div class="w-full h-48 bg-gradient-to-br from-primary to-secondary-teal flex items-center justify-center">
+                  <span class="text-white text-2xl">🌱</span>
+                </div>
+              )}
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+                <h3 class="font-poppins font-bold text-lg capitalize text-white">
+                  {cat.replace('_', ' ')}
+                </h3>
+              </div>
+              <div class="absolute top-2 right-2 bg-primary text-white px-2 py-1 rounded text-xs font-semibold">
+                {recipesInCat.length} recetas
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

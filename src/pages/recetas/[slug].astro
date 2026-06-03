@@ -1,0 +1,188 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import RecipeCard from '@/components/RecipeCard.astro';
+import ImageCarousel from '@/components/ImageCarousel.astro';
+
+export async function getStaticPaths() {
+  const recipes = await import('@/data/recetas.json').then(m => m.default);
+  return recipes.map((recipe: any) => ({
+    params: { slug: recipe.slug },
+  }));
+}
+
+const recipes = await import('@/data/recetas.json').then(m => m.default);
+const { slug } = Astro.params;
+const recipe = recipes.find(r => r.slug === slug);
+
+if (!recipe) {
+  return Astro.redirect('/404');
+}
+
+const categoryLabel = recipe.categoria || 'otros';
+
+// Get related recipes
+const related = recipes
+  .filter(r => r.categoria === recipe.categoria && r.slug !== slug)
+  .slice(0, 3);
+---
+
+<BaseLayout title={`${recipe.titulo} - Vlog de Javi`} description={recipe.descripcion}>
+  <Header />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Image Carousel -->
+    {recipe.imagenes_locales && recipe.imagenes_locales.length > 0 && (
+      <div class="mb-8">
+        <ImageCarousel imagenes={recipe.imagenes_locales} titulo={recipe.titulo} />
+      </div>
+    )}
+
+    <!-- Header -->
+    <div class="mb-8">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-3 py-1 bg-primary text-white rounded-full text-sm font-semibold capitalize">
+          {categoryLabel.replace('_', ' ')}
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins mb-4">{recipe.titulo}</h1>
+      <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-6">{recipe.descripcion}</p>
+
+      <!-- Meta info -->
+      <div class="flex flex-wrap gap-6 py-4 border-t border-b border-gray-200 dark:border-gray-700">
+        <div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Tiempo de preparación</p>
+          <p class="font-semibold">{recipe.tiempo}</p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Dificultad</p>
+          <p class="font-semibold">{recipe.dificultad}</p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Porciones</p>
+          <p class="font-semibold">{recipe.porciones}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-2">
+        <!-- Ingredientes -->
+        <section class="mb-12">
+          <h2 class="text-2xl font-bold font-poppins mb-6">Ingredientes</h2>
+          {recipe.ingredientes && recipe.ingredientes.length > 0 ? (
+            <ul class="space-y-3">
+              {recipe.ingredientes.map((ing: string) => (
+                <li class="flex items-start gap-3">
+                  <input type="checkbox" class="mt-1 cursor-pointer" />
+                  <span>{ing}</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div class="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-200 dark:border-yellow-800">
+              <p class="text-yellow-800 dark:text-yellow-200">
+                ℹ️ Los ingredientes de esta receta aún no están disponibles. Estamos trabajando en completar todos los datos.
+              </p>
+            </div>
+          )}
+        </section>
+
+        <!-- Preparación -->
+        <section class="mb-12">
+          <h2 class="text-2xl font-bold font-poppins mb-6">Preparación</h2>
+          {recipe.preparacion && recipe.preparacion.length > 0 ? (
+            <ol class="space-y-4">
+              {recipe.preparacion.map((paso: string, index: number) => (
+                <li class="flex gap-4">
+                  <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                    {index + 1}
+                  </span>
+                  <span class="pt-1">{paso}</span>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <div class="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-200 dark:border-yellow-800">
+              <p class="text-yellow-800 dark:text-yellow-200">
+                ℹ️ Los pasos de preparación de esta receta aún no están disponibles. Estamos trabajando en completar todos los datos.
+              </p>
+            </div>
+          )}
+        </section>
+
+        <!-- Notas -->
+        {recipe.notas && recipe.notas.length > 0 && (
+          <section class="mb-12">
+            <h2 class="text-2xl font-bold font-poppins mb-6">Notas y consejos</h2>
+            <ul class="space-y-3">
+              {recipe.notas.map((nota: string) => (
+                <li class="flex items-start gap-3 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                  <span class="text-xl">💡</span>
+                  <span>{nota}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+      </div>
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-1">
+        <!-- Share -->
+        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg mb-8">
+          <h3 class="font-bold font-poppins mb-4">Compartir</h3>
+          <div class="flex gap-4 justify-center">
+            <a href="https://instagram.com/vlogdejavi" target="_blank" title="Sígueme en Instagram" class="w-12 h-12 bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 text-white rounded-full flex items-center justify-center hover:shadow-lg transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+              </svg>
+            </a>
+            <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(Astro.url.toString())}`} target="_blank" title="Compartir en Facebook" class="w-12 h-12 bg-blue-700 text-white rounded-full flex items-center justify-center hover:bg-blue-800 transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18 2h-3a6 6 0 00-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a1 1 0 011-1h3z"></path>
+              </svg>
+            </a>
+            <a href={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(Astro.url.toString())}&description=${encodeURIComponent(recipe.titulo)}`} target="_blank" title="Compartir en Pinterest" class="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"></path>
+              </svg>
+            </a>
+            <a href={`https://wa.me/?text=${encodeURIComponent(recipe.titulo + ' ' + Astro.url)}`} target="_blank" title="Compartir en WhatsApp" class="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.447-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.734.732 5.41 2.122 7.734L2.505 23.196l8.32-2.183c2.26 1.235 4.806 1.887 7.44 1.887 9.763 0 17.682-7.919 17.682-17.682 0-4.734-1.823-9.182-5.139-12.498-3.317-3.316-7.764-5.14-12.499-5.14Z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Related recipes -->
+    {related.length > 0 && (
+      <section class="mt-20 pt-12 border-t border-gray-200 dark:border-gray-700">
+        <h2 class="section-title">Recetas relacionadas</h2>
+        <div class="recipe-grid">
+          {related.map(r => (
+            <RecipeCard
+              titulo={r.titulo}
+              slug={r.slug}
+              categoria={r.categoria}
+              dificultad={r.dificultad}
+              tiempo={r.tiempo}
+              descripcion={r.descripcion}
+              imagenes_locales={r.imagenes_locales}
+            />
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+
+  <Footer />
+</BaseLayout>
