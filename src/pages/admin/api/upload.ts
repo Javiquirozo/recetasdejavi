@@ -18,7 +18,7 @@ export const POST: APIRoute = async ({ request }) => {
     const filename = `${Date.now()}-${file.name}`;
     const arrayBuffer = await file.arrayBuffer();
 
-    const { data, error } = await supabase.storage
+    const { error } = await supabase.storage
       .from('recipe-images')
       .upload(filename, arrayBuffer, {
         contentType: file.type
@@ -30,8 +30,14 @@ export const POST: APIRoute = async ({ request }) => {
       .from('recipe-images')
       .getPublicUrl(filename);
 
-    return new Response(JSON.stringify({ url: publicUrl, filename }), { status: 200 });
+    return new Response(JSON.stringify({ url: publicUrl, filename }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    });
   } catch (error: any) {
-    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 };
