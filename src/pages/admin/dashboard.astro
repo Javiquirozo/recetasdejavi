@@ -81,14 +81,14 @@ import Footer from '@/components/Footer.astro';
             <textarea id="descripcion" rows="3" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
           </div>
 
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                Categorías (separadas por coma)
-              </label>
-              <input type="text" id="categoria" placeholder="plato_principal, postre" list="categoriesList" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary" />
-              <datalist id="categoriesList"></datalist>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+              Categorías
+            </label>
+            <div id="categoriesCheckboxes" class="grid grid-cols-2 gap-3">
+              <!-- Checkboxes se cargan aquí -->
             </div>
+          </div>
             <div>
               <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                 Dificultad
@@ -167,15 +167,20 @@ import Footer from '@/components/Footer.astro';
       window.location.href = '/admin';
     }
 
-    // Load categories
+    // Load categories and render checkboxes
     async function loadCategories() {
       try {
         const recipesData = await import('@/data/recetas.json').then(m => m.default);
         categories = [...new Set(recipesData.map(r => r.categoria))].filter(Boolean).sort();
 
-        const datalist = document.getElementById('categoriesList') as HTMLDataListElement;
-        if (datalist) {
-          datalist.innerHTML = categories.map(cat => `<option value="${cat}">${cat.replace('_', ' ')}</option>`).join('');
+        const container = document.getElementById('categoriesCheckboxes') as HTMLDivElement;
+        if (container) {
+          container.innerHTML = categories.map(cat => `
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" name="categoria" value="${cat}" class="w-4 h-4 rounded border-gray-300 dark:border-gray-600" />
+              <span class="text-sm text-gray-700 dark:text-gray-300">${cat.replace('_', ' ')}</span>
+            </label>
+          `).join('');
         }
       } catch (err) {
         console.error('Error loading categories:', err);
@@ -245,11 +250,20 @@ import Footer from '@/components/Footer.astro';
       uploadedImages = recipe.imagenes_locales || [];
       (document.getElementById('titulo') as HTMLInputElement).value = recipe.titulo;
       (document.getElementById('descripcion') as HTMLTextAreaElement).value = recipe.descripcion || '';
-      (document.getElementById('categoria') as HTMLInputElement).value = recipe.categoria || '';
       (document.getElementById('dificultad') as HTMLSelectElement).value = recipe.dificultad || '';
       (document.getElementById('tiempo') as HTMLInputElement).value = recipe.tiempo || '';
       (document.getElementById('porciones') as HTMLInputElement).value = recipe.porciones || '';
       document.getElementById('successMessage')?.classList.add('hidden');
+
+      // Handle categories (can be string or array)
+      const recipeCats = Array.isArray(recipe.categoria)
+        ? recipe.categoria
+        : (recipe.categoria ? recipe.categoria.split(',').map((c: string) => c.trim()) : []);
+
+      // Mark checkboxes
+      document.querySelectorAll('input[name="categoria"]').forEach((checkbox: any) => {
+        checkbox.checked = recipeCats.includes(checkbox.value);
+      });
 
       renderImagePreview();
       document.getElementById('recipeModal')?.classList.remove('hidden');
@@ -308,12 +322,18 @@ import Footer from '@/components/Footer.astro';
 
       try {
         const titulo = (document.getElementById('titulo') as HTMLInputElement).value;
+
+        // Get selected categories
+        const selectedCats = Array.from(document.querySelectorAll('input[name="categoria"]:checked'))
+          .map((cb: any) => cb.value)
+          .join(', ');
+
         const body = {
           id: currentRecipeId,
           titulo: titulo,
           slug: currentRecipeId || titulo.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, ''),
           descripcion: (document.getElementById('descripcion') as HTMLTextAreaElement).value,
-          categoria: (document.getElementById('categoria') as HTMLInputElement).value,
+          categoria: selectedCats,
           dificultad: (document.getElementById('dificultad') as HTMLSelectElement).value,
           tiempo: (document.getElementById('tiempo') as HTMLInputElement).value,
           porciones: (document.getElementById('porciones') as HTMLInputElement).value,
