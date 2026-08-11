@@ -24,7 +24,7 @@ const title = 'Recetas — Vlog de Javi';
         <span class="text-[11px] tracking-[0.22em] uppercase text-paper-muted dark:text-night-muted font-medium">Todas las recetas</span>
         <h1 class="font-display font-medium text-[32px] md:text-[40px] leading-[1.06] -tracking-[0.02em] text-paper-ink dark:text-night-ink">{recipes.length} recetas veganas</h1>
       </div>
-      <span id="resultsCount" class="text-[13.5px] text-[#A79CA3]">Mostrando 1–{Math.min(12, recipes.length)} de {recipes.length}</span>
+      <span id="resultsCount" class="text-[13.5px] text-[#A79CA3]">Mostrando 1–{Math.min(16, recipes.length)} de {recipes.length}</span>
     </div>
 
     <div class="mb-2">
@@ -120,7 +120,7 @@ const title = 'Recetas — Vlog de Javi';
   const prevButtons = document.querySelectorAll('[data-page-nav="prev"]');
   const nextButtons = document.querySelectorAll('[data-page-nav="next"]');
 
-  const PAGE_SIZE = 12;
+  const PAGE_SIZE = 16;
   let activeCategory = initialCategory;
   let currentPage = 1;
 
