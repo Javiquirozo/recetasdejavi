@@ -31,12 +31,26 @@ const description = 'Artículos sobre salud, nutrición y estilo de vida vegano'
     {posts.map((post, i) => (
       <a
         href={`/blog/${post.slug}`}
-        class={`group flex flex-col md:flex-row gap-4 md:gap-10 py-9 ${i === 0 ? 'border-t' : ''} border-b border-paper-hairline dark:border-night-hairline`}
+        class={`group flex flex-col md:flex-row gap-5 md:gap-10 py-9 ${i === 0 ? 'border-t' : ''} border-b border-paper-hairline dark:border-night-hairline`}
       >
-        <time class="text-[13px] text-[#A79CA3] font-body font-light md:w-[120px] flex-shrink-0 pt-1">
-          {new Date(post.fechaPublicacion).toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' })}
-        </time>
+        <div class="w-full md:w-[220px] aspect-[4/3] flex-shrink-0 overflow-hidden bg-paper-photo dark:bg-night-surface">
+          {post.imagenes_locales?.[0] ? (
+            <img
+              src={post.imagenes_locales[0]}
+              alt={post.titulo}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          ) : (
+            <div class="w-full h-full grid place-items-center">
+              <img src="/logo-icono.png" alt="" class="w-10 opacity-20" />
+            </div>
+          )}
+        </div>
         <div class="flex flex-col gap-2 flex-1">
+          <time class="text-[13px] text-[#A79CA3] font-body font-light">
+            {new Date(post.fechaPublicacion).toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
           <h2 class="font-display font-medium text-[22px] md:text-[26px] leading-[1.18] -tracking-[0.015em] text-paper-ink dark:text-night-ink group-hover:text-brand-600 dark:group-hover:text-brand-dark transition-colors">
             {post.titulo}
           </h2>
