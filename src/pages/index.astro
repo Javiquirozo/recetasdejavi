@@ -67,7 +67,7 @@ const description = 'Recetas veganas deliciosas y nutritivas. Más de 167 receta
 
   <!-- Hero -->
   <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pt-6">
-    <div class="relative h-[420px] md:h-[600px] overflow-hidden bg-paper-photo" id="hero">
+    <div class="relative h-[460px] md:h-[720px] overflow-hidden bg-paper-photo" id="hero">
       {heroRecipes.map((r, i) => (
         <a href={`/recetas/${r.slug}`} class={`absolute inset-0 transition-opacity duration-[1100ms] ease-in-out hero-slide ${i === 0 ? 'opacity-100' : 'opacity-0'}`} data-index={i}>
           <img src={r.imagenes_locales[0]} alt={r.titulo} class="w-full h-full object-cover" loading={i === 0 ? 'eager' : 'lazy'} />
