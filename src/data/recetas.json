@@ -1,5 +1,25 @@
 [
   {
+    "id": "el-rodeo-kast-y-una-idea-de-chile-que-ya-no-nos-representa",
+    "slug": "el-rodeo-kast-y-una-idea-de-chile-que-ya-no-nos-representa",
+    "titulo": "El rodeo, Kast y una idea de Chile que ya no nos representa",
+    "tipo": "receta",
+    "categoria": "otros",
+    "dificultad": "No especificada",
+    "tiempo": "N/A",
+    "porciones": "N/A",
+    "descripcion": "Hay algo del debate sobre el rodeo que para mí va mucho más allá del maltrato animal — cada vez que se cuestiona esta práctica aparecen palabras como tradición, campo, familia y chilenidad.",
+    "ingredientes": [],
+    "preparacion": [],
+    "notas": [],
+    "imagenes_originales": [],
+    "imagenes_locales": [
+      "/images/rodeo-kast-uchile.jpg"
+    ],
+    "fechaPublicacion": "2026-08-12",
+    "url_original": null
+  },
+  {
     "id": "septiembre-sin-rodeo-tradiciones-que-tambien-pueden-cambiar",
     "slug": "septiembre-sin-rodeo-tradiciones-que-tambien-pueden-cambiar",
     "titulo": "Septiembre sin rodeo: hay tradiciones que también pueden cambiar",

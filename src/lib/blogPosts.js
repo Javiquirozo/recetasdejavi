@@ -4,4 +4,5 @@ export const BLOG_POST_SLUGS = [
   'mi-experiencia-con-la-artritis',
   'ser-vegano-es-por-los-animales-pero-y-nuestra-salud',
   'septiembre-sin-rodeo-tradiciones-que-tambien-pueden-cambiar',
+  'el-rodeo-kast-y-una-idea-de-chile-que-ya-no-nos-representa',
 ];
