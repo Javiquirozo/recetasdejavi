@@ -3,110 +3,225 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import RecipeCard from '@/components/RecipeCard.astro';
-import FeaturedCarousel from '@/components/FeaturedCarousel.astro';
+import { isRealRecipe } from '@/lib/recipeMeta.js';
 
-const recipes = await import('@/data/recetas.json').then(m => m.default);
-const latestRecipes = recipes.filter(r => r.imagenes_locales?.length > 0).slice(0, 6);
-const title = 'Vlog de Javi - Recetas Veganas';
-const description = 'Recetas veganas deliciosas y nutritivas. Aprende a preparar platillos saludables con Javi.';
+const allRecipes = await import('@/data/recetas.json').then(m => m.default);
+const recipes = allRecipes.filter(isRealRecipe);
+const withPhotos = recipes.filter(r => r.imagenes_locales?.length > 0);
+
+// Selección curada a mano por buena resolución de foto y estilo del plato terminado
+// (ver conversación: se descartaron opciones con thumbnails chicos o fotos de "antes de cocinar").
+const heroSlugs = [
+  'brownie-de-chocolate-y-betarraga-remolacha',
+  'tiramisu-crudivegano',
+  'tofu-revuelto-tofu-scramble',
+  'budin-de-lentejas-y-vegetales-sin-huevo',
+  'strogonoff-de-hongos-y-vegetales',
+];
+// Para cada una, la foto de mejor resolución encontrada (no siempre es imagenes_locales[0]).
+const heroImageOverride = {
+  'brownie-de-chocolate-y-betarraga-remolacha': '/images/18BAD47C-A094-4E04-9B47-7B60BA2CCF65.jpeg',
+  'tiramisu-crudivegano': '/images/IMG_6285.jpg',
+  'tofu-revuelto-tofu-scramble': '/images/IMG_1772-1.jpg',
+  'budin-de-lentejas-y-vegetales-sin-huevo': '/images/IMG_1570.jpg',
+  'strogonoff-de-hongos-y-vegetales': '/images/IMG_0999.jpg',
+};
+const heroRecipes = heroSlugs
+  .map(slug => recipes.find(r => r.slug === slug))
+  .filter(Boolean)
+  .map(r => ({ ...r, imagenes_locales: [heroImageOverride[r.slug], ...(r.imagenes_locales || [])] }));
+
+const latestRecipes = withPhotos.filter(r => !heroSlugs.includes(r.slug)).slice(0, 3);
+
+const categoryCounts = recipes.reduce((acc, r) => {
+  if (r.categoria) acc[r.categoria] = (acc[r.categoria] || 0) + 1;
+  return acc;
+}, {});
+const sortedCategories = Object.entries(categoryCounts).sort((a, b) => b[1] - a[1]);
+const topCategories = sortedCategories.slice(0, 4);
+const restCategories = sortedCategories.slice(4);
+
+const categoryImage = (cat) => recipes.find(r => r.categoria === cat && r.imagenes_locales?.length > 0)?.imagenes_locales?.[0];
+
+const title = 'Vlog de Javi — Recetas veganas';
+const description = 'Recetas veganas deliciosas y nutritivas. Más de 167 recetas para una vida más saludable.';
 ---
 
 <BaseLayout title={title} description={description}>
   <Header />
 
-  <!-- Hero mejorado -->
-  <section class="bg-gradient-to-r from-primary via-secondary-teal to-secondary-lime py-12 sm:py-16 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center mb-8">
-        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold font-poppins mb-4">
-          Recetas Veganas Deliciosas
-        </h1>
-        <p class="text-base sm:text-lg mb-8 opacity-95">
-          Descubre más de 167 recetas nutritivas y fáciles de preparar para una vida más saludable. Desde desayunos hasta postres, encuentra tu próxima comida favorita.
-        </p>
-        <a href="/recetas" class="inline-block bg-white text-primary font-semibold px-8 py-3 rounded-lg hover:shadow-lg transition-shadow">
-          Ver todas las recetas
+  <!-- Hero -->
+  <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pt-6">
+    <div class="relative h-[420px] md:h-[600px] overflow-hidden bg-paper-photo" id="hero">
+      {heroRecipes.map((r, i) => (
+        <a href={`/recetas/${r.slug}`} class={`absolute inset-0 transition-opacity duration-[1100ms] ease-in-out hero-slide ${i === 0 ? 'opacity-100' : 'opacity-0'}`} data-index={i}>
+          <img src={r.imagenes_locales[0]} alt={r.titulo} class="w-full h-full object-cover" loading={i === 0 ? 'eager' : 'lazy'} />
         </a>
-      </div>
-    </div>
-  </section>
+      ))}
 
-  <!-- Carrusel destacado -->
-  <section class="py-12 sm:py-16 bg-white dark:bg-gray-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl sm:text-3xl font-bold font-poppins mb-8 text-gray-900 dark:text-white">
-        Recetas Destacadas
-      </h2>
-      <FeaturedCarousel recipes={recipes} />
-    </div>
-  </section>
+      <!-- degradado para que el texto siempre se lea, sea cual sea la foto -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/30 pointer-events-none"></div>
 
-  <!-- Recetas populares -->
-  <section class="py-16 sm:py-20 bg-gray-50 dark:bg-gray-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title">Más Recetas Populares</h2>
-      <div class="recipe-grid">
-        {latestRecipes.map(recipe => (
-          <RecipeCard
-            titulo={recipe.titulo}
-            slug={recipe.slug}
-            categoria={recipe.categoria}
-            dificultad={recipe.dificultad}
-            tiempo={recipe.tiempo}
-            descripcion={recipe.descripcion}
-            imagenes_locales={recipe.imagenes_locales}
-          />
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6 md:px-16">
+        {heroRecipes.map((r, i) => (
+          <div class={`hero-caption flex flex-col items-center gap-4 md:gap-5 max-w-[720px] ${i === 0 ? '' : 'hidden'}`} data-index={i}>
+            <span class="text-[12px] md:text-[12.5px] tracking-[0.22em] uppercase text-white font-medium capitalize bg-black/35 backdrop-blur-sm px-4 py-[7px] rounded-full">{(r.categoria || '').replace('_', ' ')}</span>
+            <h1 class="font-display font-medium text-[30px] md:text-[48px] leading-[1.1] md:leading-[1.06] -tracking-[0.02em] text-white text-balance">{r.titulo}</h1>
+            <a href={`/recetas/${r.slug}`} class="text-[12.5px] md:text-[13px] tracking-[0.14em] uppercase text-white border-b border-white/80 pb-1 font-medium mt-1">Ver receta</a>
+          </div>
         ))}
       </div>
-      <div class="text-center mt-12">
-        <a href="/recetas" class="btn-secondary inline-block">
-          Explorar más recetas →
-        </a>
+
+      <!-- controles desktop: flechas + contador -->
+      <div class="hidden md:flex items-center gap-[18px] absolute right-[44px] bottom-[38px]">
+        <button class="hero-prev text-[17px] text-white/70 hover:text-white transition-colors" aria-label="Anterior">←</button>
+        <span class="text-[12.5px] tracking-[0.14em] text-white/70 hero-counter">{`01 / 0${heroRecipes.length}`}</span>
+        <button class="hero-next text-[17px] text-white/70 hover:text-white transition-colors" aria-label="Siguiente">→</button>
+      </div>
+      <!-- indicador mobile: barritas -->
+      <div class="flex md:hidden items-center gap-[6px] absolute left-1/2 -translate-x-1/2 bottom-5">
+        {heroRecipes.map((_, dashIndex) => (
+          <span class={`hero-dash w-6 h-[2px] ${dashIndex === 0 ? 'bg-white' : 'bg-white/35'}`} data-index={dashIndex}></span>
+        ))}
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- Categorías -->
-  <section class="py-20 bg-white dark:bg-gray-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="section-title text-center mb-12">Explora por Categoría</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {['plato_principal', 'postre', 'bebida', 'entrada', 'desayuno', 'sopa', 'salsa', 'acompañamiento'].map(cat => {
-          const recipesInCat = recipes.filter(r => r.categoria === cat && r.imagenes_locales?.length > 0);
-          const randomRecipe = recipesInCat[Math.floor(Math.random() * recipesInCat.length)];
-          const image = randomRecipe?.imagenes_locales?.[0];
-
-          return (
-            <a
-              href={`/recetas/${cat}`}
-              class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
-            >
-              {image ? (
-                <img
-                  src={image}
-                  alt={cat}
-                  class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                  loading="lazy"
-                />
-              ) : (
-                <div class="w-full h-48 bg-gradient-to-br from-primary to-secondary-teal flex items-center justify-center">
-                  <span class="text-white text-2xl">🌱</span>
-                </div>
-              )}
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
-                <h3 class="font-poppins font-bold text-lg capitalize text-white">
-                  {cat.replace('_', ' ')}
-                </h3>
-              </div>
-              <div class="absolute top-2 right-2 bg-primary text-white px-2 py-1 rounded text-xs font-semibold">
-                {recipesInCat.length} recetas
-              </div>
-            </a>
-          );
-        })}
-      </div>
+  <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pt-16 md:pt-24">
+    <div class="flex items-baseline gap-5 mb-9">
+      <h2 class="font-display font-medium text-[12px] tracking-[0.24em] uppercase text-[#9a8f95]">Categorías</h2>
+      <span class="flex-1 h-px bg-paper-hairline dark:bg-night-hairline"></span>
+      <span class="text-[13px] text-[#9a8f95]">{recipes.length} recetas</span>
     </div>
-  </section>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {topCategories.map(([cat, count]) => (
+        <a href={`/recetas/${cat}`} class="flex flex-col gap-[13px]">
+          <div class="aspect-square overflow-hidden bg-paper-photo dark:bg-night-surface">
+            {categoryImage(cat) && <img src={categoryImage(cat)} alt={cat} class="w-full h-full object-cover" loading="lazy" />}
+          </div>
+          <div class="flex justify-between items-baseline">
+            <span class="font-display font-medium text-[15px] text-paper-ink dark:text-night-ink capitalize">{cat.replace('_', ' ')}</span>
+            <span class="text-[12.5px] text-paper-muted dark:text-night-muted">{count}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+    {restCategories.length > 0 && (
+      <div class="flex gap-8 flex-wrap mt-8 pt-6 border-t border-paper-hairline dark:border-night-hairline">
+        {restCategories.map(([cat, count]) => (
+          <a href={`/recetas/${cat}`} class="text-[14.5px] text-paper-muted dark:text-night-muted hover:text-brand-600 dark:hover:text-brand-dark transition-colors capitalize">
+            {cat.replace('_', ' ')} <span class="text-[12.5px] text-[#A79CA3]">{count}</span>
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+
+  <!-- Últimas recetas -->
+  <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pt-16 md:pt-24 pb-20 md:pb-[110px]">
+    <div class="flex items-baseline gap-5 mb-10">
+      <h2 class="font-display font-medium text-[12px] tracking-[0.24em] uppercase text-[#9a8f95]">Últimas recetas</h2>
+      <span class="flex-1 h-px bg-paper-hairline dark:bg-night-hairline"></span>
+      <a href="/recetas" class="text-[13px] text-brand-600 dark:text-brand-dark">Ver todas</a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-x-10 md:gap-y-[52px]">
+      {latestRecipes.map(recipe => (
+        <RecipeCard
+          titulo={recipe.titulo}
+          slug={recipe.slug}
+          categoria={recipe.categoria}
+          dificultad={recipe.dificultad}
+          tiempo={recipe.tiempo}
+          descripcion={recipe.descripcion}
+          imagenes_locales={recipe.imagenes_locales}
+        />
+      ))}
+    </div>
+  </div>
 
   <Footer />
 </BaseLayout>
+
+<script>
+  const slides = document.querySelectorAll('.hero-slide');
+  const captions = document.querySelectorAll('.hero-caption');
+  const heroCounter = document.querySelector('.hero-counter');
+  const heroDashes = document.querySelectorAll('.hero-dash');
+  let current = 0;
+
+  function show(index) {
+    slides.forEach((s, i) => {
+      s.classList.toggle('opacity-100', i === index);
+      s.classList.toggle('opacity-0', i !== index);
+    });
+    captions.forEach((c, i) => c.classList.toggle('hidden', i !== index));
+    heroDashes.forEach((d, i) => {
+      d.classList.toggle('bg-white', i === index);
+      d.classList.toggle('bg-white/35', i !== index);
+    });
+    if (heroCounter) heroCounter.textContent = `0${index + 1} / 0${slides.length}`;
+    current = index;
+  }
+
+  document.querySelectorAll('.hero-prev').forEach(btn => btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    show((current - 1 + slides.length) % slides.length);
+    resetAutoplay();
+  }));
+  document.querySelectorAll('.hero-next').forEach(btn => btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    show((current + 1) % slides.length);
+    resetAutoplay();
+  }));
+
+  let autoplay;
+  function resetAutoplay() {
+    if (autoplay) clearInterval(autoplay);
+    if (slides.length > 1) {
+      autoplay = setInterval(() => show((current + 1) % slides.length), 6000);
+    }
+  }
+  resetAutoplay();
+
+  // swipe táctil en mobile
+  const hero = document.getElementById('hero');
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let isSwiping = false;
+
+  hero.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    isSwiping = false;
+  }, { passive: true });
+
+  hero.addEventListener('touchmove', (e) => {
+    const dx = e.touches[0].clientX - touchStartX;
+    const dy = e.touches[0].clientY - touchStartY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
+      isSwiping = true;
+    }
+  }, { passive: true });
+
+  hero.addEventListener('touchend', (e) => {
+    if (!isSwiping) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const threshold = 40;
+    if (Math.abs(dx) > threshold) {
+      if (dx < 0) {
+        show((current + 1) % slides.length);
+      } else {
+        show((current - 1 + slides.length) % slides.length);
+      }
+      resetAutoplay();
+    }
+  });
+
+  // evita que un swipe termine navegando a la receta por accidente
+  slides.forEach(slide => {
+    slide.addEventListener('click', (e) => {
+      if (isSwiping) e.preventDefault();
+    });
+  });
+</script>

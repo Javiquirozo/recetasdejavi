@@ -39,7 +39,7 @@
     "slug": "masa-de-pizza-a-la-piedra",
     "titulo": "Masa de Pizza Simple",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "acompañamiento",
     "dificultad": "Media",
     "tiempo": "1 hora",
     "porciones": "2-3 personas",
@@ -110,7 +110,6 @@
       "http://claybowls.cl/wp-content/uploads/2017/07/IMG_0647.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_0647-e1499291329588.jpg",
       "/images/IMG_0654.jpg",
       "/images/IMG_0647.jpg"
     ],
@@ -122,7 +121,7 @@
     "slug": "falafel",
     "titulo": "Falafel",
     "tipo": "receta",
-    "categoria": "postre",
+    "categoria": "entrada",
     "dificultad": "Media",
     "tiempo": "30 minutos (sin el tiempo del remojo y reposo de la masa)",
     "porciones": "14 falafel",
@@ -204,7 +203,7 @@
     "slug": "salsa-de-nuez-y-espinaca",
     "titulo": "Salsa de Nuez y Espinaca",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "salsa",
     "dificultad": "Fácil",
     "tiempo": "15 minutos",
     "porciones": "8",
@@ -281,7 +280,6 @@
       "http://claybowls.cl/wp-content/uploads/2017/06/IMG_0439.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_0444-e1498764300618.jpg",
       "/images/IMG_0444.jpg",
       "/images/IMG_0439.jpg"
     ],
@@ -293,7 +291,7 @@
     "slug": "tofu-tikka-masala",
     "titulo": "Tofu Tikka Masala",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "plato_principal",
     "dificultad": "Media",
     "tiempo": "45 minutos (sin el tiempo de marinado)",
     "porciones": "4-5",
@@ -337,7 +335,6 @@
       "http://claybowls.cl/wp-content/uploads/2017/07/IMG_1048.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_1004-e1500740327370.jpg",
       "/images/IMG_1004.jpg",
       "/images/IMG_1048.jpg"
     ],
@@ -349,7 +346,7 @@
     "slug": "ratatouille",
     "titulo": "Ratatouille",
     "tipo": "receta",
-    "categoria": "salsa",
+    "categoria": "plato_principal",
     "dificultad": "Media",
     "tiempo": "1 hora",
     "porciones": "6",
@@ -429,7 +426,7 @@
     "dificultad": "Fácil",
     "tiempo": "3 horas aprox",
     "porciones": "N/A",
-    "descripcion": "¡Hola amigos! Les dejo esta receta de pomodoro casera, por ahora les dejaré esta que es un poco más fácil que hacerla con tomates al natural. Aquí usé tomates pelados enlatados, aún así mientras más cocción más rica quedará, así que necesitas paciencia para esta salsa porque lo demás es muy fácil La receta está hecha con 800 gr de tomates enlatados, puedes hacer de mayor cantidad y así guardar mucha salsa",
+    "descripcion": "¡Hola amigos! Les dejo esta receta de pomodoro casera, por ahora les dejaré esta que es un poco más fácil que hacerla con tomates al natural. Aquí usé tomates pelados enlatados, aún así mientras más cocción más rica quedará, así que necesitas paciencia para esta salsa porque lo demás es muy fácil La receta está hecha con",
     "ingredientes": [
       "800 gr de tomates enlatados",
       "1 cebolla grande picada fina",
@@ -468,7 +465,7 @@
     "slug": "hummus-de-garbanzos",
     "titulo": "Hummus de Garbanzos",
     "tipo": "receta",
-    "categoria": "entrada",
+    "categoria": "salsa",
     "dificultad": "Fácil",
     "tiempo": "20 minutos (sin considerar el remojo de los garbanzos)",
     "porciones": "4 (acompañamiento), 6 (picoteo)",
@@ -530,7 +527,6 @@
     ],
     "imagenes_locales": [
       "/images/FullSizeRender-10-e1496879769181.jpg",
-      "/images/IMG-0050-1920x2655.jpg",
       "/images/IMG-0049.jpg",
       "/images/IMG-0050.jpg"
     ],
@@ -584,7 +580,7 @@
     "slug": "tortilla-de-papas",
     "titulo": "Tortilla de Papas",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "entrada",
     "dificultad": "Media",
     "tiempo": "45 minutos",
     "porciones": "8",
@@ -622,7 +618,7 @@
     "slug": "pan-de-avena-y-linaza",
     "titulo": "Pan de Avena y Linaza",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "acompañamiento",
     "dificultad": "Media",
     "tiempo": "1 hora y 15 minutos",
     "porciones": "20 pancitos",
@@ -655,7 +651,6 @@
       "http://claybowls.cl/wp-content/uploads/2017/05/Ovillo-pan-betarraga.jpg"
     ],
     "imagenes_locales": [
-      "/images/Ovillo-pan-betarraga-e1494371924564.jpg",
       "/images/ovillo-pan-avena-y-linaza-e1494372291236.jpg",
       "/images/Ovillo-pan-betarraga.jpg"
     ],
@@ -752,9 +747,9 @@
     "tipo": "receta",
     "categoria": "postre",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Unas galletitas de avena ricas y saludables! Galletas de Avena y Cacao 1 y 3/4 taza avena integral (o harina de avena) 1/2 cucharadita bicarbonato sódico 1/4 taza panela granulada (o azúcar a elección, ej: de coco o integral) 14 dátiles con carozo 80 ml aceite vegetal suave (yo usé de oliva extra virgen) 1 cucharada linaza molida 60 ml leche vegetal (yo usé de avena) o agua 1/2 cucharadita esencia de vainilla 1 y 1/2 cucharada cacao amargo en polvo 1 pizca sal <div class=\"wprm-fallback-recipe-instruc",
+    "tiempo": "37 minutos",
+    "porciones": "16 galletas",
+    "descripcion": "Unas galletitas de avena ricas y saludables!",
     "ingredientes": [
       "1 y 3/4 taza avena integral (o harina de avena)",
       "1/2 cucharadita bicarbonato sódico",
@@ -798,7 +793,7 @@
     "slug": "smoothie-bowl-platano-y-frambuesa",
     "titulo": "Smoothie Bowl: Plátano y Frambuesa",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "desayuno",
     "dificultad": "Fácil",
     "tiempo": "10 minutos",
     "porciones": "1",
@@ -969,10 +964,6 @@
       "http://claybowls.cl/wp-content/uploads/2017/05/FullSizeRender-6.jpg"
     ],
     "imagenes_locales": [
-      "/images/FullSizeRender-6-e1496193087311.jpg",
-      "/images/FullSizeRen-3-e1496190925798.jpg",
-      "/images/FullSizeRen-e1496190978242.jpg",
-      "/images/FullSizeRender-7-e1496193045199.jpg",
       "/images/FullSizeRen-3.jpg",
       "/images/FullSizeRen.jpg",
       "/images/FullSizeRender-8.jpg",
@@ -987,7 +978,7 @@
     "slug": "crema-de-zapallo-y-zanahoria",
     "titulo": "Crema de Zapallo y Zanahoria",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "sopa",
     "dificultad": "Fácil",
     "tiempo": "45",
     "porciones": "6",
@@ -1062,7 +1053,7 @@
     "slug": "pesto-de-betarragas-asadas",
     "titulo": "Pesto de Betarragas Asadas",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "salsa",
     "dificultad": "Fácil",
     "tiempo": "1 hora",
     "porciones": "8",
@@ -1096,7 +1087,7 @@
     "slug": "carbonada",
     "titulo": "Carbonada",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "sopa",
     "dificultad": "Media",
     "tiempo": "1 hora",
     "porciones": "8 platos",
@@ -1187,7 +1178,7 @@
     "slug": "granola",
     "titulo": "Granola de Avena y Semillas",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "desayuno",
     "dificultad": "Fácil",
     "tiempo": "15 de preparación + 20 en el horno = 35 minutos",
     "porciones": "6",
@@ -1226,7 +1217,6 @@
       "http://claybowls.cl/wp-content/uploads/2017/05/granola-pre-horno.jpg"
     ],
     "imagenes_locales": [
-      "/images/granola-pre-horno-e1495568665254.jpg",
       "/images/granola-y-smoothie-azul.jpg",
       "/images/granola-pre-horno.jpg"
     ],
@@ -1238,7 +1228,7 @@
     "slug": "garbanzos-con-quinoa",
     "titulo": "Garbanzos con Quínoa",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "plato_principal",
     "dificultad": "Media",
     "tiempo": "1 hora",
     "porciones": "8",
@@ -1281,7 +1271,7 @@
     "slug": "relish-de-alcaparras",
     "titulo": "Relish de Alcaparras",
     "tipo": "receta",
-    "categoria": "postre",
+    "categoria": "salsa",
     "dificultad": "Fácil",
     "tiempo": "15 minutos",
     "porciones": "4-6",
@@ -1307,7 +1297,6 @@
       "http://claybowls.cl/wp-content/uploads/2017/05/FullSizeRender-3.jpg"
     ],
     "imagenes_locales": [
-      "/images/FullSizeRender-4-e1496192723172.jpg",
       "/images/FullSizeRender-4.jpg",
       "/images/FullSizeRender-3.jpg"
     ],
@@ -1319,7 +1308,7 @@
     "slug": "charquican",
     "titulo": "Charquicán",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "plato_principal",
     "dificultad": "Fácil",
     "tiempo": "1 hora",
     "porciones": "4-5 personas",
@@ -1406,7 +1395,6 @@
       "http://claybowls.cl/wp-content/uploads/2017/06/bolitas-zanahoria-2.jpg"
     ],
     "imagenes_locales": [
-      "/images/bolitas-zanahoria-2-e1496351164670.jpg",
       "/images/bolitas-zanahoria-1.jpg",
       "/images/bolitas-zanahoria-2.jpg"
     ],
@@ -1461,7 +1449,7 @@
     "slug": "zapallo-italiano-relleno-con-quinoa-y-verduras",
     "titulo": "Zapallo Italiano Relleno con Quínoa y Verduras",
     "tipo": "receta",
-    "categoria": "salsa",
+    "categoria": "plato_principal",
     "dificultad": "Fácil",
     "tiempo": "40 minutos",
     "porciones": "6 mitades",
@@ -1504,7 +1492,7 @@
     "slug": "salsa-bolonesa-de-lentejas",
     "titulo": "Salsa Boloñesa de Lentejas",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "salsa",
     "dificultad": "Fácil",
     "tiempo": "40 minutos",
     "porciones": "6",
@@ -1543,7 +1531,7 @@
     "slug": "aloo-palak-papas-y-espinaca",
     "titulo": "Aloo Palak (Papas y Espinaca)",
     "tipo": "receta",
-    "categoria": "salsa",
+    "categoria": "plato_principal",
     "dificultad": "Fácil",
     "tiempo": "1 hora",
     "porciones": "6",
@@ -1581,7 +1569,6 @@
       "http://claybowls.cl/wp-content/uploads/2017/07/IMG_1252.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_1252-e1501280996165.jpg",
       "/images/IMG_1274.jpg",
       "/images/IMG_1274-1.jpg",
       "/images/IMG_1252.jpg"
@@ -1641,9 +1628,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/08/IMG_0594.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_0556-e1502943028466.jpg",
-      "/images/IMG_0586-e1502942213733.jpg",
-      "/images/IMG_0559-e1502943147837.jpg",
       "/images/IMG_0556.jpg",
       "/images/IMG_0559.jpg",
       "/images/IMG_0565.jpg",
@@ -1773,15 +1757,10 @@
       "http://claybowls.cl/wp-content/uploads/2017/08/IMG_1430.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_1408-1-e1501886246432.jpg",
-      "/images/IMG_1393-e1501886535960.jpg",
       "/images/IMG_1400-e1501886796815.jpg",
-      "/images/IMG_1430-e1501886383998.jpg",
-      "/images/IMG_1421-e1501886430954.jpg",
       "/images/IMG_1393.jpg",
       "/images/IMG_1395.jpg",
       "/images/IMG_1399.jpg",
-      "/images/IMG_1400.jpg",
       "/images/IMG_1403.jpg",
       "/images/IMG_1405.jpg",
       "/images/IMG_1408.jpg",
@@ -1797,7 +1776,7 @@
     "slug": "panqueques-de-avena-platano-y-chocolate",
     "titulo": "Panqueques de Avena, Plátano y Chocolate",
     "tipo": "receta",
-    "categoria": "postre",
+    "categoria": "desayuno",
     "dificultad": "Fácil",
     "tiempo": "20 minutos (sin el tiempo del remojo)",
     "porciones": "para 2 personas",
@@ -1828,8 +1807,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/08/IMG_4515.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_4515-e1502320668816.jpg",
-      "/images/IMG_1315-e1502320098163.jpg",
       "/images/IMG_1350.jpg",
       "/images/IMG_1315.jpg",
       "/images/IMG_4515.jpg"
@@ -1873,7 +1850,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/08/IMG_1554.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_1554-e1502939313505.jpg",
       "/images/IMG_1546.jpg",
       "/images/IMG_1554.jpg"
     ],
@@ -1885,7 +1861,7 @@
     "slug": "empanadas-con-pino-de-champinones",
     "titulo": "Empanadas con Pino de Champiñones",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "plato_principal",
     "dificultad": "Media",
     "tiempo": "1 hora y 15 minutos (sin tiempo en el horno)",
     "porciones": "12 empanadas",
@@ -1940,9 +1916,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/08/IMG_1570.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_6424-e1503950981750.jpg",
-      "/images/IMG_1570-e1503951114565.jpg",
-      "/images/IMG_1576-e1503950927369.jpg",
       "/images/IMG_1573.jpg",
       "/images/IMG_1576.jpg",
       "/images/IMG_6400.jpg",
@@ -1957,7 +1930,7 @@
     "slug": "masa-de-empanadas-de-horno",
     "titulo": "Masa de Empanadas de Horno",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "acompañamiento",
     "dificultad": "Media",
     "tiempo": "1 hora (sin tiempo en el horno)",
     "porciones": "12 empanadas",
@@ -1993,7 +1966,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/09/unnamed-1.jpg"
     ],
     "imagenes_locales": [
-      "/images/unnamed-1-e1505500584680.jpg",
       "/images/unnamed.jpg",
       "/images/unnamed-1.jpg"
     ],
@@ -2036,9 +2008,7 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/08/IMG_1597.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_1597-e1503952161320.jpg",
       "/images/IMG_6427.jpg",
-      "/images/IMG_1595-e1503952105189.jpg",
       "/images/IMG_1600.jpg",
       "/images/IMG_1595.jpg",
       "/images/IMG_1597.jpg"
@@ -2051,7 +2021,7 @@
     "slug": "esparragos-asados-a-la-parrilla",
     "titulo": "Espárragos Asados a la Parrilla",
     "tipo": "receta",
-    "categoria": "salsa",
+    "categoria": "acompañamiento",
     "dificultad": "Fácil",
     "tiempo": "30 minutos (sin el tiempo de marinado)",
     "porciones": "12 espárragos grandes",
@@ -2076,7 +2046,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/08/IMG_1587.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_1587-e1503952941157.jpg",
       "/images/IMG_6467.jpg",
       "/images/IMG_1587.jpg"
     ],
@@ -2088,7 +2057,7 @@
     "slug": "quinoa-con-leche-de-coco",
     "titulo": "Quínoa con Leche (de Coco)",
     "tipo": "receta",
-    "categoria": "acompañamiento",
+    "categoria": "postre",
     "dificultad": "Fácil",
     "tiempo": "30 minutos",
     "porciones": "8-10 personas",
@@ -2125,9 +2094,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/08/IMG_1658.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_6481-e1503950164701.jpg",
-      "/images/IMG_1658-e1503950206208.jpg",
-      "/images/IMG_1647-e1503950257759.jpg",
       "/images/IMG_6479.jpg",
       "/images/IMG_6481.jpg",
       "/images/IMG_6486.jpg",
@@ -2143,11 +2109,11 @@
     "slug": "crema-de-brocoli-y-zapallo-italiano",
     "titulo": "Crema de Brócoli y Zapallo Italiano",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "sopa",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Especial para estos días de frío hacer este tipo de preparaciones Usen esta receta de base! Pueden usar más u otras verduras según lo que tengan Crema de Brócoli y Zapallo Italiano 1 brócoli 2 zapallo italiano 1 cebolla en pluma 1-2 dientes de ajo (o a gusto) Salpimienta Perejil agua Cortar el brócoli y el zapallo en trozos pequeños (no es tan importante la perfección del corte ya que todo va licuado después) En una olla sofreír el ajo y la cebolla con un chorrito de aceite de oliva (o sin nada) por unos 10 minutos. Incorpo",
+    "tiempo": "25 minutos",
+    "porciones": "5 porciones",
+    "descripcion": "Especial para estos días de frío hacer este tipo de preparaciones Usen esta receta de base! Pueden usar más u otras verduras según lo que tengan",
     "ingredientes": [
       "1 brócoli",
       "2 zapallo italiano",
@@ -2173,7 +2139,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/07/FullSizeRender_1-2.jpg"
     ],
     "imagenes_locales": [
-      "/images/FullSizeRender_1-2-640x640.jpg",
       "/images/FullSizeRender_2-2.jpg",
       "/images/FullSizeRender_1-2.jpg"
     ],
@@ -2185,11 +2150,11 @@
     "slug": "pasta-untable-de-berenjenas",
     "titulo": "Pasta Untable de Berenjenas",
     "tipo": "receta",
-    "categoria": "postre",
+    "categoria": "salsa",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
+    "tiempo": "30 minutos",
     "porciones": "N/A",
-    "descripcion": "Les comparto esta rica receta para preparar berenjenas de una forma distinta! Es una receta de mi mamá Pueden usarla en un picoteo para untar lo que se les ocurra! Galletas saladas, papas asadas, tostadas, etc. ¡Queda muy rica! Pasta Untable de Berenjenas 3 berenjenas 200 gr champiñones 1/2 pimentón rojo a gusto aceite de oliva extra virgen a gusto sal de mar, pimienta, condimentos a gusto ajo Pre calentar el horno a 200°C Cortar las berenjenas a la mitad (perpendicular) y hacer incisiones con el cuchillo en la pulpa de un lado a otro. </li",
+    "descripcion": "Les comparto esta rica receta para preparar berenjenas de una forma distinta! Es una receta de mi mamá Pueden usarla en un picoteo para untar lo que se les ocurra! Galletas saladas, papas asadas, tostadas, etc. ¡Queda muy rica!",
     "ingredientes": [
       "3 berenjenas",
       "200 gr champiñones",
@@ -2224,7 +2189,7 @@
     "slug": "pebre",
     "titulo": "Pebre",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "salsa",
     "dificultad": "Fácil",
     "tiempo": "20 minutos",
     "porciones": "4-5 personas",
@@ -2253,7 +2218,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/09/IMG_6412.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_6412-e1504356400647.jpg",
       "/images/IMG_6377.jpg",
       "/images/IMG_6412.jpg"
     ],
@@ -2300,7 +2264,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/09/IMG_2618.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_2618-e1506121920115.jpg",
       "/images/IMG_2614.jpg",
       "/images/IMG_2618.jpg"
     ],
@@ -2355,7 +2318,7 @@
     "slug": "porridge-de-avena-y-chocolate",
     "titulo": "Porridge de Avena y Chocolate",
     "tipo": "receta",
-    "categoria": "postre",
+    "categoria": "desayuno",
     "dificultad": "Fácil",
     "tiempo": "15 minutos",
     "porciones": "1 persona",
@@ -2383,7 +2346,7 @@
     "slug": "porridge-de-avena-y-vainilla",
     "titulo": "Porridge de Avena y Vainilla",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "desayuno",
     "dificultad": "Fácil",
     "tiempo": "15 minutos",
     "porciones": "1 persona",
@@ -2416,7 +2379,7 @@
     "slug": "tortilla-de-betarraga",
     "titulo": "Tortilla de Betarraga",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "entrada",
     "dificultad": "Fácil",
     "tiempo": "35 minutos",
     "porciones": "4",
@@ -2498,7 +2461,7 @@
     "slug": "charquican-con-quinoa",
     "titulo": "Charquicán con Quínoa",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "plato_principal",
     "dificultad": "Fácil",
     "tiempo": "1 hora",
     "porciones": "4-5 personas",
@@ -2537,7 +2500,6 @@
     ],
     "imagenes_locales": [
       "/images/IMG_2646.jpg",
-      "/images/IMG_2647-e1506260620583.jpg",
       "/images/IMG_2647.jpg",
       "/images/IMG_2654.jpg"
     ],
@@ -2586,9 +2548,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/09/IMG_2835.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_2797-e1506527070116.jpg",
-      "/images/IMG_2805-e1506527391357.jpg",
-      "/images/IMG_2833-e1506527442108.jpg",
       "/images/IMG_2805.jpg",
       "/images/IMG_2833.jpg",
       "/images/IMG_2797.jpg",
@@ -2643,7 +2602,7 @@
     "slug": "smoothie-bowl-quinoa-platano-y-frutillas",
     "titulo": "Smoothie Bowl: Quínoa, Plátano y Frutillas",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "desayuno",
     "dificultad": "Fácil",
     "tiempo": "10 minutos",
     "porciones": "1 persona",
@@ -2670,7 +2629,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/09/IMG_5555.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_5555-e1506633291515.jpg",
       "/images/IMG_5554.jpg",
       "/images/IMG_5555.jpg"
     ],
@@ -2723,10 +2681,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/10/IMG_3118.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_3105-e1507392206195.jpg",
-      "/images/IMG_3092-e1507392249683.jpg",
-      "/images/IMG_3098-e1507392317604.jpg",
-      "/images/IMG_3118-e1507392363273.jpg",
       "/images/IMG_3092.jpg",
       "/images/IMG_3098.jpg",
       "/images/IMG_3105.jpg",
@@ -2764,7 +2718,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/09/IMG_2767.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_2767-e1506634314858.jpg",
       "/images/IMG_2757.jpg",
       "/images/IMG_2767.jpg"
     ],
@@ -2776,7 +2729,7 @@
     "slug": "hamburguesas-de-porotos-negros",
     "titulo": "Hamburguesas de Porotos Negros",
     "tipo": "receta",
-    "categoria": "desayuno",
+    "categoria": "plato_principal",
     "dificultad": "Media",
     "tiempo": "30 minutos",
     "porciones": "6 hamburguesas",
@@ -2816,8 +2769,6 @@
     ],
     "imagenes_locales": [
       "/images/IMG_3061.jpg",
-      "/images/IMG_3089-e1507565808335.jpg",
-      "/images/IMG_3064-e1507565747181.jpg",
       "/images/IMG_3031.jpg",
       "/images/IMG_3033.jpg",
       "/images/IMG_3035.jpg",
@@ -2866,8 +2817,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/10/IMG_3274.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_3220-e1507759320934.jpg",
-      "/images/IMG_3219-e1507759397486.jpg",
       "/images/IMG_3219.jpg",
       "/images/IMG_3220.jpg",
       "/images/IMG_3221.jpg",
@@ -2883,7 +2832,7 @@
     "slug": "smoothie-bowl-tostadas-con-palta",
     "titulo": "Smoothie Bowl + Tostadas con Palta",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "desayuno",
     "dificultad": "Fácil",
     "tiempo": "20 minutos",
     "porciones": "1",
@@ -2910,7 +2859,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/10/IMG_5855.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_5853-e1507819696410.jpg",
       "/images/IMG_5853.jpg",
       "/images/IMG_5854.jpg",
       "/images/IMG_5855.jpg"
@@ -2964,8 +2912,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/10/IMG_3297.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_3380-e1509052017670.jpg",
-      "/images/IMG_3384-e1509052063719.jpg",
       "/images/IMG_3378.jpg",
       "/images/IMG_3380.jpg",
       "/images/IMG_3384.jpg",
@@ -2983,7 +2929,7 @@
     "slug": "salsa-de-nuez-2",
     "titulo": "Salsa de Nuez",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "salsa",
     "dificultad": "Fácil",
     "tiempo": "25 minutos",
     "porciones": "4-5",
@@ -3018,7 +2964,7 @@
     "slug": "porridge-de-quinoa",
     "titulo": "Porridge de Quínoa",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "desayuno",
     "dificultad": "Fácil",
     "tiempo": "15 minutos",
     "porciones": "1",
@@ -3089,7 +3035,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/07/FE7A231C-F97B-47FF-9FCD-78A747E5FA4C.jpeg"
     ],
     "imagenes_locales": [
-      "/images/27F05563-69A1-4F8A-A59D-2951E25FBC7A-640x640.jpeg",
       "/images/27F05563-69A1-4F8A-A59D-2951E25FBC7A.jpeg",
       "/images/3ECB26F3-6AF2-4FA6-89C5-6590B31F9F04.jpeg",
       "/images/0EAD9AF9-DD35-4772-91D0-7E78CDC56514.jpeg",
@@ -3103,7 +3048,7 @@
     "slug": "pan-de-molde-integral",
     "titulo": "Pan de Molde Integral",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "acompañamiento",
     "dificultad": "Media",
     "tiempo": "1 hora",
     "porciones": "10",
@@ -3134,7 +3079,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/10/IMG_3522.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_3522-e1509306587293.jpg",
       "/images/IMG_3516.jpg",
       "/images/IMG_3522.jpg"
     ],
@@ -3326,9 +3270,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/11/IMG_6502.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_3829-e1511821805544.jpg",
-      "/images/IMG_3775-e1511822508770.jpg",
-      "/images/IMG_6502-e1511822315340.jpg",
       "/images/IMG_3775.jpg",
       "/images/IMG_3826.jpg",
       "/images/IMG_3829.jpg",
@@ -3389,9 +3330,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/11/IMG_7512.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_7512-e1511827935138.jpg",
-      "/images/IMG_7551-e1511827532438.jpg",
-      "/images/IMG_7544-e1511827790982.jpg",
       "/images/IMG_7497.jpg",
       "/images/IMG_7502.jpg",
       "/images/IMG_7544.jpg",
@@ -3447,7 +3385,7 @@
     "slug": "pesto-de-albahaca-cremoso",
     "titulo": "Pesto de Albahaca Cremoso",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "salsa",
     "dificultad": "Fácil",
     "tiempo": "20 minutos",
     "porciones": "6",
@@ -3543,7 +3481,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/01/00D7CA5C-57F5-4CC5-9C17-D29D226B64FF.jpeg"
     ],
     "imagenes_locales": [
-      "/images/668FACEA-2FAB-405E-A1FD-BDAC694AE666-e1514571636797.jpeg",
       "/images/96330728-28F0-410E-A1F1-9017ED2F3D82.jpeg",
       "/images/2814FAA6-46A7-4A14-9C8D-A08327B7E92C.jpeg",
       "/images/BDE63937-9BA1-4286-A022-7FDF30D36E5C.jpeg",
@@ -3567,11 +3504,11 @@
     "slug": "pan-de-pascua",
     "titulo": "Pan de Pascua",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "postre",
     "dificultad": "Moderada",
     "tiempo": "45 minutos",
     "porciones": "10-12",
-    "descripcion": "¡Hola! Les cuento que este es mi primer pan de pascua vegano Nunca fui muy amante del pan de pascua, pero la gracia de él es que pueden agregar lo que ustedes prefieran. Este lleva pasas oscuras, dátiles y nueces Pero bueno, le pueden poner otras frutas deshidratadas como cranberrys, piña, manzana, kiwi etc... También puedes usar almendras además o en vez de las nueces. Yo le agregué también unas pocas semillas de zapallo. Para armar el pan de pascua se debe preparar: la mezcla de \"frutas borrachas\", que es básicamente remojar las frutas secas en licor; el syrup casero de panela; y finalmente, usar estas dos preparaciones para formar el bizcocho final. Para esta receta, leí varias, pero principalmente me inspiré en la de \" thesimplelife \"",
+    "descripcion": "¡Hola! Les cuento que este es mi primer pan de pascua vegano Nunca fui muy amante del pan de pascua, pero la gracia de él es que pueden agregar lo que ustedes prefieran. Este lleva pasas oscuras, dátiles y nueces Pero bueno, le pueden poner otras frutas deshidratadas como cranberrys, piña, manzana, kiwi etc... También puedes usar almendras además o en vez de las nueces. Yo le agregué también unas pocas semillas de zapallo. Para armar el pan de pascua se debe preparar: la",
     "ingredientes": [
       "1 y 1/2 taza de frutas secas surtidas: yo utilicé pasas flame y dátiles previamente descarozados",
       "1/2 taza de ron (pueden usar otro como cognac o si no quieren licor, usen agua)",
@@ -3625,8 +3562,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/12/F4F4E744-AB2B-4A84-AE97-77EFEA5984B4.jpeg"
     ],
     "imagenes_locales": [
-      "/images/F4F4E744-AB2B-4A84-AE97-77EFEA5984B4-e1512514133517.jpeg",
-      "/images/E5BDA7BA-D167-493C-9DFE-A780BEA4AB69-e1512514234136.jpeg",
       "/images/ACC9C0DC-F88E-4014-8E23-53ECEE53BAAD.jpeg",
       "/images/B999130E-40CD-4420-BC8C-8E495B726102.jpeg",
       "/images/9265CB10-B155-4896-B873-AAA52131E49B.jpeg",
@@ -3641,7 +3576,7 @@
     "slug": "gratin-de-papas-con-leche-de-coco",
     "titulo": "Gratín de Papas con Leche de Coco",
     "tipo": "receta",
-    "categoria": "sopa",
+    "categoria": "plato_principal",
     "dificultad": "Fácil",
     "tiempo": "35 minutos (sin el horno)",
     "porciones": "6-8",
@@ -3726,7 +3661,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2017/12/05C261F2-AE0F-4CC4-AB6D-06121182C1EA.jpeg"
     ],
     "imagenes_locales": [
-      "/images/A0222FCF-8DAD-4B46-8BEE-A2DEE412E019-e1513038464211.jpeg",
       "/images/A0222FCF-8DAD-4B46-8BEE-A2DEE412E019.jpeg",
       "/images/9DD19CD9-EBB8-4A62-AD8D-B1D167CED0FA.jpeg",
       "/images/AF267D21-ABBE-4F42-8BFF-78C218277AF3.jpeg",
@@ -3840,7 +3774,7 @@
     "slug": "masa-pasta-fresca-de-espinaca",
     "titulo": "Masa Pasta Fresca de Espinaca",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "acompañamiento",
     "dificultad": "Moderada",
     "tiempo": "40 minutos",
     "porciones": "N/A",
@@ -3879,7 +3813,7 @@
     "slug": "pastel-de-papas-con-pino-de-lentejas-rojas",
     "titulo": "Pastel de Papas con Pino de Lentejas Rojas",
     "tipo": "receta",
-    "categoria": "postre",
+    "categoria": "plato_principal",
     "dificultad": "Moderada Fácil",
     "tiempo": "50 minutos",
     "porciones": "4",
@@ -3983,7 +3917,7 @@
     "slug": "salteado-de-tofu-y-verduras-arroz-comida-china",
     "titulo": "Salteado de Tofu y Verduras + Arroz (Comida china)",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "plato_principal",
     "dificultad": "Moderada Fácil",
     "tiempo": "30 minutos",
     "porciones": "6",
@@ -4043,7 +3977,7 @@
     "slug": "salsa-cremosa-de-queso-vegano",
     "titulo": "Queso Vegano Cremoso de Tofu",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "salsa",
     "dificultad": "Fácil",
     "tiempo": "10 minutos",
     "porciones": "500 cc aprox",
@@ -4164,7 +4098,7 @@
     "slug": "pastel-de-choclo",
     "titulo": "Pastel de Choclo",
     "tipo": "receta",
-    "categoria": "postre",
+    "categoria": "plato_principal",
     "dificultad": "Moderada",
     "tiempo": "1 hora",
     "porciones": "6",
@@ -4216,11 +4150,11 @@
     "slug": "hamburguesa-de-betarraga-y-arroz-integral",
     "titulo": "Hamburguesa de Betarraga y Arroz Integral",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "plato_principal",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Hola hola!! Les comparto esta rica receta con la que experimenté hace poco y quedaron maravillosas Las comí con un pan integral tipo ciabatta pero que hice en forma redonda especialmente para estas burger Hamburguesa de Betarraga y Arroz Integral 1 betarraga cocida 1 taza arroz integral cocido 1 cucharada avena integral 1/2 cebolla 1/4 pimentón rojo 1 diente ajo 1 cucharadita orégano 1/2 cucharadita ají color 1 puñado cilantro fresco 1 cucharada aceite de oliva extra virgen c/n sal de mar 1 cucharada chia 6 cuchar",
+    "tiempo": "35 minutos",
+    "porciones": "7 hamburguesas",
+    "descripcion": "Hola hola!! Les comparto esta rica receta con la que experimenté hace poco y quedaron maravillosas Las comí con un pan integral tipo ciabatta pero que hice en forma redonda especialmente para estas burger",
     "ingredientes": [
       "1 betarraga cocida",
       "1 taza arroz integral cocido",
@@ -4268,11 +4202,11 @@
     "slug": "panqueques-de-avena-platano-y-zanahoria",
     "titulo": "Panqueques de Avena, Plátano y Zanahoria",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "desayuno",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Panqueques de Avena, Plátano y Zanahoria Panqueques saludables, esponjosos y muy ricos! 1/2 taza avena integral 1 unid plátano maduro pequeño 1 taza agua o leche vegetal 4 cucharadas zanahoria rallada (Cascarafoods (viene en polvo)) 1/2 cucharadita polvos de hornear Opcional endulzante a gusto Remojar la avena integra",
+    "tiempo": "20 minutos",
+    "porciones": "1 persona",
+    "descripcion": "Panqueques de Avena, Plátano y Zanahoria Panqueques saludables, esponjosos y muy ricos!",
     "ingredientes": [
       "1/2 taza avena integral",
       "1 unid plátano maduro pequeño",
@@ -4309,11 +4243,11 @@
     "slug": "guiso-de-garbanzos",
     "titulo": "Guiso de Garbanzos",
     "tipo": "receta",
-    "categoria": "acompañamiento",
+    "categoria": "plato_principal",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Hola! Les dejo esta clásica y rica preparación: un guiso de garbanzos. Si no sabes hacer guisos de legumbres esta preparación básica te puede ayudar, es aplicable para cualquier otra Guiso de Garbanzos Guiso de garbanzos con arroz integral 2 tazas garbanzos 3/4 taza arroz integral 1 taza zapallo amarillo cortado en cubos 2x2 cm 1 unid cebolla cortada en cubos pequeños 1 unid tomate 1/2 unid pimentón rojo (o el que prefieras) 1 taza zapallo italiano cortado en cubos pequeños (u otra verdur",
+    "tiempo": "50 minutos",
+    "porciones": "6 personas",
+    "descripcion": "Hola! Les dejo esta clásica y rica preparación: un guiso de garbanzos. Si no sabes hacer guisos de legumbres esta preparación básica te puede ayudar, es aplicable para cualquier otra",
     "ingredientes": [
       "2 tazas garbanzos",
       "3/4 taza arroz integral",
@@ -4356,11 +4290,11 @@
     "slug": "masa-de-pizza-integral",
     "titulo": "Masa de Pizza Integral",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "acompañamiento",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Hola hola!! ¡Les comparto esta receta que queda muy rica! Es delgada y por fuera crujiente y blandita por dentro. Pruébenla! Como queso vegano usé la receta de la salsa cremosa en base a tofu , además agregué salsa pomodoro , pimentón rojo y verde, champiñones salteados y pesto de albahaca Masa de Pizza Integral <div class=\"wprm",
+    "tiempo": "90 minutos",
+    "porciones": "2 pizzas",
+    "descripcion": "Hola hola!! ¡Les comparto esta receta que queda muy rica! Es delgada y por fuera crujiente y blandita por dentro. Pruébenla! Como queso vegano usé la receta de la salsa cremosa en base a tofu , además agregué salsa pomodoro , pimentón rojo y verde, champiñones salteados y pesto de albahaca",
     "ingredientes": [
       "250 gr harina integral",
       "1 taza agua tibia",
@@ -4426,9 +4360,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/02/yeivi-1.png"
     ],
     "imagenes_locales": [
-      "/images/IMG-1997-640x480.png",
-      "/images/IMG-1352-1024x683.png",
-      "/images/Javi-Quiroz-7-1100x733.jpg",
       "/images/IMG-1997.png",
       "/images/IMG-0371.jpg",
       "/images/IMG-0840.jpg",
@@ -4446,11 +4377,11 @@
     "slug": "panqueques-integrales",
     "titulo": "Panqueques Integrales",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "desayuno",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Una rica opción para tu desayuno Panqueques Integrales Salados 1 taza harina integral 1 y 1/4 taza agua 1 cucharadita polvos de hornear 1 cucharadita semillas de linaza 1 cucharada aceite de oliva 1 pizca sal de mar c/n condimentos opcionales (como orégano) Mezclar todos los ingredientes en un bol y reposar la mezcla por unos 5 minutos. Debe quedar mas o menos líquida para que \"corra\" por el sartén En un sartén antiadherente ir agregando mezcla (yo usé un cucharón 3/4 de lleno) y mover en círculos el sartén para dejar el panqueque fino y redondo Dejar cocinar por un lado hasta que empie",
+    "tiempo": "20 minutos",
+    "porciones": "2 personas",
+    "descripcion": "Una rica opción para tu desayuno",
     "ingredientes": [
       "1 taza harina integral",
       "1 y 1/4 taza agua",
@@ -4478,11 +4409,11 @@
     "slug": "pan-integral-tipo-ciabatta",
     "titulo": "Pan Integral tipo Ciabatta",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "acompañamiento",
     "dificultad": "No especificada",
     "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Hola!! Esta receta de pancito es de ciabatta, sólo que yo dividí la masa en dos, una mitad hice 3 redondos y la otra mitad los corté de forma rectangular (salieron tres también), pueden hacerlo como prefieran! Originalmente no son redondos los ciabattas, yo lo hice esta vez así porque quería usarlo como pan de burger Pan Integral tipo Ciabatta Para la esponja 200 cc agua tibia 8 gr levadura en polvo ((15 gr si es fresca)) 220 gr harina integral 60 cc aceite de oliva (extra virgen)",
+    "porciones": "6 panes",
+    "descripcion": "Hola!! Esta receta de pancito es de ciabatta, sólo que yo dividí la masa en dos, una mitad hice 3 redondos y la otra mitad los corté de forma rectangular (salieron tres también), pueden hacerlo como prefieran! Originalmente no son redondos los ciabattas, yo lo hice esta vez así porque quería usarlo como pan de burger",
     "ingredientes": [
       "200 cc agua tibia",
       "8 gr levadura en polvo ((15 gr si es fresca))",
@@ -4532,9 +4463,9 @@
     "tipo": "receta",
     "categoria": "postre",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Hola hola chiquillos ! Les dejo esta rica receta: Chocolatosa torta vegana! Sin azúcar refinada, sin gluten y sin ingredientes animales :) Para esta torta utilicé un molde desmontable circular de 22 cm, que es para 15 personas aprox. (puede ser para un poco más) Ojo que las castañas de cajú deben remojarlas! Para que no pasen ese paso por alto :) Espero se motiven con esta receta!! Tarta Crudivegana de Chocolate ¡Chocolatosa tort",
+    "tiempo": "35 minutos",
+    "porciones": "12 personas",
+    "descripcion": "Hola hola chiquillos ! Les dejo esta rica receta: Chocolatosa torta vegana! Sin azúcar refinada, sin gluten y sin ingredientes animales :) Para esta torta utilicé un molde desmontable circular de 22 cm, que es para 15 personas aprox. (puede ser para un poco más) Ojo que las castañas de cajú deben remojarlas! Para que no pasen ese paso por alto :) Espero se motiven con esta receta!!",
     "ingredientes": [
       "210 gr nueces o almendras (o mitad de cada una)",
       "190 gr pasas flame (morenas)",
@@ -4571,8 +4502,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/04/IMG-3982.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG-3982-640x640.jpg",
-      "/images/IMG-3978-640x640.jpg",
       "/images/IMG-3987.jpg",
       "/images/IMG-3978.jpg",
       "/images/IMG-3982.jpg"
@@ -4585,11 +4514,11 @@
     "slug": "ricotta-de-tofu",
     "titulo": "Ricotta de Tofu",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "salsa",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Hola!! Me encaaaaaaaanta la pasta y a ustedes?? Por eso trato generalmente de hacer salsas distintas para acompañarlas, espero se motiven con esta y les guste! A mí me fascina el tofu , se puede usar para muchas prepraciones y es tan rico! Ricotta de Tofu Rica salsa a base de tofu tipo \"ricotta\" para acompañar tus pastas 250 gr tofu firme 1/2 cebolla en pluma 2 cucharaditas pasta de miso 2-3 cucharaditas levadura nutricional sal y pimienta a gusto 3 cucharadas aceite de oliva extra virgen 1 diente ajo picado fino Sofreir la cebolla y el ajo por unos 5 minutos a fuego alto. Retirar del fuego",
+    "tiempo": "30 minutos",
+    "porciones": "6 porciones",
+    "descripcion": "Hola!! Me encaaaaaaaanta la pasta y a ustedes?? Por eso trato generalmente de hacer salsas distintas para acompañarlas, espero se motiven con esta y les guste! A mí me fascina el tofu , se puede usar para muchas prepraciones y es tan rico!",
     "ingredientes": [
       "250 gr tofu firme",
       "1/2 cebolla en pluma",
@@ -4612,7 +4541,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/04/IMG-3960.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG-3960-640x640.jpg",
       "/images/IMG-3962.jpg",
       "/images/IMG-3960.jpg"
     ],
@@ -4624,11 +4552,11 @@
     "slug": "hamburguesas-de-garbanzos-y-quinoa",
     "titulo": "Hamburguesas de Garbanzo y Quinoa",
     "tipo": "receta",
-    "categoria": "acompañamiento",
+    "categoria": "plato_principal",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Estas hamburguesas son altas en proteína, hechas con ingredientes naturales, reales y ricos, y no tienen gluten! Les puse abajo un consejo/recomendación para que tengan en cuenta al momento de hacer hamburguesas de legumbres. Espero les gusten!!! Hamburguesas de Garbanzo y Quinoa Exquisitas burgers de garbanzo y quinoa, sin gluten ni harina de ningún tipo. Pruébalas! 2 tazas garbanzos cocidos (del día anterior) 1 taza quinoa cocida (graneada) 1 cebolla morada mediana 1 zanahoria mediana</",
+    "tiempo": "30 minutos",
+    "porciones": "8 hamburguesas",
+    "descripcion": "Estas hamburguesas son altas en proteína, hechas con ingredientes naturales, reales y ricos, y no tienen gluten! Les puse abajo un consejo/recomendación para que tengan en cuenta al momento de hacer hamburguesas de legumbres. Espero les gusten!!!",
     "ingredientes": [
       "2 tazas garbanzos cocidos (del día anterior)",
       "1 taza quinoa cocida (graneada)",
@@ -4668,11 +4596,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/04/IMG-4228.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG-4228-640x640.jpg",
-      "/images/IMG-4206-150x150.jpg",
-      "/images/IMG-4207-150x150.jpg",
-      "/images/IMG-4211-e1523395803913-150x150.jpg",
-      "/images/IMG-4218-640x640.jpg",
       "/images/IMG-4206.jpg",
       "/images/IMG-4207.jpg",
       "/images/IMG-4235.jpg",
@@ -4694,8 +4617,8 @@
     "tipo": "receta",
     "categoria": "plato_principal",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
+    "tiempo": "70 minutos",
+    "porciones": "4 porciones",
     "descripcion": "La huancaína es una típica salsa peruana hecha en base a ají amarillo. La pasta de ají amarillo que lleva esta receta la pueden encontrar en supermercados en formato frasco o en sachet, generalmente en la sección de \"productos internacionales\", y de seguro en la vega la encuentran en algún puesto de productos peruanos A mi me encanta, y generalmente aunque se llame \"pasta de ají\" no es muy picante (casi nada) porque para hacerla, el ají se hierve una o dos veces antes de licuar, esto hace que pierda picor. Incluso si les gusta el picante, pueden agregarle a la preparación un poco más de cualquier otro ají (yo le puse ají verde picado al momento de preparar la salsa) Soy admiradora de la cocina peruana! En mi primer año de gastronomía hice mi práctica laboral en un restaurant peruano y me enamoré de sus preparaciones! Tratando de veganizarlas salen ideas como este gratín, que me recuerda el típico plato peruano de papas a la huanca",
     "ingredientes": [
       "1 kg papas cortadas en rodajas (con o sin piel)",
@@ -4733,7 +4656,7 @@
     "slug": "rolls-de-quinoa",
     "titulo": "Rolls de Quinoa",
     "tipo": "receta",
-    "categoria": "sopa",
+    "categoria": "entrada",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
@@ -4792,7 +4715,7 @@
     "tipo": "receta",
     "categoria": "postre",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
+    "tiempo": "35 minutos",
     "porciones": "N/A",
     "descripcion": "Esta receta nació de una improvisación para regalonear a mi familia con algo dulce en su visita a casa Sólo con tres ingredientes armé este quequito, sin gluten, sin azúcar y sin crueldad obviamente! ¡A todos les encantó! Sólo tres ingredientes: Plátano (reemplazable por camote), mantequilla de maní y cacao amargo en polvo Queque chocolatoso sin gluten Hecho solo con tres ingredientes!",
     "ingredientes": [
@@ -4830,8 +4753,6 @@
     ],
     "imagenes_locales": [
       "/images/8F4B4DCE-5841-4F46-A759-4C506921D496-629x1024.jpeg",
-      "/images/IMG-4380-150x150.jpg",
-      "/images/IMG-4380-1024x1024.jpg",
       "/images/IMG-4383.jpg",
       "/images/IMG-4380.jpg",
       "/images/IMG-4377.jpg",
@@ -4847,11 +4768,11 @@
     "slug": "sopa-de-verduras-y-lentejas-rojas",
     "titulo": "Sopa de Verduras y Lentejas Rojas",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "sopa",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
+    "tiempo": "30 minutos",
     "porciones": "N/A",
-    "descripcion": "Si hay algo rico del invierno, es tomar/comer sopitas, guisos, cremas de verduras... Me encanta!! Aquí les dejo una receta súper fácil para calentar el cuerpo en días fríos Sopa de Verduras y Lentejas Rojas 1 cebolla morada cortada en cubitos pequeños 1-2 dientes ajo picado fino 1 zanahoria cortada en cubos 1 zapallo italiano mediano cortado en cubos 1 o 1/2 pimentón rojo cortado en cubitos pequeños 4 papas medianas cortadas en cubos 1/2 taza lentejas rojas 1 puñado grande cilantro cortado fino 1 hoja laurel c/n romero (o especias a gusto) c/n salpimienta Dorar el ajo y la cebolla por",
+    "descripcion": "Si hay algo rico del invierno, es tomar/comer sopitas, guisos, cremas de verduras... Me encanta!! Aquí les dejo una receta súper fácil para calentar el cuerpo en días fríos",
     "ingredientes": [
       "1 cebolla morada cortada en cubitos pequeños",
       "1-2 dientes ajo picado fino",
@@ -4891,8 +4812,8 @@
     "categoria": "postre",
     "dificultad": "No especificada",
     "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Me encantan las tartas crudiveganas! Aquí les dejo otra receta más de una de ellas Pueden variar con los sabores! Por ejemplo, en vez de vainilla pueden ponerle a la crema ralladura de naranja, o alguna fruta como arándanos o frambuesas. Jueguen con las recetas! Tarta Crudivegana de Cacao y Vainilla Para la base 210 gr nueces o almendras 200 gr pasas morenas 40 gr coco rallado Para el relleno 400 gr castañas de cajú remojadas toda la noche</",
+    "porciones": "12 porciones",
+    "descripcion": "Me encantan las tartas crudiveganas! Aquí les dejo otra receta más de una de ellas Pueden variar con los sabores! Por ejemplo, en vez de vainilla pueden ponerle a la crema ralladura de naranja, o alguna fruta como arándanos o frambuesas. Jueguen con las recetas!",
     "ingredientes": [
       "210 gr nueces o almendras",
       "200 gr pasas morenas",
@@ -4937,11 +4858,11 @@
     "slug": "pesto-de-espinaca-y-albahaca",
     "titulo": "Pesto de Espinaca y Albahaca",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "salsa",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Soy una amante del pesto me encanta sobre todo comerlo con ñoquis o alguna rica pasta :) Esta receta es muy fácil así que anímense a prepararla! Pesto de Espinaca y Albahaca Perfecto para usar con pastas, papas, arroces, como dip, etc. 250 gr espinaca 150 gr albahaca 1/2 taza nueces (remojadas por 30 minutos en agua caliente) 1 o 1/2 diente ajo 1 cucharadita levadura nutricional ((opcional)) 3 cucharadas aceite de oliva extra virgen (o cantidad a gusto) c/n salpimienta Lavar espinaca y albahaca Colocar una olla a fuego medio y agregar un chorrito de agua. Enseguida agregar la espinaca",
+    "tiempo": "20 minutos",
+    "porciones": "8 porciones",
+    "descripcion": "Soy una amante del pesto me encanta sobre todo comerlo con ñoquis o alguna rica pasta :) Esta receta es muy fácil así que anímense a prepararla!",
     "ingredientes": [
       "250 gr espinaca",
       "150 gr albahaca",
@@ -4972,11 +4893,11 @@
     "slug": "queque-integral-de-zanahoria-carrot-cake",
     "titulo": "Queque Integral de Zanahoria (Carrot Cake)",
     "tipo": "receta",
-    "categoria": "otros",
+    "categoria": "postre",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Hola hola!! Les dejo esta exquisita receta de queque de zanahoria.. Queda muy bueno!! El frosting (opcional) es en base a castañas de cajú y le da un toque increíble Para este queque usé un molde de 20 cms, y para hacerlo me inspiré en una receta de mi primer año de Gastronomía, así que la veganicé a mi estilo Usé pesa durante todo el proceso por eso les dejo las medidas de esta forma súper exactas :) Me encantó el resultado! Queque Integral de Zanahoria (Carrot Cake) <h",
+    "tiempo": "60 minutos",
+    "porciones": "10 porciones",
+    "descripcion": "Hola hola!! Les dejo esta exquisita receta de queque de zanahoria.. Queda muy bueno!! El frosting (opcional) es en base a castañas de cajú y le da un toque increíble Para este queque usé un molde de 20 cms, y para hacerlo me inspiré en una receta de mi primer año de Gastronomía, así que la veganicé a mi estilo Usé pesa durante todo el proceso por eso les dejo las medidas de esta forma súper exactas :) Me encantó el resultado!",
     "ingredientes": [
       "300 gr harina integral",
       "150 gr panela (granulada o rallada) (o endulzante a elección)",
@@ -5029,8 +4950,8 @@
     "categoria": "plato_principal",
     "dificultad": "No especificada",
     "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Hola!! Ya les había compartido una receta de hamburguesas de lentejas (y les dejo el link aquí ) pero, como en la cocina todo puede variar y podemos crear en el momento, les dejo esta segunda versión. Hamburguesas de Lentejas (Versión 2) Saludables y exquisitas hamburguesas hechas de lentejas y verduras (Sin harinas) 2 tazas lentejas cocidas 1/2 cebolla cortada en pluma 1/3 pimentón rojo 1-2 dientes de ajo 1 puñado de cilantro (o perejil, o albahaca, o una mezcla) 1/2 zanahoria 1 cucharada aceite de oliva <l",
+    "porciones": "8 hamburguesas",
+    "descripcion": "Hola!! Ya les había compartido una receta de hamburguesas de lentejas (y les dejo el link aquí ) pero, como en la cocina todo puede variar y podemos crear en el momento, les dejo esta segunda versión.",
     "ingredientes": [
       "2 tazas lentejas cocidas",
       "1/2 cebolla cortada en pluma",
@@ -5064,8 +4985,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/05/A0D9B9D1-3189-4F3C-814A-EE2890D6D811.jpeg"
     ],
     "imagenes_locales": [
-      "/images/2C3A42D2-4278-4AB0-ABCF-DB5CDDEA2CD0-150x150.jpeg",
-      "/images/C03CF6EB-2FFF-40EA-9F1A-07EE970916B6-640x640.jpeg",
       "/images/740B7A08-001A-4E42-8CCB-BAF1EB0F4BB8.jpeg",
       "/images/A9A1AF75-EC75-4A96-B1B1-9FC2D1BD7A65.jpeg",
       "/images/54630DD0-D665-41DD-B39C-C67EC8C636EB.jpeg",
@@ -5084,9 +5003,9 @@
     "tipo": "receta",
     "categoria": "postre",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "¡¡Galletitas crocantes y ricas!! Galletas de Avena, Canela, Pasas y Coco 1 y 3/4 taza avena integral 1/2 cucharadita bicarbonato 1/4 taza azúcar integral (o azúcar a elección, ej: de coco o panela) 14 unidades dátiles con carozo (puedes reemplazar por azúcar a elección) 80 ml aceite vegetal suave (yo usé de oliva extra virgen) 1 cucharada linaza molida (harina de linaza) 60 ml leche vegetal (yo usé de avena) o agua 1/2 cucharadita canela en polvo 2 cucharaditas coco rallado 1 puñado pasas morenas 1 pizca sal",
+    "tiempo": "32 minutos",
+    "porciones": "16 galletas",
+    "descripcion": "¡¡Galletitas crocantes y ricas!! Galletas de Avena, Canela, Pasas y Coco",
     "ingredientes": [
       "1 y 3/4 taza avena integral",
       "1/2 cucharadita bicarbonato",
@@ -5125,8 +5044,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/05/B1374CF3-8A5B-4974-811F-F32D8F6F9981.jpeg"
     ],
     "imagenes_locales": [
-      "/images/B1374CF3-8A5B-4974-811F-F32D8F6F9981-150x150.jpeg",
-      "/images/EF918B02-6D56-4A32-BEE0-CE63FBF752E9-640x640.jpeg",
       "/images/EF918B02-6D56-4A32-BEE0-CE63FBF752E9.jpeg",
       "/images/C73EFBE9-DEA2-453B-94E2-5BB3047BD227.jpeg",
       "/images/D2E9F755-66C1-4458-93DF-4BA1642919EE.jpeg",
@@ -5141,11 +5058,11 @@
     "slug": "salsa-de-nueces-y-castanas-de-caju",
     "titulo": "Salsa de Nueces y Castañas de Cajú",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "salsa",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
+    "tiempo": "20 minutos",
     "porciones": "N/A",
-    "descripcion": "Esta salsa es muy salvadora! Fácil, rica y muy rápida de hacer La pueden usar para pastas, como salsa untable, para poner sobre papas cocidas, para mezclarla con champiñone salteados, para lasaña, muuuchas opciones!! Anímense con la receta Salsa de Nueces y Castañas de Cajú Suave y cremosa salsa blanca en base a frutos secos 3/4 taza nueces 3/4 taza castañas de cajú 5 cucharadas aceite de oliva extra virgen 1-2 dientes ajo 1 cucharada levadura nutricional ((opcional)) 1 cucharadita mostaza tipo dijon ((opcional))</",
+    "descripcion": "Esta salsa es muy salvadora! Fácil, rica y muy rápida de hacer La pueden usar para pastas, como salsa untable, para poner sobre papas cocidas, para mezclarla con champiñone salteados, para lasaña, muuuchas opciones!! Anímense con la receta",
     "ingredientes": [
       "3/4 taza nueces",
       "3/4 taza castañas de cajú",
@@ -5179,11 +5096,11 @@
     "slug": "lasana-de-berenjenas",
     "titulo": "Lasaña de Berenjenas",
     "tipo": "receta",
-    "categoria": "salsa",
+    "categoria": "plato_principal",
     "dificultad": "No especificada",
     "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Hola hola!! Les comparto esta rica receta para comer berenjenas! Queda buenísima!! Yo la comí con arroz y ensaladas !! Lasaña de Berenjenas 2 berenjenas medianas 1/2 zapallo italiano cortado en cubos pequeños 1 cebolla pequeña cortada en cubos pequeños 1-2 dientes de ajo (o a gusto) 1 puñado de cilantro picado fino 1 taza salsa pomodoro natural o la que uses condimentos a gusto a gusto queso vegano (opcional) Cortar una berenjena en rodajas finas para usarla de capas para la lasaña, agrégala en un bol y aliña con un poco de sal y aceite de oliva. Revuelve y deja a un lado. Apar",
+    "porciones": "4 porciones",
+    "descripcion": "Hola hola!! Les comparto esta rica receta para comer berenjenas! Queda buenísima!! Yo la comí con arroz y ensaladas !!",
     "ingredientes": [
       "2 berenjenas medianas",
       "1/2 zapallo italiano cortado en cubos pequeños",
@@ -5219,10 +5136,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/06/38099B77-8298-43F2-AAA0-437F1B99B53A.jpeg"
     ],
     "imagenes_locales": [
-      "/images/793AC321-A365-442D-8239-E6E2B685A63B-150x150.jpeg",
-      "/images/518D3C88-68DD-4C96-8976-840BEB9FCC01-150x150.jpeg",
-      "/images/712B012D-4B0F-4FFA-BB88-D8E834E5AC34-150x150.jpeg",
-      "/images/38099B77-8298-43F2-AAA0-437F1B99B53A-640x640.jpeg",
       "/images/793AC321-A365-442D-8239-E6E2B685A63B.jpeg",
       "/images/518D3C88-68DD-4C96-8976-840BEB9FCC01.jpeg",
       "/images/712B012D-4B0F-4FFA-BB88-D8E834E5AC34.jpeg",
@@ -5239,9 +5152,9 @@
     "tipo": "receta",
     "categoria": "plato_principal",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
+    "tiempo": "45 minutos",
     "porciones": "N/A",
-    "descripcion": "Este es un guiso muy simple y nutritivo que puedes preparar junto a un arroz basmati, quinoa o papas Guiso de lentejas con especias indias 1 taza lentejas 3 cebollines picados (separar parte blanca de la verde) 1 trozo pimentón cortado en cubitos 2 dientes ajo picado fino 1 cucharadita jengibre rallado 1 cucharadita curry 1 cucharadita garam masala 3 cucharadas salsa de soya 1/2 taza salsa pomodoro 1-2 hojas laurel 4 cucharadas cilantro picado fino 400 cc leche de coco (opcional) Sal de mar, pimienta, aceite de oliva Remojar las lentejas 3 horas o desde la noche anter",
+    "descripcion": "Este es un guiso muy simple y nutritivo que puedes preparar junto a un arroz basmati, quinoa o papas Guiso de lentejas con especias indias",
     "ingredientes": [
       "1 taza lentejas",
       "3 cebollines picados (separar parte blanca de la verde)",
@@ -5282,11 +5195,11 @@
     "slug": "pate-de-lentejas-con-nueces",
     "titulo": "Paté de Lentejas con Nueces",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "salsa",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Esta receta es de mi amigo Seba que tiene muchas recetas ricas en su cuenta de instagram @sebaqurles ¡Para que vayan a darse una vuelta! Este paté en particular es muy rico porque la combinación con las nueces es maravillosa Anímense a probarla Paté de Lentejas con Nueces 2 tazas Lentejas cocidas 1/4 taza Líquido de cocción de las lentejas o agua 1/2 taza Nueces 1 cucharada Aceite de oliva (o la que tengas) 1 cucharada Levadura nutricional (opcional) 1/4 cucharadita Humo líquido (opcional) 1/2 cucharada Orégano 1/2 cucharadita Ajo en polvo 1 pizca Comino en polvo",
+    "tiempo": "15 minutos",
+    "porciones": "4 porciones",
+    "descripcion": "Esta receta es de mi amigo Seba que tiene muchas recetas ricas en su cuenta de instagram @sebaqurles ¡Para que vayan a darse una vuelta! Este paté en particular es muy rico porque la combinación con las nueces es maravillosa Anímense a probarla",
     "ingredientes": [
       "2 tazas Lentejas cocidas",
       "1/4 taza Líquido de cocción de las lentejas o agua",
@@ -5315,7 +5228,6 @@
     "imagenes_locales": [
       "/images/F4BKhWFqTkyRM93A7NIbZQ_thumb_543f-150x150.jpg",
       "/images/ZqDUBAMTsm2cC43ZcYytw_thumb_5444-640x640.jpg",
-      "/images/UNADJUSTEDNONRAW_thumb_5464-640x640.jpg",
       "/images/UNADJUSTEDNONRAW_thumb_5435.jpg",
       "/images/UNADJUSTEDNONRAW_thumb_5464.jpg"
     ],
@@ -5329,9 +5241,9 @@
     "tipo": "receta",
     "categoria": "postre",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Esta receta de brownie queda exquisita La betarraga no se siente para que no se asusten !, pero le da una textura buenísima a la preparación Cuando hice este brownie sólo pesé algunas cosas así que otras se las pongo con medidas de taza y cucharadas, pero por ejemplo la harina y las betarragas preferí pesarlo para que se guíen mejor si es que tienen una pesa en su cocina Brownie de Chocolate y Betarraga Ingredientes húmedos 2 tazas betarraga (remolacha) asada o cocida (200 gr) 1 y 1/2 taza leche vegetal 1 cucharada vinagre de manzana (o de blanco) 3/4 taza",
+    "tiempo": "45 minutos",
+    "porciones": "1 molde de 25x10 cms",
+    "descripcion": "Esta receta de brownie queda exquisita La betarraga no se siente para que no se asusten !, pero le da una textura buenísima a la preparación Cuando hice este brownie sólo pesé algunas cosas así que otras se las pongo con medidas de taza y cucharadas, pero por ejemplo la harina y las betarragas preferí pesarlo para que se guíen mejor si es que tienen una pesa en su cocina Brownie de Chocolate y Betarraga Ingredientes húmedos",
     "ingredientes": [
       "2 tazas betarraga (remolacha) asada o cocida (200 gr)",
       "1 y 1/2 taza leche vegetal",
@@ -5360,7 +5272,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/06/0A43CB98-D178-402B-B00E-9E4E28027DCC.jpeg"
     ],
     "imagenes_locales": [
-      "/images/0A43CB98-D178-402B-B00E-9E4E28027DCC-640x640.jpeg",
       "/images/18BAD47C-A094-4E04-9B47-7B60BA2CCF65.jpeg",
       "/images/0A43CB98-D178-402B-B00E-9E4E28027DCC.jpeg"
     ],
@@ -5372,11 +5283,11 @@
     "slug": "gratin-de-papas-con-salsa-de-espinaca",
     "titulo": "Gratín de Papas con Salsa de Espinaca",
     "tipo": "receta",
-    "categoria": "postre",
+    "categoria": "plato_principal",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Hola Les dejo esta exquisita receta! Hace mucho que preparo este gratín y la base es siempre la misma pero tiene ciertas variaciones (más abajo les dejé dos links si quieren mirar) A este le puse berenjena y zapallo italiano a la salsa, pero pueden ponerle otras verduras u otras adicionales, lo que tengan en su cocina o lo que les guste más! Gratín de Papas con Salsa de Espinaca Exquisito pastel gratinado de papas, con salsa de espinaca en base a leche de coco, con berenjena, zapallo italiano y un toque de parmesano vegano. 1 kg papas cortadas en rodajas 1 cebolla cortada en cubitos pequeños 2 dientes d",
+    "tiempo": "90 minutos",
+    "porciones": "6 porciones",
+    "descripcion": "Hola Les dejo esta exquisita receta! Hace mucho que preparo este gratín y la base es siempre la misma pero tiene ciertas variaciones (más abajo les dejé dos links si quieren mirar) A este le puse berenjena y zapallo italiano a la salsa, pero pueden ponerle otras verduras u otras adicionales, lo que tengan en su cocina o lo que les guste más!",
     "ingredientes": [
       "1 kg papas cortadas en rodajas",
       "1 cebolla cortada en cubitos pequeños",
@@ -5409,7 +5320,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/07/IMG_6747.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_6747-640x640.jpg",
       "/images/IMG_6718.jpg",
       "/images/IMG_6747.jpg"
     ],
@@ -5423,9 +5333,9 @@
     "tipo": "receta",
     "categoria": "postre",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Una rica y saludable versión de tiramisu ! Sin gluten y sin ingredientes de origen animal. Hecho en base a frutos secos y endulzado naturalmente con dátiles. Tiramisu Crudivegano Esta versión de tiramisu es sin gluten, ni ingredientes de origen animal. Es en base a frutos secos y endulzado naturalmente con dátiles. Tiene tres capas: la base, una segunda de mousse de cacao y cafe y la última un frosting blanco en base a castañas de cajú. Base 150 gr nueces ((1 y 1/2 taza)) 130 gr dátiles ((3/4 taza)) 1 cucharada café cargado 2 cucharadas aceite de coco líquido 1 cucharadita extracto de vainilla Capa de Mousse de Cacao 80 gr nueces remojadas ((1 taza)) 80 gr",
+    "tiempo": "30 minutos",
+    "porciones": "10 porciones",
+    "descripcion": "Una rica y saludable versión de tiramisu ! Sin gluten y sin ingredientes de origen animal. Hecho en base a frutos secos y endulzado naturalmente con dátiles.",
     "ingredientes": [
       "150 gr nueces ((1 y 1/2 taza))",
       "130 gr dátiles ((3/4 taza))",
@@ -5476,11 +5386,11 @@
     "slug": "crema-de-verduras-al-curry",
     "titulo": "Crema de Verduras al Curry",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "sopa",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
+    "tiempo": "40 minutos",
     "porciones": "N/A",
-    "descripcion": "Esta crema de verduras queda muy rica! Anímate a prepararla Crema de Verduras al Curry 250 gr zapallo amarillo (calabaza) cortado en cubos 1/2 cebolla picada en pluma 1 taza zapallo italiano cortado en cubos 1 taza brócoli 1-2 dientes ajo picado fino 1 puñado cilantro 1 cucharada curry amarillo aceite de oliva extra virgen pimienta cayena ((opcional)) Calentar un sartén y agregar un chorrito de aceite de oliva. Agregar la cebolla, el ajo y al curry y sudar por unos 5 minutos Agregar las demás verduras cortadas en trozos y dorar por 5 minutos más Agregar",
+    "descripcion": "Esta crema de verduras queda muy rica! Anímate a prepararla",
     "ingredientes": [
       "250 gr zapallo amarillo (calabaza) cortado en cubos",
       "1/2 cebolla picada en pluma",
@@ -5507,7 +5417,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/09/IMG_8250.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_8250-640x640.jpg",
       "/images/IMG_8248.jpg",
       "/images/IMG_8250.jpg"
     ],
@@ -5519,11 +5428,11 @@
     "slug": "salsa-de-nueces-y-cilantro",
     "titulo": "Salsa de Nueces y Cilantro",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "salsa",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Salsa de Nueces y Cilantro Exquisita y cremosa salsa que puedes utilizar para pastas, como pasta untable o para agregar sobre cualquier preparación a elección 1 y 1/2 taza nueces mariposa 1-2 dientes de ajo (o a gusto) 1 y 1/2 taza hojas de cilantro 1 cucharada levadura nutricional ((opcional)) 5 cucharadas aceite de oliva (extra virgen) sal a gusto pimienta a gusto cantidad necesaria de agua tibia Remojas las nueces con agua recién hervida por unos 30 minutos mínimo Pasado el tiempo de remojo quitar el agua, y agregar las nueces a la juguera junto a todos los demás ingredientes. Licuar hasta obtener una salsa cr",
+    "tiempo": "35 minutos",
+    "porciones": "6 porciones",
+    "descripcion": "Salsa de Nueces y Cilantro Exquisita y cremosa salsa que puedes utilizar para pastas, como pasta untable o para agregar sobre cualquier preparación a elección",
     "ingredientes": [
       "1 y 1/2 taza nueces mariposa",
       "1-2 dientes de ajo (o a gusto)",
@@ -5549,7 +5458,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/08/IMG-7152.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG-7152-640x640.jpg",
       "/images/IMG-7141.jpg",
       "/images/IMG-7143.jpg",
       "/images/IMG-7152.jpg"
@@ -5562,7 +5470,7 @@
     "slug": "legumbres-dia-a-dia",
     "titulo": "Legumbres Día a Día",
     "tipo": "receta",
-    "categoria": "acompañamiento",
+    "categoria": "otros",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
@@ -5581,7 +5489,6 @@
     ],
     "imagenes_locales": [
       "/images/IMG-4218-640x640.jpg",
-      "/images/tabla-tiempos-remojo-y-coccion-legumbres-300x144.png",
       "/images/IMG-7303.jpg",
       "/images/IMG-7303-1.jpg",
       "/images/tabla-tiempos-remojo-y-coccion-legumbres.png"
@@ -5596,9 +5503,9 @@
     "tipo": "receta",
     "categoria": "postre",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Esta rica receta es de la Fran (pueden ver su instagram lleno de recetas ricas y veganas aquí ) y están deliciosos! Sólo cambie de la receta original las nueces por almendras para usar lo que tenía en casa. Espero la disfruten!! Cuadritos de Zapallo Amarillo (Calabaza) y Coco Ricos, saludables y fáciles cuadritos dulces sin gluten 1 y 1/2 taza zapallo amarillo cocido al vapor o al horno ((Medir una vez ya cocido)) 180 gr dátiles con carozo 150 gr coco rallado 100 gr avena 2 cucharadas syrup (o endulzante a elección) 100 gr almendras trituradas o picadas esencia de vainilla (a gusto) ralladura de naranja (",
+    "tiempo": "15 minutos",
+    "porciones": "18 cuadraditos",
+    "descripcion": "Esta rica receta es de la Fran (pueden ver su instagram lleno de recetas ricas y veganas aquí ) y están deliciosos! Sólo cambie de la receta original las nueces por almendras para usar lo que tenía en casa. Espero la disfruten!! Cuadritos de Zapallo Amarillo (Calabaza) y Coco Ricos, saludables y fáciles cuadritos dulces sin gluten",
     "ingredientes": [
       "1 y 1/2 taza zapallo amarillo cocido al vapor o al horno ((Medir una vez ya cocido))",
       "180 gr dátiles con carozo",
@@ -5644,9 +5551,9 @@
       "https://jumpseller.s3.eu-west-1.amazonaws.com/store/dhanayoga/assets/javiera%20blog%20dhanayoga%20a.jpg"
     ],
     "imagenes_locales": [
-      "/images/javiera%20blog%20dhanayoga%20c.jpg",
-      "/images/javiera%20blog%20dhanayoga%20b.jpg",
-      "/images/javiera%20blog%20dhanayoga%20a.jpg"
+      "/images/javiera-blog-dhanayoga-a.jpg",
+      "/images/javiera-blog-dhanayoga-b.jpg",
+      "/images/javiera-blog-dhanayoga-c.jpg"
     ],
     "fechaPublicacion": "2018-09-10",
     "url_original": "http://recetasdejavi.cl/?p=1874"
@@ -5658,9 +5565,9 @@
     "tipo": "receta",
     "categoria": "postre",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Este brownie es otra cosa de rico!! Saludable, sin gluten, sin azúcares refinados. Solo 4 ingredientes naturales Brownie Crudivegano (sin gluten y sin azúcar) Brownie 150 gr almendras o harina de almendras 90 gr nueces mariposa o harina de nueces 400 gr dátiles con carozo 60 gr cacao amargo en polvo Frosting 1 (Opcional) 3 cucharadas cacao amargo en polvo 9 cucharadas aceite de coco derretido c/n syrup de dátiles Frosting 2 (Opcional) 1 trozo cobertura chocolate c/n leche vegetal Brownie Remojar los",
+    "tiempo": "20 minutos",
+    "porciones": "12 cuadritos",
+    "descripcion": "Este brownie es otra cosa de rico!! Saludable, sin gluten, sin azúcares refinados. Solo 4 ingredientes naturales",
     "ingredientes": [
       "150 gr almendras o harina de almendras",
       "90 gr nueces mariposa o harina de nueces",
@@ -5694,7 +5601,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/09/IMG_8688.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_8689-640x640.jpg",
       "/images/IMG_8689.jpg",
       "/images/IMG_8695.jpg",
       "/images/IMG_8688.jpg"
@@ -5709,9 +5615,9 @@
     "tipo": "receta",
     "categoria": "desayuno",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Esta preparación con tofu queda buenísima para unas tostadas al desayuno Además puedes comerlas como un brunch o incorporarlo a un almuerzo o cena acompañado de papas, arroz, o lo que se te antoje Tofu Revuelto (Tofu Scramble) 200 gr Tofu firme 1/2 cucharadita cúrcuma en polvo a gusto champiñones laminados aceite de oliva (extra virgen) salpimienta 1 pizca sal negra ((opcional)*) a gusto condimentos (ej: orégano, ají color, tomillo, etc) ((opcional)) Con un tenedor desmenuzar el tofu, aplastándolo para dejarlo en trozos irregulares Calentar",
+    "tiempo": "15 minutos",
+    "porciones": "2",
+    "descripcion": "Esta preparación con tofu queda buenísima para unas tostadas al desayuno Además puedes comerlas como un brunch o incorporarlo a un almuerzo o cena acompañado de papas, arroz, o lo que se te antoje",
     "ingredientes": [
       "200 gr Tofu firme",
       "1/2 cucharadita cúrcuma en polvo",
@@ -5735,7 +5641,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/09/IMG_1766-1.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_1766-1-640x640.jpg",
       "/images/IMG_1772-1.jpg",
       "/images/IMG_1766-1.jpg"
     ],
@@ -5747,7 +5652,7 @@
     "slug": "workshop-reposteria-cruda",
     "titulo": "Workshop: Repostería Cruda",
     "tipo": "receta",
-    "categoria": "salsa",
+    "categoria": "otros",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
@@ -5771,11 +5676,11 @@
     "slug": "hummus-con-cilantro",
     "titulo": "Hummus con Cilantro",
     "tipo": "receta",
-    "categoria": "entrada",
+    "categoria": "salsa",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "¿Amas el hummus? Con cilantro queda maravilloso Hummus con Cilantro 2 tazas garbanzos cocidos 1 jugo de un limón 1 cucharada tahini o semillas de sésamo pizca comino 1 puñado grande (o más!) cilantro 1 diente ajo (o a gusto) 1 chorrito aceite de oliva (extra virgen) c/n líquido de la cocción de los garbanzos o agua caliente En la procesadora o licuadora agregar todos los ingredientes y un poco del caldo. Triturar ir agregando más caldo según sea necesario para lograr la textura deseada Ajustar sabores probando.&",
+    "tiempo": "10 minutos",
+    "porciones": "4 porciones",
+    "descripcion": "¿Amas el hummus? Con cilantro queda maravilloso",
     "ingredientes": [
       "2 tazas garbanzos cocidos",
       "1 jugo de un limón",
@@ -5799,7 +5704,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/09/IMG_8699.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_8699-640x640.jpg",
       "/images/IMG_8701.jpg",
       "/images/IMG_8699.jpg"
     ],
@@ -5811,11 +5715,11 @@
     "slug": "lasana-con-salsa-de-espinaca-y-champinones",
     "titulo": "Lasaña con salsa de espinaca y champiñones",
     "tipo": "receta",
-    "categoria": "salsa",
+    "categoria": "plato_principal",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
-    "descripcion": "Esta lasaña quedó muy rica! La salsa de queso vegano es opcional pero le da un toque exquisito! Lasaña con salsa de espinaca y champiñones Lasaña hecha con salsa blanca en base a leche de coco, champiñones salteados y espinaca. Con un cremoso queso vegano casero en base a castañas de cajú. 400 gr champiñones 500 gr espinaca lavada 400 cc leche de coco (sin azúcar añadida) c/n masa para lasaña condimentos a gusto Salsa de queso vegano (opcional) 3/4 taza castañas de cajú 1 cucharada levadura nutricional 2 cucharadas yogur vegetal al natural 1/3 cucharadita cúrcuma a gusto pimienta a gusto ajo cantidad necesaria aceite de oliva <div class=\"wprm-fallback-recip",
+    "descripcion": "Esta lasaña quedó muy rica! La salsa de queso vegano es opcional pero le da un toque exquisito!",
     "ingredientes": [
       "400 gr champiñones",
       "500 gr espinaca lavada",
@@ -5857,7 +5761,7 @@
     "slug": "workshop-reposteria-en-base-a-bebidas-vegetales",
     "titulo": "Workshop - Repostería en base a Bebidas Vegetales",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "otros",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
@@ -5879,11 +5783,11 @@
     "slug": "cocadas-crudas-de-frutos-secos-y-cacao",
     "titulo": "Cocadas Crudas de Frutos Secos y Cacao",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "postre",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Estas bolitas o cocadas son muy ricas y perfectas para un snack de media mañana o cuando se te antojen Cocadas Crudas de Frutos Secos y Cacao Bolitas crudiveganas hechas en base a sólo 4 ingredientes: almendras, nueces, cacao amargo y dátiles para endulzar 80 gr almendras o harina de almendras 50 gr nueces o harina de nueces 200 gr dátiles con carozo 30 gr cacao amargo en polvo coco rallado y/o cacao amargo en polvo para decorar Remojar los dátiles en agua caliente unos 20 minutos, quitar agua del remojo y descarozar En la procesadora de alimentos (1,2,3 o robot de cocina) triturar las almendras y nueces hasta qu",
+    "tiempo": "15 minutos",
+    "porciones": "10 bolitas",
+    "descripcion": "Estas bolitas o cocadas son muy ricas y perfectas para un snack de media mañana o cuando se te antojen",
     "ingredientes": [
       "80 gr almendras o harina de almendras",
       "50 gr nueces o harina de nueces",
@@ -5910,7 +5814,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/11/IMG-9827.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG-9827-e1541546964273-640x640.jpg",
       "/images/IMG-9835.jpg",
       "/images/IMG-9834.jpg",
       "/images/IMG-9832.jpg",
@@ -5927,8 +5830,8 @@
     "categoria": "plato_principal",
     "dificultad": "No especificada",
     "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Papas Rellenas con Lentejas Rojas y Quinoa Papas rellenas, con forma de Arepas :-), con un rico sofrito de lentejas rojas, quinoa y zapallo italiano. Masa de papa: 800 gr papas 2 cucharadas harina de arroz integral 2 cucharadas almidón de maíz ((maizena)) a gusto sal, pimienta, condimentos a elección Relleno 1 diente ajo 1 cebolla cortado en cubos pequeños 1/2 taza zapallo italiano cortado en cubos pequeños 3/4 taza lentejas rojas cocidas 1/2 taza quinoa cocida sal, pimienta, paprika, orégano Masa de papa: Pelar las papas, cortarlas en trozos pequeños y poner a hervir con un poco de sal. Hervir",
+    "porciones": "6 Tortillas",
+    "descripcion": "Papas Rellenas con Lentejas Rojas y Quinoa Papas rellenas, con forma de Arepas :-), con un rico sofrito de lentejas rojas, quinoa y zapallo italiano. Masa de papa:",
     "ingredientes": [
       "800 gr papas",
       "2 cucharadas harina de arroz integral",
@@ -5962,8 +5865,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/11/IMG_0190.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_0190-150x150.jpg",
-      "/images/IMG_0199-768x1024.jpg",
       "/images/IMG_0194.jpg",
       "/images/IMG_0199.jpg",
       "/images/IMG_0226.jpg",
@@ -5979,9 +5880,9 @@
     "tipo": "receta",
     "categoria": "plato_principal",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
+    "tiempo": "50 minutos",
     "porciones": "N/A",
-    "descripcion": "¿Te gustan los ñoquis? Aquí te comparto una receta exquisita de ñoquis integrales ¡quedan buenísimos! Son muy simples de hacer, y con ingredientes 100% naturales Ñoquis de Papa con Salsa Cremosa de Pesto 1 kg papas sin piel 250-300 gr harina integral 5 cucharadas aceite de oliva extra virgen sal a gusto condimentos a elección (opcional) 1 cucharada levadura nutricional (opcional) Cortar las papas en trozos (para que la cocción sea más rápida) y poner a hervir por unos 20 minutos o hasta esta cocidas (poder atravesarlas fácilmente con un palito) Sacar del agua y molerlas (con un pasa puré o tenedor también si",
+    "descripcion": "¿Te gustan los ñoquis? Aquí te comparto una receta exquisita de ñoquis integrales ¡quedan buenísimos! Son muy simples de hacer, y con ingredientes 100% naturales Ñoquis de Papa con Salsa Cremosa de Pesto",
     "ingredientes": [
       "1 kg papas sin piel",
       "250-300 gr harina integral",
@@ -6018,7 +5919,7 @@
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
-    "descripcion": "¡Te gustan las tartas de limón? Esta queda riquísima! Sin gluten ni azúcares refinados. Solo con ingredientes naturales Tarta Cruda de Limón Base: 110 gr harina de nueces o de fruto seco 30 gr coco rallado 170 gr pasas flame o dátiles Crema: 220 gr castañas de cajú sin sal remojadas 8 horas jugo de dos limones o a gusto ralladura de dos limones c/n leche vegetal 4 cucharadas aceite de coco 4-5 cucharadas syrup de dátiles (u otro) 1 cucharadita levadura nutricional (opcional) Base Poner en la procesadora las pasas hasta formar una pasta (tipo masa pegajosa)<",
+    "descripcion": "¡Te gustan las tartas de limón? Esta queda riquísima! Sin gluten ni azúcares refinados. Solo con ingredientes naturales",
     "ingredientes": [
       "110 gr harina de nueces o de fruto seco",
       "30 gr coco rallado",
@@ -6051,7 +5952,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/11/IMG_9582.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_9582-640x640.jpg",
       "/images/IMG_9581.jpg",
       "/images/IMG_9582.jpg"
     ],
@@ -6067,7 +5967,7 @@
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
-    "descripcion": "Amados estos zapallos italianos rellenos! Puedes acompañar con arroz, papas, vegetales, ensaladas ¡lo que gustes ! Zapallos Italianos Rellenos con Lentejas y Vegetales 6 unidades zapallos italianos ((calabacines)) 2 cebollines cortados finos (separar parte blanca de la verde) ((cebolla de verdeo)) 1 pimentón rojo 2 tazas Lentejas cocidas 1 ajo cortado fino a gusto condimentos Cortar un borde de los zapallos (será la \"tapa\") y sacar la pulpa con una cuchara Cocinar los zapallos y las tapas a partir de agua fría 8-10 minutos desde que hierve. Pasarlo a un bol con agua fría para cortar cocción",
+    "descripcion": "Amados estos zapallos italianos rellenos! Puedes acompañar con arroz, papas, vegetales, ensaladas ¡lo que gustes !",
     "ingredientes": [
       "6 unidades zapallos italianos ((calabacines))",
       "2 cebollines cortados finos (separar parte blanca de la verde) ((cebolla de verdeo))",
@@ -6095,7 +5995,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/11/IMG-0446.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG-0449-640x640.jpg",
       "/images/IMG-0457.jpg",
       "/images/IMG-0449.jpg",
       "/images/IMG-0446.jpg"
@@ -6111,8 +6010,8 @@
     "categoria": "plato_principal",
     "dificultad": "No especificada",
     "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "AMADO CURRY Fideos de Arroz con Tofu y Vegetales al Curry 2 tazas tofu cortado en cubos 2 tazas champiñones cortados en trozos 2 cucharadas curry amarillo 1 cebollín cortado fino (separar parte blanca de la verde) 1-2 dientes ajo cortado fino 1/2 brócoli cortado en trozos 1/2 pimentón rojo cortado en juliana 1/2 zapallo italiano cortado en juliana 1/3 taza salsa de soya (o cantidad a gusto) 400 cc leche de coco 400 gr fideos de arroz pimienta a gusto aceite de oliva (para saltear) Calentar un wok a fuego alto, saltear el tofu hasta dorar, reservar en un bol. <",
+    "porciones": "6 porciones",
+    "descripcion": "AMADO CURRY",
     "ingredientes": [
       "2 tazas tofu cortado en cubos",
       "2 tazas champiñones cortados en trozos",
@@ -6148,7 +6047,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2018/12/1698306B-EE68-4779-8EAD-4AF1E16D9180.jpeg"
     ],
     "imagenes_locales": [
-      "/images/15106F05-0C2E-4ADA-B6B2-679594BE0B20-640x640.jpeg",
       "/images/15106F05-0C2E-4ADA-B6B2-679594BE0B20.jpeg",
       "/images/1698306B-EE68-4779-8EAD-4AF1E16D9180.jpeg"
     ],
@@ -6164,7 +6062,7 @@
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
-    "descripcion": "Esta receta es muy fácil de hacer! Y lo mejor es que pueden usar los frutos secos que quieras: maní, nueces, almendras, avellanas, castañas de cajú, etc. Lo que tengas Con las frutas deshidratas lo mismo, pueden usar dátiles, damascos turcos, higos, cranberries, pasas morenas o rubias, coco rallado, etc. Además, si quieres ver el paso a paso puedes ir a mis historias destacadas de instagram Granola sin Avena 3 tazas mezcla de frutos secos (yo usé nueces, almendras y avellanas) 1 y 1/2 taza mezcla",
+    "descripcion": "Esta receta es muy fácil de hacer! Y lo mejor es que pueden usar los frutos secos que quieras: maní, nueces, almendras, avellanas, castañas de cajú, etc. Lo que tengas Con las frutas deshidratas lo mismo, pueden usar dátiles, damascos turcos, higos, cranberries, pasas morenas o rubias, coco rallado, etc. Además, si quieres ver el paso a paso puedes ir a mis historias destacadas de instagram Granola sin Avena",
     "ingredientes": [
       "3 tazas mezcla de frutos secos (yo usé nueces, almendras y avellanas)",
       "1 y 1/2 taza mezcla de frutas deshidratadas (yo usé dátiles, coco rallado, cranberries y pasas rubias)",
@@ -6192,8 +6090,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2019/01/IMG-2044.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG-2044-640x640.jpg",
-      "/images/IMG-2040-640x640.jpg",
       "/images/IMG-2036.jpg",
       "/images/IMG-2040.jpg",
       "/images/IMG-2044.jpg"
@@ -6206,11 +6102,11 @@
     "slug": "tarta-de-zapallo-italiano-zucchini",
     "titulo": "Tarta de Zapallo Italiano (Zucchini)",
     "tipo": "receta",
-    "categoria": "postre",
+    "categoria": "plato_principal",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Tarta de Zapallo Italiano (Zucchini) Para la Base (molde 22 cms) 300 gr harina de espelta integral ((o de trigo)) 1 cucharada linaza molida 5 cucharadas harina de nueces 5 cucharadas aceite de oliva extra virgen 1 cucharadita polvos de hornear 1 cucharadita vinagre (usé de manzana) 1 cucharadita de sal al ras Para el Relleno 1 cebolla cortada en cubitos 1 y 1/2 zapallo italiano mediano cortado en cubos 1/2 zapallo italiano cortado en rodajas delgadas (para decorar encima) 2 tazas de champiñones cortad",
+    "tiempo": "60 minutos",
+    "porciones": "8 porciones",
+    "descripcion": "Tarta de Zapallo Italiano (Zucchini) Para la Base (molde 22 cms)",
     "ingredientes": [
       "300 gr harina de espelta integral ((o de trigo))",
       "1 cucharada linaza molida",
@@ -6256,8 +6152,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2019/01/IMG-2321.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG-2335-1100x1393.jpg",
-      "/images/IMG-2321-640x640.jpg",
       "/images/IMG-2352.jpg",
       "/images/IMG-2335.jpg",
       "/images/IMG-2331.jpg",
@@ -6276,7 +6170,7 @@
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
-    "descripcion": "Esta torta chocolatosa queda exquisita TIENEN que probarla y contarme cómo les fue! Torta Chocolatosa con Berries Bizcocho de chocolate 320 ml leche vegetal (1 1/3 de taza) 1 y 1/2 cucharada vinagre de manzana 70 ml aceite de coco (1/3 taza) 140 gr cobertura de chocolate cortada en trozos 2 cucharaditas esencia de vainilla 250 gr de harina integral 60 gr cacao amargo en polvo 200 gr azúcar integral (u otra) 1 cucharadita b",
+    "descripcion": "Esta torta chocolatosa queda exquisita TIENEN que probarla y contarme cómo les fue! Torta Chocolatosa con Berries Bizcocho de chocolate",
     "ingredientes": [
       "320 ml leche vegetal (1 1/3 de taza)",
       "1 y 1/2 cucharada vinagre de manzana",
@@ -6330,8 +6224,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2019/02/bb3a2d2c-c177-49ab-9d74-9db56cc10ad3.jpg"
     ],
     "imagenes_locales": [
-      "/images/df3160d2-634d-4753-9973-778e7615cfa7-480x640.jpg",
-      "/images/34188b7b-dc8a-4412-8d04-2ba63569ec06-480x640.jpg",
       "/images/df3160d2-634d-4753-9973-778e7615cfa7.jpg",
       "/images/34188b7b-dc8a-4412-8d04-2ba63569ec06.jpg",
       "/images/bb3a2d2c-c177-49ab-9d74-9db56cc10ad3.jpg"
@@ -6344,11 +6236,11 @@
     "slug": "lasana-dos-salsas",
     "titulo": "Lasaña Dos Salsas",
     "tipo": "receta",
-    "categoria": "salsa",
+    "categoria": "plato_principal",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
-    "descripcion": "¿Amas la lasaña? Esta con salsa blanca y roja te encantará Lasaña dos salsas Lasaña con una capa de salsa hecha en base a leche de coco, champiñones y espinaca, y otras dos capas hechas con boloñesa de zapallo italiano y tofu Salsa de espinaca champiñón 200 gr champiñones cortado en láminas 500 gr espinaca lavada y cortada en juliana 400 cc leche de coco sin azúcar Condimentos a gusto ajo en polvo, cebolla en polvo, nuez moscada, pimienta, etc Salsa boloñesa 1 cebolla grande en cuadritos pequeños Ajo a gusto picado fino 1 zanahoria rallada 1/3 taza vino tinto 400 cc salsa de tomates 1 zapallo italiano cortado en cubos 300 gr",
+    "descripcion": "¿Amas la lasaña? Esta con salsa blanca y roja te encantará Lasaña dos salsas Lasaña con una capa de salsa hecha en base a leche de coco, champiñones y espinaca, y otras dos capas hechas con boloñesa de zapallo italiano y tofu Salsa de espinaca champiñón",
     "ingredientes": [
       "200 gr champiñones cortado en láminas",
       "500 gr espinaca lavada y cortada en juliana",
@@ -6393,8 +6285,8 @@
     "categoria": "postre",
     "dificultad": "No especificada",
     "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Hola Querid@s! Estas galletas son un perfecto y delicioso snack para llevar a cualquier lugar Son sin gluten, sin azúcar refinada y con ingredientes naturales :-) Puedes hacerlas crudas o si te gustan más crocantes puedes hornearlas ¡Quedan muy buenas! Galletas con Mantequilla de Maní (con o sin horno) 1 taza almendras (u otro fruto seco) 1 taza dátiles sin carozo 2-3 cucharadas mantequilla de maní opcional pasas, coco, chips de chocolate u otro a elección Remojar dátiles en agua caliente por 15 minutos y quitar el agua. Triturar las almendras en la procesadora hasta que quede tipo harina o trozos pequeños <p",
+    "porciones": "16 galletas",
+    "descripcion": "Hola Querid@s! Estas galletas son un perfecto y delicioso snack para llevar a cualquier lugar Son sin gluten, sin azúcar refinada y con ingredientes naturales :-) Puedes hacerlas crudas o si te gustan más crocantes puedes hornearlas ¡Quedan muy buenas! Galletas con Mantequilla de Maní (con o sin horno)",
     "ingredientes": [
       "1 taza almendras (u otro fruto seco)",
       "1 taza dátiles sin carozo",
@@ -6425,11 +6317,11 @@
     "slug": "croquetas-de-lentejas-con-garam-masala",
     "titulo": "Croquetas de lentejas con garam masala",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "entrada",
     "dificultad": "No especificada",
     "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Hola Debes probar estas ricas croquetas con toques de garam masala y cúrcuma, son una buena opción para preparar las lentejas de distinta manera y sorprender paladares Si no eres muy fan de estos condimentos indios, puedes omitirlos o cambiar por otros de tu gusto Croquetas de lentejas con garam masala 2 tazas lentejas cocidas (frías) 1 puñado perejil 1/4 cebolla 1/2 zanahoria 1-2 dientes de ajo 1/2 cucharadita cúrcuma (opcional) 1/2 cucharadita garam masala (opcional) opcional otros condimentos a gusto sal <",
+    "porciones": "4",
+    "descripcion": "Hola Debes probar estas ricas croquetas con toques de garam ma",
     "ingredientes": [
       "2 tazas lentejas cocidas (frías)",
       "1 puñado perejil",
@@ -6456,7 +6348,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2019/04/IMG_4861.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_3878-639x640.jpg",
       "/images/IMG_3878.jpg",
       "/images/IMG_3876.jpg",
       "/images/IMG_4861.jpg"
@@ -6472,8 +6363,8 @@
     "categoria": "plato_principal",
     "dificultad": "No especificada",
     "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Este típico plato, en su versión más conocida griega, es muy rico y veganizado con lentejas queda eeeeexquisito!! Otra forma más de cocina tus lentejas y no morir de aburrimiento de legumbres :-) Moussaka Vegana con Lentejas lentejas remojadas min. 2 horas berenjenas en láminas de 1 cm app 1 cebolla cortada en cubos pequeños 1-2 dientes de ajo cortados fino 1 tomate cortado en trozos pequeños orégano, tomillo, comino, pimienta (a gusto) sal Sofreir la cebolla y el ajo en un sartén hasta dorar. En la misma olla incorporar y cocinar las lentejas, condimentos, y el tomate en trozos, con poca agua, para que al estar cocidas queden en una salsa espesa (y",
+    "porciones": "6",
+    "descripcion": "Este típico plato, en su versión más conocida griega, es muy rico y veganizado con lentejas queda eeeeexquisito!! Otra forma más de cocina tus lentejas y no morir de aburrimiento de legumbres :-)",
     "ingredientes": [
       "lentejas remojadas min. 2 horas",
       "berenjenas en láminas de 1 cm app",
@@ -6501,7 +6392,7 @@
     "slug": "intensivo-clase-de-cocina-para-la-planificacion-semanal",
     "titulo": "#plandejavi Julio: AGOTADO Clase de Cocina para la Planificación Semanal",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "otros",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
@@ -6527,7 +6418,7 @@
     "slug": "taller-reposteria-raw-sin-gluten-sin-azucar-y-sin-horno",
     "titulo": "Taller Repostería Raw: sin gluten, sin azúcar y sin horno",
     "tipo": "receta",
-    "categoria": "postre",
+    "categoria": "otros",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
@@ -6548,8 +6439,8 @@
     "categoria": "plato_principal",
     "dificultad": "No especificada",
     "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "¡Esta receta está increíblemente fácil y rica! Además que con esta base puedes hacer muuuchas creaciones usando diferentes ingredientes, lo que tengas a mano o lo que más te guste Budín de Lentejas y Vegetales Budín al horno, sin huevo, con lentejas, zapallo italiano, pimentón verde y cebolla Mezcla budín 2 1/2 tazas lentejas (las que quieras) cocidas 1 cebolla cortada en pluma 1 pimentón cortado en juliana 1 zapallo italiano cortado en cuadritos sal y condimentos a gusto 1-2 ajo cortado fino Batido 1 taza harina de garbanzos o lentejas 1 taza agua sal y condimentos a gusto 1 cucharada vinagre de manzana (opcional) </",
+    "porciones": "6 porciones",
+    "descripcion": "¡Esta receta está increíblemente fácil y rica! Además que con esta base puedes hacer muuuchas creaciones usando diferentes ingredientes, lo que tengas a mano o lo que más te guste Budín de Lentejas y Vegetales Budín al horno, sin huevo, con lentejas, zapallo italiano, pimentón verde y cebolla Mezcla budín",
     "ingredientes": [
       "2 1/2 tazas lentejas (las que quieras) cocidas",
       "1 cebolla cortada en pluma",
@@ -6579,7 +6470,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2019/07/IMG_1570.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_1570-1100x1467.jpg",
       "/images/IMG_1567.jpg",
       "/images/IMG_1570.jpg"
     ],
@@ -6591,11 +6481,11 @@
     "slug": "strogonoff-de-hongos-y-vegetales",
     "titulo": "Strogonoff de Hongos y Vegetales",
     "tipo": "receta",
-    "categoria": "sopa",
+    "categoria": "plato_principal",
     "dificultad": "No especificada",
     "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Esta versión del strogonoff les juro que queda maravillosa Si quieres verla con más detalles puedes encontrar el paso a paso en mis historias destacadas de instagram @recetasdejavi Strogonoff de Hongos y Vegetales Preparación en base a una crema de frutos secos guisada junto a hongos, zapallo italiano, berenjena y pimentón 4 tazas champiñones cortados en cuartos 3 cebollines cortados finos (separando la parte blanca de la verde) 1-2 dientes de ajo cortados finos 1/2 pimentón rojo cortado en cubos pequeños 1 berenjena cortado en cubos 1 zapallo italiano cortado en cubos Salsa/crema de frutos secos 1 y 1/2 taza frutos",
+    "porciones": "6 porciones",
+    "descripcion": "Esta versión del strogonoff les juro que queda maravillosa Si quieres verla con más detalles puedes encontrar el paso a paso en mis historias destacadas de instagram @recetasdejavi",
     "ingredientes": [
       "4 tazas champiñones cortados en cuartos",
       "3 cebollines cortados finos (separando la parte blanca de la verde)",
@@ -6627,7 +6517,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2019/07/IMG_0999.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG_0994-e1562707174885-640x640.jpg",
       "/images/IMG_0994.jpg",
       "/images/IMG_0999.jpg"
     ],
@@ -6639,7 +6528,7 @@
     "slug": "tallerculinario-entrantes-para-compartir-1-de-agosto",
     "titulo": "#TallerCulinario: Entrantes Para Compartir - 20 de Agosto",
     "tipo": "receta",
-    "categoria": "entrada",
+    "categoria": "otros",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
@@ -6661,7 +6550,7 @@
     "slug": "taller-pan-de-masa-madre-en-casa",
     "titulo": "Taller Pan de Masa Madre en Casa - 4 y 5 de Sept",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "otros",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
@@ -6676,7 +6565,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2019/08/IMG_2893-01-1.jpeg"
     ],
     "imagenes_locales": [
-      "/images/IMG_2893-01-1-1100x745.jpeg",
       "/images/IMG_2877-01-1.jpeg",
       "/images/IMG_2888-01-1.jpeg",
       "/images/IMG_2893-01-1.jpeg"
@@ -6689,7 +6577,7 @@
     "slug": "la-parrilla-veggie-taller-dieciochero",
     "titulo": "La Parrilla Veggie: Taller Dieciochero",
     "tipo": "receta",
-    "categoria": "postre",
+    "categoria": "otros",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
@@ -6707,11 +6595,11 @@
     "slug": "baba-ganoush-pasta-o-dip-de-berenjenas",
     "titulo": "Baba Ganoush (Pasta o dip de berenjenas)",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "salsa",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Esta pasta de berenjenas queda exquisita con pan pita o un pancito de masa madre Baba Ganoush o Dip de Berenjenas El baba ganoush es típico de la cocina árabe, y es una pasta o dip hecho a base de berenjenas 3 berenjenas 2 dientes de ajo jugo de 1 limón 1 cucharadita o a gusto tahine o sésamo tostado 3 cucharadas aceite de oliva a gusto comino a gusto tomillo a gusto sal Pre calentar el horno a 180 Cortar las berenjenas en mitades y hacer incisiones con el cuchillo en forma de cruz por el lado de la pulpa, poner en una fuente para horno y agregar condimentos (sal, comino, tomillo y acei",
+    "tiempo": "60 minutos",
+    "porciones": "4 porciones",
+    "descripcion": "Esta pasta de berenjenas queda exquisita con pan pita o un pancito de masa madre Baba Ganoush o Dip de Berenjenas El baba ganoush es típico de la cocina árabe, y es una pasta o dip hecho a base de berenjenas",
     "ingredientes": [
       "3 berenjenas",
       "2 dientes de ajo",
@@ -6737,7 +6625,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2020/03/IMG-0579.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG-0559-150x150.jpg",
       "/images/IMG-0559.jpg",
       "/images/IMG-0579.jpg"
     ],
@@ -6749,11 +6636,11 @@
     "slug": "muffins-de-platano-con-frambuesas",
     "titulo": "Muffins de Plátano con Frambuesas",
     "tipo": "receta",
-    "categoria": "otros",
+    "categoria": "postre",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
-    "descripcion": "Si tienes plátanos que se están poniendo negros ¡esta receta es ideal! 😍 ⠀ En mis historias destacadas de instagram (@recetasdejavi) les dejé guardado el paso a paso para que se les haga más fácil 👩‍🍳 ! Muffins Integrales de Plátano con Frambuesas Ingredientes secos 2 tazas de harina integral 1/2 taza de azúcar integral ((o la que utilices)) 2 cucharaditas de te de polvo de hornear 1 pizca de sal Ingredientes húmedos 2 plátanos grandes y maduros 1/2 taza de leche vegetal 1/4 taza de aceite vegetal 1 cucharada de mantequilla de maní (opcional) 1 cucharada esencia de vainilla Pre calentar el horno a 180° y aceita un mol",
+    "descripcion": "Si tienes plátanos que se están poniendo negros ¡esta receta es ideal! 😍 ⠀ En mis historias destacadas de instagram (@recetasdejavi) les dejé guardado el paso a paso para que se les haga más fácil 👩‍🍳 ! Muffins Integrales de Plátano con Frambuesas Ingredientes secos",
     "ingredientes": [
       "2 tazas de harina integral",
       "1/2 taza de azúcar integral ((o la que utilices))",
@@ -6779,7 +6666,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2020/03/28CEBCF7-1433-4D2F-9229-15B1FD4EC1F4.jpg"
     ],
     "imagenes_locales": [
-      "/images/28CEBCF7-1433-4D2F-9229-15B1FD4EC1F4-1100x1375.jpg",
       "/images/0FEF05CF-F953-4ACC-93D3-F3B3717A5150.jpg",
       "/images/28CEBCF7-1433-4D2F-9229-15B1FD4EC1F4.jpg"
     ],
@@ -6795,7 +6681,7 @@
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
-    "descripcion": "Nunca fui muy fanática de la salsa BBQ hasta esta receta ¡AMADA! Para más claridad puedes ir a mis historas destacadas \"SalsaBBQ\" en mi Instagram @recetasdejavi Salsa BBQ 1 taza puré de tomates 1 cebolla morada cortada en pluma 2 dientes ajo picado fino 3/4 taza aceto balsámico 1/2 taza azúcar 1 cucharadita jengibre rallado 1 cucharadita sal Opcional 1 cdta humo líquido En una ollita, con un chorrito de aceite de oliva, dorar la cebolla con el ajo (unos 8 mins) Agregar todos los demás ingredientes a la olla Coc",
+    "descripcion": "Nunca fui muy fanática de la salsa BBQ hasta esta receta ¡AMADA! Para más claridad puedes ir a mis historas destacadas \"SalsaBBQ\" en mi Instagram @recetasdejavi Salsa BBQ",
     "ingredientes": [
       "1 taza puré de tomates",
       "1 cebolla morada cortada en pluma",
@@ -6820,7 +6706,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2020/04/92da0be8-2ad4-4bba-8b8a-5d020cf4dc5f.jpg"
     ],
     "imagenes_locales": [
-      "/images/b20c7e6e-267d-44de-a169-bda6409acfb3-611x640.jpg",
       "/images/b20c7e6e-267d-44de-a169-bda6409acfb3.jpg",
       "/images/92da0be8-2ad4-4bba-8b8a-5d020cf4dc5f.jpg"
     ],
@@ -6834,9 +6719,9 @@
     "tipo": "receta",
     "categoria": "plato_principal",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
+    "tiempo": "60 minutos",
     "porciones": "N/A",
-    "descripcion": "¡Hola Querides! En estas burger puedes reemplazar la carne de soya por arroz o quinoa cocidos u otro similar Si tienen dudas me las dejan abajo. Y para más claridad de la receta pueden ir a mis historias destacadas en Insta @recetasdejavi \"BurgerLentejas\" y ver el paso a paso :-) Hamburguesas de Lentejas y Carne de Soya 2 tazas lentejas cocidas 1 1/2 taza carne de soya previamente hidratada ((en agua caliente por 30 mins)) 2 huevos de chia ((2 cucharadas de chia hidratadas en 6 cucharadas de agua por 15 mins)) 2 cucharadas ketchup o salsa bbq 2 cucharadas cilantro o perejil o espinaca u otro, picado fino 1 cucharada salsa de soya Opcional",
+    "descripcion": "¡Hola Querides! En estas burger puedes reemplazar la carne de soya por arroz o quinoa cocidos u otro similar Si tienen dudas me las dejan abajo. Y para más claridad de la receta pueden ir a mis historias destacadas en Insta @recetasdejavi \"BurgerLentejas\" y ver el paso a paso :-)",
     "ingredientes": [
       "2 tazas lentejas cocidas",
       "1 1/2 taza carne de soya previamente hidratada ((en agua caliente por 30 mins))",
@@ -6862,7 +6747,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2020/04/IMG-0635.jpg"
     ],
     "imagenes_locales": [
-      "/images/IMG-0642-1920x2500.jpg",
       "/images/IMG-0645.jpg",
       "/images/IMG-0642.jpg",
       "/images/IMG-0635.jpg"
@@ -6875,11 +6759,11 @@
     "slug": "alitas-de-coliflor-con-salsa-bbq",
     "titulo": "\"Alitas\" de Coliflor con Salsa BBQ",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "entrada",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
-    "descripcion": "¡Cómo están? AMOOOO esta receta, para comer coliflor de una forma distinta y sabrosa Puedes hacer salsa barbacoa (BBQ) casera con esta receta. Recuerden que es muy importante incorporar crucíferas (como la coliflor o el brócoli) ojalá todos los días en su dieta! Para ver paso a paso de la receta puedes ver historias destacadas \"ColiflorBBQ\" en mi Instagram @recetasdejavi \"Alitas\" de Coliflor con salsa BBQ 1 Coliflor Para el rebozado 1 taza harina de arroz (o la que tengas) 3/4 taza leche vegetal o agua Mix de condime",
+    "descripcion": "¡Cómo están? AMOOOO esta receta, para comer coliflor de una forma distinta y sabrosa Puedes hacer salsa barbacoa (BBQ) casera con esta receta. Recuerden que es muy importante incorporar crucíferas (como la coliflor o el brócoli) ojalá todos los días en su dieta! Para ver paso a paso de la receta puedes ver historias destacadas \"ColiflorBBQ\" en mi Instagram @recetasdejavi \"Alitas\" de Coliflor con salsa BBQ 1 Coliflor Para el rebozado",
     "ingredientes": [
       "1 taza harina de arroz (o la que tengas)",
       "3/4 taza leche vegetal o agua",
@@ -6909,9 +6793,6 @@
       "http://recetasdejavi.cl/wp-content/uploads/2020/04/a55ae080-03fd-43e8-abf7-62646eb74f0b.jpg"
     ],
     "imagenes_locales": [
-      "/images/42eb0997-4c07-40cb-ab1e-451103d23337-150x150.jpg",
-      "/images/IMG-0732-e1585879911367-150x150.jpg",
-      "/images/17713517-6fc4-4341-8375-2fdfed0d6744-1100x825.jpg",
       "/images/900b7a37-6936-4bb6-83ce-882bc9a8a4cb.jpg",
       "/images/42eb0997-4c07-40cb-ab1e-451103d23337.jpg",
       "/images/IMG-0732.jpg",
@@ -6927,7 +6808,7 @@
     "slug": "5-salsas-veganas-para-hamburguesa-deliciosas-y-saludables",
     "titulo": "¡5 Salsas Veganas para Hamburguesa! Deliciosas y Saludables",
     "tipo": "receta",
-    "categoria": "desayuno",
+    "categoria": "salsa",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
@@ -6982,7 +6863,6 @@
       "/images/IMG_5072.jpeg",
       "/images/Q74TNZoYRYOdb81rMXSzsA_mini_62dd.jpg",
       "/images/IMG_5470.jpeg",
-      "/images/yj7Vu2YkRgmlk7lCJfNXw_thumb_62d5.jpg",
       "/images/s0cTfXvTIex7GUbACkxyA_thumb_62c6.jpg"
     ],
     "fechaPublicacion": "2020-10-23",
@@ -6993,11 +6873,11 @@
     "slug": "pancitos-de-zapallo",
     "titulo": "Pancitos de Zapallo",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "acompañamiento",
     "dificultad": "No especificada",
-    "tiempo": "N/A",
-    "porciones": "N/A",
-    "descripcion": "Amados para un desayuno u once rica Nosotres los comimos con paté de lentejas, mermelada de arándanos y palta Pancitos de Zapallo 4 tazas harina de trigo 5 cucharadas aceite de oliva 2 cucharaditas levadura seca 1/3 cucharadita azúcar 1/2 o 1/3 taza agua tibia 1 taza puré de zapallo 1 cucharadita sal Semillas de sésamo u otra para espolvorear Formar una corona con la harina. ⠀⠀⠀⠀⠀⠀⠀ Espolvorear la sal por las orillas. En el centro de la corona agregar azúcar, levadura y un poco de agua tibia hasta tapar, mezclar con un dedo y dejar reposand",
+    "tiempo": "70 minutos",
+    "porciones": "8 pancitos",
+    "descripcion": "Amados para un desayuno u once rica Nosotres los comimos con paté de lentejas, mermelada de arándanos y palta",
     "ingredientes": [
       "4 tazas harina de trigo",
       "5 cucharadas aceite de oliva",
@@ -7031,10 +6911,8 @@
       "https://recetasdejavi.cl/wp-content/uploads/2020/06/UNADJUSTEDNONRAW_thumb_5209.jpg"
     ],
     "imagenes_locales": [
-      "/images/UNADJUSTEDNONRAW_thumb_51d1-150x150.jpg",
       "/images/UNADJUSTEDNONRAW_thumb_522e-150x150.jpg",
       "/images/UNADJUSTEDNONRAW_thumb_521a-150x150.jpg",
-      "/images/UNADJUSTEDNONRAW_thumb_5209-480x640.jpg",
       "/images/UNADJUSTEDNONRAW_thumb_51db.jpg",
       "/images/UNADJUSTEDNONRAW_thumb_51d1.jpg",
       "/images/UNADJUSTEDNONRAW_thumb_5209.jpg"
@@ -7084,7 +6962,6 @@
       "https://recetasdejavi.cl/wp-content/uploads/2020/09/IMG_7376.jpeg"
     ],
     "imagenes_locales": [
-      "/images/WhatsApp-Image-2020-09-24-at-17.00.56-576x1024.jpeg",
       "/images/WhatsApp-Image-2020-09-24-at-17.00.561.jpeg",
       "/images/WhatsApp-Image-2020-09-24-at-17.00.56.jpeg",
       "/images/IMG_7376.jpeg"
@@ -7112,8 +6989,7 @@
     ],
     "imagenes_locales": [
       "/images/UNADJUSTEDNONRAW_thumb_7624-920x1024.jpg",
-      "/images/UNADJUSTEDNONRAW_thumb_761e.jpg",
-      "/images/UNADJUSTEDNONRAW_thumb_7624.jpg"
+      "/images/UNADJUSTEDNONRAW_thumb_761e.jpg"
     ],
     "fechaPublicacion": "2020-11-03",
     "url_original": "https://recetasdejavi.cl/?p=2333"
@@ -7145,7 +7021,7 @@
     "slug": "laparrillaveggie-desafio-invita-a-comer-vegano-este-18",
     "titulo": "#LaParrillaVeggie: desafío invita a comer vegano este 18",
     "tipo": "receta",
-    "categoria": "acompañamiento",
+    "categoria": "otros",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
@@ -7162,7 +7038,6 @@
       "https://recetasdejavi.cl/wp-content/uploads/2020/10/UNADJUSTEDNONRAW_thumb_6a8b.jpg"
     ],
     "imagenes_locales": [
-      "/images/Cv6PZlLPTTuVSUFI53m8qg_thumb_69c0-225x300.jpg",
       "/images/IMG_6014-225x300.jpeg",
       "/images/Cv6PZlLPTTuVSUFI53m8qg_thumb_69c0.jpg",
       "/images/UNADJUSTEDNONRAW_thumb_6a50.jpg",
@@ -7218,8 +7093,7 @@
     ],
     "imagenes_locales": [
       "/images/UNADJUSTEDNONRAW_thumb_7450-768x1024.jpg",
-      "/images/UNADJUSTEDNONRAW_thumb_744c.jpg",
-      "/images/UNADJUSTEDNONRAW_thumb_7450.jpg"
+      "/images/UNADJUSTEDNONRAW_thumb_744c.jpg"
     ],
     "fechaPublicacion": "2020-10-23",
     "url_original": "https://recetasdejavi.cl/?p=2319"
@@ -7229,7 +7103,7 @@
     "slug": "planificacion-semanal-estilo-mexicana",
     "titulo": "Planificación Semanal: Estilo mexicana 🌯",
     "tipo": "receta",
-    "categoria": "plato_principal",
+    "categoria": "otros",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
@@ -7295,7 +7169,7 @@
     "slug": "preparaciones-dulces-en-base-a-porotos-negros-y-cacao",
     "titulo": "Preparaciones dulces en base a porotos negros (y cacao 🍫)",
     "tipo": "receta",
-    "categoria": "postre",
+    "categoria": "otros",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
@@ -7313,7 +7187,7 @@
     "slug": "quiche-verde",
     "titulo": "Quiche Verde",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "plato_principal",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
@@ -7335,7 +7209,7 @@
     "slug": "papas-duquesas-caseras",
     "titulo": "Papas duquesas caseras",
     "tipo": "receta",
-    "categoria": "bebida",
+    "categoria": "acompañamiento",
     "dificultad": "No especificada",
     "tiempo": "N/A",
     "porciones": "N/A",
@@ -7365,5 +7239,23 @@
     "imagenes_locales": [],
     "fechaPublicacion": "2021-12-16",
     "url_original": "https://recetasdejavi.cl/?p=2453"
+  },
+  {
+    "id": "ser-vegano-es-por-los-animales-pero-y-nuestra-salud",
+    "slug": "ser-vegano-es-por-los-animales-pero-y-nuestra-salud",
+    "titulo": "Ser vegano es por los animales… pero ¿y nuestra salud?",
+    "tipo": "receta",
+    "categoria": "otros",
+    "dificultad": "No especificada",
+    "tiempo": "N/A",
+    "porciones": "N/A",
+    "descripcion": "Si llevan tiempo siguiéndome, probablemente saben que mi historia con el veganismo también está muy ligada a mi salud. En 2013 me diagnosticaron espondiloartritis, una enfermedad autoinmune que durante años significó dolores, inflamación y distintos tratamientos.",
+    "ingredientes": [],
+    "preparacion": [],
+    "notas": [],
+    "imagenes_locales": [],
+    "imagenes_originales": [],
+    "fechaPublicacion": "2026-08-10",
+    "url_original": null
   }
 ]

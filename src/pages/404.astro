@@ -3,21 +3,26 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 
-const title = 'Página no encontrada - Vlog de Javi';
+const title = 'Página no encontrada — Vlog de Javi';
 ---
 
 <BaseLayout title={title} description="La página que buscas no existe">
   <Header />
 
-  <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-    <h1 class="text-6xl font-bold font-poppins text-primary mb-4">404</h1>
-    <h2 class="text-3xl font-bold font-poppins mb-4">Página no encontrada</h2>
-    <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">
-      Lo sentimos, la página que buscas no existe. Pero no te preocupes, encontrarás muchas recetas deliciosas en nuestro sitio.
+  <div class="max-w-[560px] mx-auto px-5 py-24 md:py-[140px] text-center flex flex-col items-center gap-[18px]">
+    <img src="/logo-icono.png" alt="" class="w-[62px] opacity-[0.18]" />
+    <span class="text-[11px] tracking-[0.24em] uppercase text-brand-600 dark:text-brand-dark font-medium">Error 404</span>
+    <h1 class="font-display font-medium text-[32px] md:text-[40px] leading-[1.06] -tracking-[0.02em] text-paper-ink dark:text-night-ink">No encontré esa página</h1>
+    <p class="text-[16.5px] leading-[1.65] text-paper-muted dark:text-night-muted max-w-[42ch] font-body font-light">
+      Puede que el enlace esté roto o la página se haya movido. Prueba volviendo al inicio o explorando las recetas.
     </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="/" class="btn-primary">Volver al inicio</a>
-      <a href="/recetas" class="btn-secondary">Explorar recetas</a>
+    <div class="flex gap-4 items-center flex-wrap justify-center mt-2">
+      <a href="/" class="border-none bg-brand-600 text-white text-[13px] tracking-[0.14em] uppercase px-7 py-[15px] font-medium hover:bg-brand-700 transition-colors">
+        Volver al inicio
+      </a>
+      <a href="/recetas" class="text-[13px] tracking-[0.14em] uppercase text-paper-ink dark:text-night-ink border-b border-brand-600 pb-1 font-medium">
+        Explorar recetas
+      </a>
     </div>
   </div>
 

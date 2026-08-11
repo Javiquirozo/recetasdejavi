@@ -38,6 +38,26 @@ html {
   scroll-behavior: smooth;
 }
 
+.font-display {
+  font-stretch: 125%;
+}
+
 body {
   transition: background-color 0.3s, color 0.3s;
+}
+
+@media print {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
 }

@@ -3,82 +3,74 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 
-const title = 'Sobre mí - Vlog de Javi';
-const description = 'Conoce la historia de Javi y su pasión por la cocina vegana';
+const title = 'Sobre Javi — Vlog de Javi';
+const description = 'Chef, creadora de contenido y la persona detrás de Vlog de Javi.';
 
-const aboutText = `Hola, soy Javi, creadora de contenido dedicada al mundo de la cocina vegana. A través de "Vlog de Javi", comparto mi pasión por mostrar que la alimentación vegana es deliciosa, nutritiva y accesible para todos.
-
-Mi viaje hacia el veganismo comenzó como una búsqueda personal por mejorar mi salud y bienestar. Descubrí que la cocina vegana no es solo una dieta, sino un estilo de vida consciente que respeta tanto nuestro cuerpo como el planeta.
-
-Con más de 7 años de experiencia creando recetas, he aprendido que lo importante es que cada plato sea fácil de preparar, delicioso y nutritivo. En este sitio encontrarás 167 recetas probadas y perfeccionadas, desde platos principales hasta postres irresistibles.
-
-Mi objetivo es inspirarte a explorar nuevas sabores y demostrar que la cocina vegana es para todos. ¡Espero que disfrutes explorando las recetas y que se conviertan en parte de tu rutina diaria!`;
+const parrafos = [
+  'Estudié Administración en Artes Culinarias porque siempre me fascinó la comida. Me gusta cocinar, probar sabores nuevos, descubrir productos, recorrer restaurantes y, sobre todo, compartir alrededor de una mesa. Con el tiempo entendí que la cocina era mucho más que una profesión: era una forma de comunicar, conectar personas y generar cambios a través de algo tan cotidiano como lo que ponemos en nuestro plato.',
+  'Hace más de diez años decidí adoptar una filosofía de vida basada en el respeto hacia los animales. Ese proceso me llevó a replantear muchas de mis costumbres y también mi manera de cocinar. Como chef, fue un desafío enorme. Tuve que volver a aprender técnicas, ingredientes y preparaciones, pero descubrí un mundo de posibilidades que terminó transformando mi forma de entender la gastronomía.',
+  'En paralelo, viví una experiencia personal con una enfermedad autoinmune que me hizo cuestionar mis hábitos y volverme mucho más consciente de la relación entre alimentación, bienestar y calidad de vida. Esa experiencia reforzó mi interés por la cocina basada en plantas, pero nunca fue la razón principal detrás de mi decisión. Mi motivación siempre ha estado relacionada con los animales y con la convicción de que nuestras decisiones cotidianas pueden tener un impacto positivo en otros seres vivos.',
+  'Alrededor de 2015 comencé a compartir recetas en internet con la idea de demostrar que la cocina vegetal podía ser rica, entretenida, accesible y llena de sabor. Lo que empezó como un proyecto personal terminó convirtiéndose en una comunidad que me permitió desarrollar iniciativas como Recetas de Javi, La Parrilla Veggie y Plan de Javi, ayudando a miles de personas a cocinar más en casa y a descubrir nuevas formas de alimentarse.',
+  'Nunca me ha interesado imponer una forma de pensar. Mi manera de comunicar siempre ha sido otra: mostrar a través de la comida. Creo que una buena receta puede inspirar más que una discusión, y que muchas veces las personas se acercan a nuevas ideas cuando descubren algo que simplemente les gusta y disfrutan.',
+  'Hoy sigo compartiendo recetas, recomendaciones, experiencias gastronómicas y todo aquello que me inspira dentro y fuera de la cocina. Mi objetivo continúa siendo el mismo que cuando publiqué mis primeras recetas: acercar a más personas a una cocina rica, creativa y consciente, demostrando que pequeños cambios pueden generar grandes impactos.',
+];
 ---
 
 <BaseLayout title={title} description={description}>
   <Header />
 
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <h1 class="section-title text-center">Sobre mí</h1>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-12">
-      <!-- Fotos -->
-      <div class="space-y-4">
-        <div class="aspect-square rounded-lg overflow-hidden">
-          <img
-            src="/images/javi-vaquita.jpg"
-            alt="Javi con vaquita"
-            class="w-full h-full object-cover"
-          />
+  <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pt-14 md:pt-20">
+    <div class="grid grid-cols-1 md:grid-cols-[420px_1fr] gap-10 md:gap-16 items-start">
+      <div class="grid grid-cols-2 md:grid-cols-1 gap-3 md:gap-4">
+        <div class="aspect-square overflow-hidden bg-paper-photo dark:bg-night-surface">
+          <img src="/images/javi-brujas.png" alt="Javiera Quiroz" class="w-full h-full object-cover" />
         </div>
-        <div class="aspect-square rounded-lg overflow-hidden">
-          <img
-            src="/images/javi-chef.jpg"
-            alt="Javi en clase de cocina"
-            class="w-full h-full object-cover"
-          />
+        <div class="aspect-square overflow-hidden bg-paper-photo dark:bg-night-surface">
+          <img src="/images/Javi-Quiroz-7.jpg" alt="Javiera Quiroz" class="w-full h-full object-cover" />
         </div>
       </div>
 
-      <!-- Texto -->
-      <div>
-        <h2 class="text-2xl sm:text-3xl font-bold font-poppins mb-6">Hola, soy Javi</h2>
-        <div class="prose dark:prose-invert max-w-none">
-          {aboutText.split('\n\n').map(paragraph => (
-            <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-              {paragraph}
-            </p>
+      <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-3">
+          <span class="text-[11px] tracking-[0.22em] uppercase text-brand-600 dark:text-brand-dark font-medium">Sobre Javi</span>
+          <h1 class="font-display font-medium text-[36px] md:text-[48px] leading-[1.06] -tracking-[0.02em] text-paper-ink dark:text-night-ink">Hola, soy Javi</h1>
+          <p class="text-[19px] leading-[1.6] text-paper-muted dark:text-night-muted">Soy chef, creadora de contenido y la persona detrás de Vlog de Javi.</p>
+        </div>
+
+        <div class="flex flex-col gap-5 max-w-[68ch]">
+          {parrafos.map(p => (
+            <p class="text-[17px] leading-[1.75] text-[#3B333A] dark:text-night-ink">{p}</p>
           ))}
         </div>
+
+        <div class="flex gap-9 py-[22px] border-t border-b border-paper-hairline dark:border-night-hairline mt-1">
+          <div class="flex flex-col gap-[5px]">
+            <span class="text-[11px] tracking-[0.2em] uppercase text-paper-muted dark:text-night-muted font-medium">Recetas</span>
+            <span class="text-[16.5px] text-paper-ink dark:text-night-ink">167</span>
+          </div>
+          <div class="flex flex-col gap-[5px]">
+            <span class="text-[11px] tracking-[0.2em] uppercase text-paper-muted dark:text-night-muted font-medium">Desde</span>
+            <span class="text-[16.5px] text-paper-ink dark:text-night-ink">2015</span>
+          </div>
+          <div class="flex flex-col gap-[5px]">
+            <span class="text-[11px] tracking-[0.2em] uppercase text-paper-muted dark:text-night-muted font-medium">Ubicación</span>
+            <span class="text-[16.5px] text-paper-ink dark:text-night-ink">Santiago, Chile</span>
+          </div>
+        </div>
+
         <a
           href="https://instagram.com/vlogdejavi"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn-primary mt-8 inline-block"
+          class="self-start border-none bg-brand-600 text-white text-[13px] tracking-[0.14em] uppercase px-7 py-[15px] font-medium hover:bg-brand-700 transition-colors"
         >
           Sígueme en Instagram @vlogdejavi
         </a>
       </div>
     </div>
-
-    <!-- Estadísticas -->
-    <div class="bg-gradient-to-r from-primary via-secondary-teal to-secondary-lime rounded-lg p-8 text-white text-center mb-12">
-      <div class="grid grid-cols-3 gap-8">
-        <div>
-          <div class="text-4xl font-bold font-poppins">167</div>
-          <p class="text-sm mt-2">Recetas creadas</p>
-        </div>
-        <div>
-          <div class="text-4xl font-bold font-poppins">7+</div>
-          <p class="text-sm mt-2">Años de experiencia</p>
-        </div>
-        <div>
-          <div class="text-4xl font-bold font-poppins">♥</div>
-          <p class="text-sm mt-2">Pasión por cocinar</p>
-        </div>
-      </div>
-    </div>
   </div>
+
+  <div class="h-16 md:h-24"></div>
 
   <Footer />
 </BaseLayout>

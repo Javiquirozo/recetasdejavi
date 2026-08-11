@@ -3,15 +3,18 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import RecipeCard from '@/components/RecipeCard.astro';
+import { isRealRecipe } from '@/lib/recipeMeta.js';
 
 export const prerender = true;
 
-const recipes = await import('@/data/recetas.json').then(m => m.default);
-const categories = [...new Set(recipes.map(r => r.categoria).filter(Boolean))];
+const allRecipes = await import('@/data/recetas.json').then(m => m.default);
+const recipes = allRecipes.filter(isRealRecipe);
+const categories = [...new Set(recipes.map(r => r.categoria).filter(Boolean))].sort();
 
 export async function getStaticPaths() {
-  const recipes = await import('@/data/recetas.json').then(m => m.default);
-  const categories = [...new Set(recipes.map(r => r.categoria).filter(Boolean))];
+  const { isRealRecipe } = await import('@/lib/recipeMeta.js');
+  const allRecipes = await import('@/data/recetas.json').then(m => m.default);
+  const categories = [...new Set(allRecipes.filter(isRealRecipe).map(r => r.categoria).filter(Boolean))];
 
   return categories.map(cat => ({
     params: { categoria: cat }
@@ -20,58 +23,62 @@ export async function getStaticPaths() {
 
 const { categoria } = Astro.params;
 const categoryRecipes = recipes.filter(r => r.categoria === categoria);
-const categoryTitle = categoria.replace('_', ' ').toUpperCase();
+const categoryLabel = categoria.replace('_', ' ');
 ---
 
-<BaseLayout title={`${categoryTitle} - Recetas Veganas`} description={`Recetas veganas en la categoría ${categoryTitle}`}>
+<BaseLayout title={`${categoryLabel} — Vlog de Javi`} description={`${categoryRecipes.length} recetas veganas en la categoría ${categoryLabel}`}>
   <Header />
 
-  <!-- Category Header -->
-  <section class="bg-gradient-to-r from-primary via-secondary-teal to-secondary-lime py-12 sm:py-16 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl">
-        <h1 class="text-4xl sm:text-5xl font-bold font-poppins mb-4 capitalize">
-          {categoryTitle.toLowerCase()}
-        </h1>
-        <p class="text-lg opacity-95">
-          {categoryRecipes.length} recetas veganas deliciosas en esta categoría
-        </p>
+  <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pt-14 flex flex-col gap-7">
+    <span class="text-[13px] text-[#A79CA3] font-body font-light">
+      <a href="/recetas" class="hover:text-brand-600">Recetas</a> <span class="text-[#DED5CB]">/</span>
+      <span class="text-paper-muted dark:text-night-muted capitalize">{categoryLabel}</span>
+    </span>
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-10">
+      <div class="flex flex-col gap-3">
+        <span class="text-[11px] tracking-[0.22em] uppercase text-paper-muted dark:text-night-muted font-medium">Categoría</span>
+        <h1 class="font-display font-medium text-[32px] md:text-[40px] leading-[1.06] -tracking-[0.02em] text-paper-ink dark:text-night-ink capitalize">{categoryLabel}</h1>
       </div>
+      <span class="text-[13.5px] text-[#A79CA3]">{categoryRecipes.length} recetas</span>
     </div>
-  </section>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <!-- Back Link -->
-    <div class="mb-8">
-      <a href="/recetas" class="text-primary hover:text-secondary-teal font-semibold transition-colors flex items-center gap-2">
-        ← Volver a todas las recetas
+    <div class="flex gap-[9px] flex-wrap pb-[26px] border-b border-paper-hairline dark:border-night-hairline">
+      <a href="/recetas" class="rounded-full px-[18px] py-[9px] text-[14px] border border-[#DED5CB] dark:border-night-hairline text-paper-muted dark:text-night-muted hover:border-brand-600 hover:text-brand-600 transition-colors">
+        Todas
       </a>
+      {categories.map(cat => (
+        <a
+          href={`/recetas/${cat}`}
+          class={`rounded-full px-[18px] py-[9px] text-[14px] capitalize transition-colors ${cat === categoria ? 'border border-paper-ink bg-paper-ink text-paper dark:border-night-ink dark:bg-night-ink dark:text-night' : 'border border-[#DED5CB] dark:border-night-hairline text-paper-muted dark:text-night-muted hover:border-brand-600 hover:text-brand-600'}`}
+        >
+          {cat.replace('_', ' ')}
+        </a>
+      ))}
     </div>
+  </div>
 
-    <!-- Recipes Grid -->
+  <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pt-11 pb-20 md:pb-[110px]">
     {categoryRecipes.length > 0 ? (
-      <div>
-        <p class="text-gray-600 dark:text-gray-400 mb-6">
-          Mostrando {categoryRecipes.length} recetas
-        </p>
-        <div class="recipe-grid">
-          {categoryRecipes.map(recipe => (
-            <RecipeCard
-              titulo={recipe.titulo}
-              slug={recipe.slug}
-              categoria={recipe.categoria}
-              dificultad={recipe.dificultad}
-              tiempo={recipe.tiempo}
-              descripcion={recipe.descripcion}
-              imagenes_locales={recipe.imagenes_locales}
-            />
-          ))}
-        </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-9">
+        {categoryRecipes.map(recipe => (
+          <RecipeCard
+            titulo={recipe.titulo}
+            slug={recipe.slug}
+            categoria={recipe.categoria}
+            dificultad={recipe.dificultad}
+            tiempo={recipe.tiempo}
+            descripcion={recipe.descripcion}
+            imagenes_locales={recipe.imagenes_locales}
+          />
+        ))}
       </div>
     ) : (
-      <div class="text-center py-12">
-        <p class="text-xl text-gray-600 dark:text-gray-400">
-          No hay recetas en esta categoría aún.
+      <div class="flex flex-col items-center gap-[18px] py-24 md:py-[120px] text-center">
+        <img src="/logo-icono.png" alt="" class="w-[62px] opacity-[0.18]" />
+        <h3 class="font-display font-medium text-[24px] -tracking-[0.01em] text-paper-ink dark:text-night-ink">Todavía no hay recetas acá</h3>
+        <p class="text-[16.5px] text-paper-muted dark:text-night-muted max-w-[42ch] leading-[1.65] font-body font-light">
+          Explora otra categoría o mira todas las recetas disponibles.
         </p>
       </div>
     )}

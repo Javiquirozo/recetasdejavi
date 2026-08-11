@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "@astrojs/netlify": "^6.6.5",
+    "@astrojs/sitemap": "^3.7.3",
     "@astrojs/tailwind": "latest",
-    "@supabase/supabase-js": "^2.107.0",
     "astro": "latest",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.32",

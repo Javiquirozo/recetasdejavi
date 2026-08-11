@@ -1,31 +1,32 @@
 ---
+import { isRealValue } from '@/lib/recipeMeta.js';
+
 interface Props {
   titulo: string;
   slug: string;
   categoria: string;
-  dificultad: string;
-  tiempo: string;
+  dificultad?: string;
+  tiempo?: string;
   descripcion: string;
   imagenes_locales?: string[];
   porciones?: string;
 }
 
 const { titulo, slug, categoria, dificultad, tiempo, descripcion, imagenes_locales, porciones } = Astro.props;
-const defaultImage = 'https://via.placeholder.com/400x300?text=' + encodeURIComponent(titulo);
-const imagen = imagenes_locales?.[0] || defaultImage;
-const categoryLabel = categoria || 'otros';
+const imagen = imagenes_locales?.[0];
+const categoryLabel = (categoria || 'otros').replace('_', ' ');
 const url = `${Astro.site}recetas/${slug}`;
 
-const categoryColors: Record<string, string> = {
-  postre: 'bg-pink-100 text-pink-700',
-  plato_principal: 'bg-green-100 text-green-700',
-  entrada: 'bg-orange-100 text-orange-700',
-  bebida: 'bg-blue-100 text-blue-700',
-  desayuno: 'bg-yellow-100 text-yellow-700',
-  sopa: 'bg-red-100 text-red-700',
-  salsa: 'bg-amber-100 text-amber-700',
-  acompañamiento: 'bg-emerald-100 text-emerald-700',
-  otros: 'bg-gray-100 text-gray-700',
+const categoryColorClass: Record<string, string> = {
+  postre: 'text-aqua-500',
+  bebida: 'text-brand-600 dark:text-brand-dark',
+  plato_principal: 'text-aqua-500',
+  entrada: 'text-lime-500',
+  desayuno: 'text-lime-500',
+  sopa: 'text-brand-600 dark:text-brand-dark',
+  salsa: 'text-aqua-500',
+  acompañamiento: 'text-lime-500',
+  otros: 'text-paper-muted dark:text-night-muted',
 };
 
 const recipeSchema = {
@@ -34,7 +35,7 @@ const recipeSchema = {
   "name": titulo,
   "description": descripcion,
   "image": imagen,
-  "recipeCategory": categoryLabel.replace('_', ' '),
+  "recipeCategory": categoryLabel,
   "recipeCuisine": "Vegan",
   "cookTime": tiempo ? `PT${tiempo}` : undefined,
   "author": {
@@ -44,60 +45,48 @@ const recipeSchema = {
 };
 ---
 
-<article class="card group cursor-pointer" itemscope itemtype="https://schema.org/Recipe">
+<article class="group" itemscope itemtype="https://schema.org/Recipe">
   <script type="application/ld+json" set:html={JSON.stringify(recipeSchema)} />
 
-  <a href={`/recetas/${slug}`} class="block">
-    <div class="w-full h-40 sm:h-48 bg-gray-200 overflow-hidden relative">
-      <img
-        src={imagen}
-        alt={titulo}
-        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        loading="lazy"
-        itemprop="image"
-      />
-      <div class={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-semibold ${categoryColors[categoryLabel] || categoryColors.otros}`}>
-        <span itemprop="recipeCategory">{categoryLabel.replace('_', ' ')}</span>
-      </div>
-      <div class="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity">
-        <button
-          type="button"
-          class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100"
-          aria-label="Guardar receta"
-          data-recipe={slug}
-        >
-          <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h6a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V5z"></path>
-          </svg>
-        </button>
-      </div>
+  <a href={`/recetas/${slug}`} class="flex flex-col gap-4 relative">
+    <div class="aspect-[4/5] overflow-hidden bg-paper-photo dark:bg-night-surface relative">
+      {imagen ? (
+        <img
+          src={imagen}
+          alt={titulo}
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+          itemprop="image"
+        />
+      ) : (
+        <div class="w-full h-full grid place-items-center">
+          <img src="/logo-icono.png" alt="" class="w-14 opacity-20" />
+        </div>
+      )}
+      <button
+        type="button"
+        class="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity w-9 h-9 bg-paper-surface dark:bg-night-surface flex items-center justify-center"
+        aria-label="Guardar receta"
+        data-recipe={slug}
+      >
+        <svg class="w-4 h-4 text-paper-ink dark:text-night-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 5a2 2 0 012-2h6a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V5z"></path>
+        </svg>
+      </button>
     </div>
-
-    <div class="p-4">
-      <h3 class="font-semibold font-poppins text-lg mb-2 line-clamp-2 group-hover:text-primary transition-colors" itemprop="name">
+    <div class="flex flex-col gap-[9px]">
+      <span class={`text-[11px] tracking-[0.22em] uppercase font-medium ${categoryColorClass[categoria] || categoryColorClass.otros}`} itemprop="recipeCategory">
+        {categoryLabel}
+      </span>
+      <h3 class="font-display font-medium text-[19px] leading-[1.22] -tracking-[0.01em] text-paper-ink dark:text-night-ink group-hover:text-brand-600 dark:group-hover:text-brand-dark transition-colors line-clamp-2" itemprop="name">
         {titulo}
       </h3>
-      <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-2 mb-3" itemprop="description">
-        {descripcion}
-      </p>
-      <div class="recipe-meta">
-        {tiempo && (
-          <span class="flex items-center gap-1">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 11-2 0 1 1 0 012 0zm-1 3a1 1 0 100 2 1 1 0 000-2z"></path>
-            </svg>
-            <span itemprop="cookTime">{tiempo}</span>
-          </span>
-        )}
-        {dificultad && (
-          <span class="flex items-center gap-1">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 11-8 0 4 4 0 018 0zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18a4 4 0 11-8 0 4 4 0 018 0z"></path>
-            </svg>
-            {dificultad}
-          </span>
-        )}
-      </div>
+      {(isRealValue(tiempo) || isRealValue(dificultad)) && (
+        <div class="flex gap-4 text-[12.5px] text-paper-muted dark:text-night-muted font-body font-light">
+          {isRealValue(tiempo) && <span itemprop="cookTime">{tiempo}</span>}
+          {isRealValue(dificultad) && <span>{dificultad}</span>}
+        </div>
+      )}
     </div>
   </a>
 </article>
@@ -112,7 +101,7 @@ const recipeSchema = {
       if (!saved.includes(slug)) {
         saved.push(slug);
         localStorage.setItem('savedRecipes', JSON.stringify(saved));
-        (e.currentTarget as HTMLElement).classList.add('bg-primary', 'text-white');
+        (e.currentTarget as HTMLElement).classList.add('text-brand-600');
       }
     });
   });

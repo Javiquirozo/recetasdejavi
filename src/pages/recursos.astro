@@ -1,0 +1,81 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+
+const title = 'Recursos gratis — Vlog de Javi';
+const description = 'Revistas y ebooks con recetas veganas para descargar gratis.';
+
+function formatSize(bytes) {
+  return `${(bytes / (1024 * 1024)).toFixed(0)} MB`;
+}
+
+const descargables = [
+  {
+    titulo: 'Plan de Javi · Tomo 1',
+    descripcion: 'Guía PDF con planificación semanal de comidas veganas, para organizar tu semana en la cocina.',
+    cover: '/images/cover-plan-de-javi-1.png',
+    archivo: '/descargas/plan-de-javi-tomo-1.pdf',
+    tamano: 82388629,
+  },
+  {
+    titulo: 'Plan de Javi · Tomo 2',
+    descripcion: 'Guía PDF con planificación semanal de comidas veganas, para organizar tu semana en la cocina.',
+    cover: '/images/cover-plan-de-javi-2.png',
+    archivo: '/descargas/plan-de-javi-tomo-2.pdf',
+    tamano: 89732920,
+  },
+  {
+    titulo: 'Plan de Javi · Tomo 3',
+    descripcion: 'Guía PDF con planificación semanal de comidas veganas, para organizar tu semana en la cocina.',
+    cover: '/images/cover-plan-de-javi-3.png',
+    archivo: '/descargas/plan-de-javi-tomo-3.pdf',
+    tamano: 69996623,
+  },
+  {
+    titulo: 'La Parrilla Veggie',
+    descripcion: 'Recetario PDF con versiones veganas de los clásicos del asado, para compartir en parrilla.',
+    cover: '/images/cover-parrilla-veggie.png',
+    archivo: '/descargas/la-parrilla-veggie-2024.pdf',
+    tamano: 100605284,
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Header />
+
+  <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pt-14 pb-8">
+    <span class="text-[11px] tracking-[0.22em] uppercase text-brand-600 dark:text-brand-dark font-medium">Recursos gratis</span>
+    <h1 class="font-display font-medium text-[32px] md:text-[40px] leading-[1.06] -tracking-[0.02em] text-paper-ink dark:text-night-ink mt-3">Recursos gratis</h1>
+    <p class="text-[16.5px] text-paper-muted dark:text-night-muted font-body font-light mt-3 max-w-[60ch]">
+      Revistas y ebooks con recetas, gratis para descargar en PDF.
+    </p>
+  </div>
+
+  <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pb-20 md:pb-[110px]">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+      {descargables.map(d => (
+        <div class="flex flex-col gap-4">
+          <div class="aspect-[9/16] overflow-hidden bg-paper-photo dark:bg-night-surface">
+            <img src={d.cover} alt={d.titulo} class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <h2 class="font-display font-medium text-[18px] leading-[1.22] -tracking-[0.01em] text-paper-ink dark:text-night-ink">{d.titulo}</h2>
+            <p class="text-[14.5px] leading-[1.6] text-paper-muted dark:text-night-muted font-body font-light">{d.descripcion}</p>
+          </div>
+          <a
+            href={d.archivo}
+            download
+            class="flex items-center justify-between border border-[#DED5CB] dark:border-night-hairline px-5 py-3 text-[13px] tracking-[0.1em] uppercase text-paper-ink dark:text-night-ink hover:border-brand-600 hover:text-brand-600 dark:hover:text-brand-dark transition-colors"
+          >
+            <span>Descargar PDF</span>
+            <span class="text-[#A79CA3] normal-case tracking-normal text-[12.5px]">{formatSize(d.tamano)}</span>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <Footer />
+</BaseLayout>

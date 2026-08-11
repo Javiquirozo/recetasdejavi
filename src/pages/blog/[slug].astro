@@ -3,143 +3,182 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   return [
-    { params: { slug: 'mi-experiencia-con-artritis' } }
+    { params: { slug: 'mi-experiencia-con-la-artritis' } },
+    { params: { slug: 'consejos-para-una-alimentacion-saludable' } },
+    { params: { slug: 'charla-enfermedades-autoinmunes-y-estilo-de-vida' } },
+    { params: { slug: 'ser-vegano-es-por-los-animales-pero-y-nuestra-salud' } },
   ];
 }
 
-const posts = {
-  'mi-experiencia-con-artritis': {
-    titulo: 'Mi experiencia con la Artritis',
-    fecha: '2024-01-15',
-    categoria: 'Salud',
-    contenido: `
-    <h2>El comienzo de mi viaje</h2>
-    <p>Hace algunos años fui diagnosticada con artritis reumatoide. Los dolores en las articulaciones me limitaban para hacer las cosas que amaba, desde cocinar hasta hacer yoga. Los medicamentos ayudaban, pero venían acompañados de efectos secundarios que no deseaba continuar tolerando.</p>
-
-    <p>Fue entonces cuando decidí investigar sobre la conexión entre la alimentación y la inflamación. Descubrí que muchas personas habían encontrado alivio significativo al cambiar sus hábitos dietéticos y adoptar una alimentación basada en plantas.</p>
-
-    <h2>Cambio a una dieta vegana</h2>
-    <p>La transición no fue fácil al principio. Dejé todos los productos de origen animal y me enfoqué en alimentos integrales: frutas, verduras, granos enteros, legumbres y frutos secos. Mi cuerpo necesitaba aprender a digerir estos nuevos alimentos, y la energía fue inestable durante los primeros meses.</p>
-
-    <p>Pero después de 3-4 semanas, algo cambió. El dolor articular comenzó a disminuir gradualmente. Mis articulaciones se sentían menos inflamadas por las mañanas, y podía hacer más actividad física sin tanto dolor.</p>
-
-    <h2>El poder de los alimentos antiinflamatorios</h2>
-    <p>Aprendí que ciertos alimentos son especialmente beneficiosos para combatir la inflamación:</p>
-
-    <ul>
-      <li><strong>Ácidos grasos omega-3:</strong> Semillas de lino, chía, nueces y aceite de oliva virgen extra ayudan a reducir la inflamación</li>
-      <li><strong>Cúrcuma y jengibre:</strong> Especias con poderosas propiedades antiinflamatorias</li>
-      <li><strong>Verduras crucíferas:</strong> Brócoli, coliflor y col rizada contienen sulforafano, muy beneficioso para las articulaciones</li>
-      <li><strong>Arándanos y frutas rojas:</strong> Ricas en antioxidantes que protegen las células</li>
-      <li><strong>Alimentos fermentados:</strong> Mejoran la salud intestinal, fundamental para la inflamación</li>
-    </ul>
-
-    <h2>Gestión del estrés y movimiento</h2>
-    <p>Aunque la alimentación fue transformadora, también implementé otras prácticas que potenciaron mis resultados:</p>
-
-    <p>Empecé con yoga suave y estiramientos diarios. No se trata de ejercicio intenso, sino de movimiento consciente que fortalece sin sobrecargar las articulaciones. El yoga no solo mejoró mi flexibilidad, sino que también me conectó con mi cuerpo de manera más profunda.</p>
-
-    <p>La meditación y el manejo del estrés fueron igual de importantes. El estrés crónico amplifica la inflamación, así que dedicar tiempo a la calma mental fue fundamental en mi recuperación.</p>
-
-    <h2>Mis recetas sanadoras</h2>
-    <p>En mi blog encontrarás recetas específicamente diseñadas para aprovechar estos alimentos antiinflamatorios. Mis favoritas incluyen:</p>
-
-    <ul>
-      <li>Smoothie bowls con arándanos y semillas</li>
-      <li>Curry de verduras con cúrcuma y jengibre</li>
-      <li>Ensaladas coloridas con verduras crucíferas</li>
-      <li>Leches vegetales caseras</li>
-      <li>Postres saludables sin inflamación</li>
-    </ul>
-
-    <h2>Resultados y esperanza</h2>
-    <p>Después de un año siguiendo este estilo de vida, mis analíticas mejoraron significativamente. Mi médico quedó sorprendido por la reducción de marcadores inflamatorios. Pude reducir la dosis de algunos medicamentos bajo supervisión profesional.</p>
-
-    <p>Pero lo más importante es cómo me siento día a día. Tengo energía, puedo hacer yoga con mayor intensidad, vuelvo a cocinar sin dolor, y sobre todo, tengo esperanza en mi salud.</p>
-
-    <h2>Mensaje final</h2>
-    <p>Si tú o alguien que conoces padece de artritis, quiero que sepas que el cambio es posible. No digo que sea una cura milagrosa ni que todos tengan los mismos resultados, pero la evidencia científica es clara: una dieta basada en plantas reduce la inflamación de manera significativa.</p>
-
-    <p>Este viaje me enseñó que nuestra salud está en gran parte en nuestras manos. Cada bocado es una oportunidad para sanar o para inflamar. Yo elegí sanar.</p>
-
-    <p>Si quieres empezar este camino, te invito a explorar las recetas de este blog. Todas están diseñadas pensando en ingredientes que apoyan la salud y el bienestar. Que cada comida sea una medicina para tu cuerpo.</p>
-
-    <p>Con amor y salud,<br/><strong>Javi 🌱</strong></p>
-    `
-  }
-};
-
+const recipes = await import('@/data/recetas.json').then(m => m.default);
 const { slug } = Astro.params;
-const post = posts[slug];
+const record = recipes.find(r => r.slug === slug);
 
-if (!post) {
+if (!record) {
   return Astro.redirect('/blog');
 }
+
+function boldify(text) {
+  return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+}
+
+// Contenido real de cada artículo. "partial: true" marca los que solo tienen el
+// extracto real disponible (no se fabrica el resto) — ver conversación.
+const articles = {
+  'mi-experiencia-con-la-artritis': {
+    blocks: [
+      { type: 'p', text: 'Esta es mi experiencia en relación con una enfermedad que me diagnosticaron hace unos años y cómo esta me llevó a cambiar mis hábitos alimenticios.' },
+      { type: 'p', text: 'En 2013 se me presentó una enfermedad crónica en las articulaciones: espondiloartritis, la cual es autoinmune y consiste básicamente en la inflamación de las articulaciones. Generó muchos miedos para mí en ese momento porque empezó cuando estaba en mi segundo año de gastronomía y pensaba que no podría hacer lo que me gusta debido a tantos dolores.' },
+      { type: 'p', text: 'Después de dos años con crisis de dolores que iban y venían, usando siempre muchos analgésicos y antiinflamatorios que me recetaban, conocí a mi actual doctora, reumatóloga y experta en el tema. Ella me recomendó un tratamiento biológico, el cual me arregló la vida en ese momento, ya que frenó mis dolores en la articulación sacroilíaca.' },
+      { type: 'p', text: 'Sin embargo, en 2016 empezaron otros dolores en otras articulaciones, aún con el tratamiento: dolores en las manos (al punto de estar tres meses con una mano inmóvil), en los pies, en los dedos, rodillas, y después no solo eran dolores, sino que también se me inflamaban a la vista (tobillos y manos principalmente).' },
+      { type: 'p', text: 'A raíz de esto, me recetaron corticoides súper fuertes y más antiinflamatorios (además de mi inyección) por el tema de mis manos y otras articulaciones que dolían. A este punto, entenderán que uno se empieza a desesperar, sin poder hacer cosas normales como cocinar, ir al baño, hacer ejercicio, etc.' },
+      { type: 'p', text: 'Entonces empecé a buscar y a preguntarme: tantos médicos que me decían lo mismo y solo me empastillaban, ¿habrá otra alternativa? ¿Algo más natural?' },
+      { type: 'p', text: 'En junio de 2016 visité a una doctora especialista en alimentación, quien me recomendó dejar de comer lácteos porque eran muy inflamatorios. De a poco, y leyendo más sobre el tema, comencé a dejar todo lo que provenía de un animal. Empecé a darme cuenta de que, para todas las enfermedades, lo que suelen tratar son los síntomas, con muchas pastillas y nada más, pero pocos médicos van al fondo de lo que realmente causa estas enfermedades.' },
+      { type: 'p', text: 'Además de dejar todo lo que proviene de animal, eliminé el azúcar, los ultraprocesados, el cigarro y disminuí el consumo de alcohol.' },
+      { type: 'p', text: 'En resumen, hice un cambio radical (y tiene que ser radical) en mi vida, que me llevó a miles de cosas mejores. No solo con respecto a la enfermedad, sino también a nivel mental, llevándome a una vida más activa y con más ejercicio. Este cambio me dio, además, la mejor razón que buscaba hace mucho para hacer y amar más lo que hago.' },
+      { type: 'p', text: 'A la fecha, estoy feliz e impresionada de los cambios que generó mi alimentación con respecto a la enfermedad. Pasé de pincharme cada dos semanas y tomar muchos medicamentos, a llevar casi un año sin pincharme y sin tomar ni una sola pastilla.' },
+      { type: 'p', text: 'No digo que mi enfermedad se haya sanado, porque la verdad no sé si eso sea posible. Espero poder averiguar pronto, mediante exámenes, si la enfermedad ha avanzado. Pero lo que sí sé es que he podido llevarla increíblemente bien y estoy mejor que nunca.' },
+      { type: 'p', text: 'Comparto esta experiencia porque estoy totalmente convencida de que la alimentación sí importa. He podido comprobarlo en mi propio cuerpo y puedo ver, con paciencia, que da resultados positivos. Creo que tenemos el poder de decidir qué es lo que le damos de combustible a nuestras células, por eso invito siempre a cocinar y a ser más conscientes de lo que tenemos cada día en nuestros platos.' },
+    ],
+  },
+  'consejos-para-una-alimentacion-saludable': {
+    partial: true,
+    blocks: [
+      { type: 'p', text: 'Les comparto este artículo que escribí para el blog de Dhanayoga.' },
+      { type: 'p', text: 'Para alimentarnos de forma saludable debemos tener en cuenta que necesitamos adoptar nuevos hábitos. Esto en un principio puede parecer un poco difícil de conseguir, pero te aseguro que con constancia y conciencia puedes lograrlo. Una vez que te adaptes a estos cambios comenzarás a sentirte mucho mejor física y mentalmente. ¡Tu cuerpo lo agradecerá!' },
+      { type: 'p', text: 'A continuación, te comparto algunos consejos o tips que debes considerar si quieres llevar una alimentación saludable:' },
+      { type: 'p', text: '1) Toma conciencia. Para cambiar hábitos alimenticios debemos preguntarnos: ¿por qué queremos hacerlo?' },
+    ],
+  },
+  'charla-enfermedades-autoinmunes-y-estilo-de-vida': {
+    partial: true,
+    blocks: [
+      { type: 'p', text: 'Otro enfoque en la medicina: los hábitos influyen en nuestras enfermedades. Pacientes activos, médicos coach y alimentación basada en plantas, es la tendencia de la medicina con enfoque preventivo.' },
+      { type: 'p', text: '¿Sabía usted que un estilo de vida saludable puede evitar el 80% de enfermedades? Esta es la premisa con la que dos médicos especialistas en estilo de vida y una chef especialista en cocina basada en plantas se reunieron para entregar herramientas sobre cómo mejorar la calidad de vida, en esta ocasión, para personas con diagnósticos de enfermedades autoinmunes.' },
+      { type: 'p', text: 'Con más de 200 personas conectadas, se realizó esta charla que destacó la importancia de la vida saludable para poder superar enfermedades del sistema inmune. A cargo de la médica Paloma Correo, el médico José Izcue —ambos certificados en medicina de estilo de vida (IBLM)— y la chef y activista vegana Javiera Quiroz.' },
+    ],
+  },
+  'ser-vegano-es-por-los-animales-pero-y-nuestra-salud': {
+    blocks: [
+      { type: 'p', text: 'Si llevan tiempo siguiéndome, probablemente saben que mi historia con el veganismo también está muy ligada a mi salud.' },
+      { type: 'p', text: 'En 2013 me diagnosticaron espondiloartritis, una enfermedad autoinmune que durante años significó dolores, inflamación y distintos tratamientos. En medio de todo eso empecé a cuestionarme mucho más lo que comía y a investigar sobre alimentación.' },
+      { type: 'p', text: 'La salud fue una motivación importante y probablemente hizo que mi cambio fuera mucho más rápido. Pero mientras más aprendía, también empecé a entender lo que había detrás del consumo de animales. Y ahí apareció la razón que finalmente hizo que ese cambio fuera permanente para mí: **los animales** 🐷🐮🐔' },
+      { type: 'p', text: 'Años después mi enfermedad entró en remisión. Toda esa historia la cuento en <a href="/blog/mi-experiencia-con-la-artritis" class="text-brand-600 dark:text-brand-dark underline">Mi experiencia con la artritis</a>, porque da para bastante más que un párrafo.' },
+      { type: 'p', text: 'Obviamente, no puedo decir "me hice vegana y mi enfermedad entró en remisión" como si una cosa demostrara la otra. Cambié varios hábitos y además había recibido tratamiento médico. Pero vivir todo ese proceso sí hizo que nunca dejara de interesarme por una pregunta: **¿cuánto influye realmente lo que comemos en nuestra salud?**' },
+      { type: 'p', text: 'Y hoy tenemos bastante más información para responderla 👀' },
+      { type: 'h2', text: '¿Ser vegano puede ser más saludable?' },
+      { type: 'p', text: 'Hay cada vez más evidencia que relaciona las alimentaciones donde predominan los alimentos vegetales de buena calidad con mejores resultados de salud.' },
+      { type: 'p', text: 'Investigaciones recientes han encontrado asociaciones con menor riesgo de diabetes tipo 2, hipertensión y otros problemas cardiometabólicos.' },
+      { type: 'p', text: '¿Y qué alimentos aparecen una y otra vez?' },
+      { type: 'p', text: 'Nada demasiado extraño: **legumbres, verduras, frutas, cereales integrales, frutos secos y semillas** 🌱' },
+      { type: 'p', text: 'O sea, muchas de las cosas que probablemente ya tenemos en nuestra cocina.' },
+      { type: 'h2', text: 'Y acá viene algo que me interesa especialmente: la inflamación' },
+      { type: 'p', text: 'Este 2026 se publicó un análisis de ensayos clínicos que estudió dietas basadas en plantas y la proteína C reactiva (CRP), uno de los marcadores utilizados para medir inflamación en el organismo.' },
+      { type: 'p', text: 'Al mirar los estudios en conjunto, quienes siguieron estas alimentaciones tuvieron una mayor disminución de CRP que los grupos de comparación.' },
+      { type: 'p', text: 'Para alguien que vivió durante años con una enfermedad inflamatoria, obviamente leo esto y me parece súper interesante.' },
+      { type: 'p', text: 'Pero ojo: **esto no significa que una alimentación vegana cure una enfermedad autoinmune**.' },
+      { type: 'p', text: 'De hecho, cuando miramos específicamente la espondiloartritis, la investigación sobre alimentación todavía es limitada. Mi remisión forma parte de mi experiencia personal y no pretende ser una receta para otra persona.' },
+      { type: 'h2', text: '¿Entonces basta con que algo sea vegano?' },
+      { type: 'p', text: 'No 😅' },
+      { type: 'p', text: 'Puedes comer papas fritas, galletas y bebidas todo el día y técnicamente seguir una alimentación vegana.' },
+      { type: 'p', text: 'La gracia está en que una alimentación vegana también puede estar llena de lentejas, garbanzos, tofu, verduras, frutas, avena, arroz, semillas, frutos secos… y todas esas cosas ricas que les comparto constantemente.' },
+      { type: 'p', text: 'Ser vegano no convierte automáticamente todo lo que comes en saludable. **Pero una alimentación vegana variada y bien armada puede reunir muchas de las características que la evidencia asocia con una buena salud.**' },
+      { type: 'p', text: 'Y para mí eso es un tremendo punto a favor.' },
+      { type: 'p', text: 'Mi salud tuvo muchísimo que ver con el comienzo de esta historia, pero hoy no soy vegana pensando en mí.' },
+      { type: 'p', text: 'Soy vegana por los animales.' },
+      { type: 'p', text: 'Que, además, podamos comer increíble y que una alimentación llena de plantas pueda traer beneficios para nuestra propia salud… 🌱' },
+      { type: 'p', text: '**bueno, para mí es un tremendo bonus.**' },
+    ],
+    fuentes: [
+      { text: 'Bell L, Gibbs M, Cappuccio FP (2026). The effect of plant-based dietary patterns on C-reactive protein: A systematic review and meta-analysis of randomised controlled trials.', url: 'https://www.sciencedirect.com/science/article/pii/S0939475326000931' },
+      { text: 'Moreira AB et al. (2026). Recent evidence on plant-based diets and risk of chronic disease factors: A systematic review and meta-analysis.', url: 'https://pubmed.ncbi.nlm.nih.gov/41905343/' },
+      { text: 'Thompson AS et al. (2026). Estudio con datos de 124.836 participantes del UK Biobank sobre alimentación basada en plantas y salud.', url: 'https://www.sciencedirect.com/science/article/pii/S2666776226001481' },
+      { text: 'Van den Bruel K et al. (2025). Nutrition and diet in rheumatoid arthritis, axial spondyloarthritis, and psoriatic arthritis: a systematic review.', url: 'https://pubmed.ncbi.nlm.nih.gov/41030267/' },
+    ],
+  },
+};
+
+const article = articles[slug] || { blocks: [{ type: 'p', text: record.descripcion }], partial: true };
+const blocks = article.blocks;
+const firstParagraph = blocks.find(b => b.type === 'p');
+const restBlocks = blocks.filter(b => b !== firstParagraph);
+
+const images = record.imagenes_locales || [];
+const authorPhoto = images.find(img => img.toLowerCase().includes('javi')) || null;
+const cover = images[0];
+
+const wordCount = blocks.map(b => b.text).join(' ').split(/\s+/).length;
+const readingTime = Math.max(1, Math.round(wordCount / 200));
 ---
 
-<BaseLayout title={post.titulo} description={`Artículo sobre ${post.titulo.toLowerCase()} - Vlog de Javi`}>
+<BaseLayout title={`${record.titulo} — Vlog de Javi`} description={record.descripcion.slice(0, 160)} ogImage={cover}>
   <Header />
 
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <!-- Article Header -->
-    <article>
-      <div class="mb-8">
-        <div class="flex items-center gap-4 mb-4">
-          <span class="px-3 py-1 bg-primary text-white rounded-full text-sm font-semibold">
-            {post.categoria}
-          </span>
-          <time datetime={post.fecha} class="text-gray-600 dark:text-gray-400">
-            {new Date(post.fecha).toLocaleDateString('es-CL', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}
-          </time>
+  <article class="pt-16 md:pt-[72px] flex flex-col items-center">
+    <div class="w-full max-w-[720px] px-5 flex flex-col gap-[22px]">
+      <div class="flex gap-4 items-center">
+        <span class="text-[11px] tracking-[0.22em] uppercase text-aqua-500 font-medium">Salud y nutrición</span>
+        <span class="w-5 h-px bg-[#DED5CB]"></span>
+        <span class="text-[13px] text-[#A79CA3]">{readingTime} min de lectura</span>
+      </div>
+      <h1 class="font-display font-medium text-[32px] md:text-[44px] leading-[1.06] -tracking-[0.02em] text-paper-ink dark:text-night-ink text-pretty">{record.titulo}</h1>
+      {firstParagraph && <p class="text-[17px] md:text-[19px] leading-[1.7] text-paper-muted dark:text-night-muted" set:html={boldify(firstParagraph.text)} />}
+      <div class="flex items-center gap-[14px] py-[22px] border-t border-b border-paper-hairline dark:border-night-hairline mt-1">
+        <div class="w-10 h-10 rounded-full bg-paper-photo dark:bg-night-surface overflow-hidden flex-shrink-0">
+          {authorPhoto ? <img src={authorPhoto} alt="Javiera Quiroz" class="w-full h-full object-cover" /> : <img src="/logo-icono.png" alt="" class="w-full h-full object-contain p-2 opacity-60" />}
         </div>
-        <h1 class="section-title">{post.titulo}</h1>
+        <span class="text-[14.5px] text-[#3B333A] dark:text-night-ink">Javiera Quiroz</span>
+        {record.fechaPublicacion && (
+          <span class="text-[14.5px] text-[#A79CA3]">
+            · {new Date(record.fechaPublicacion).toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </span>
+        )}
       </div>
+    </div>
 
-      <!-- Content -->
-      <div class="prose dark:prose-invert max-w-none">
-        <div set:html={post.contenido} />
+    {cover && (
+      <div class="w-full max-w-[1120px] mx-5 my-11 aspect-video overflow-hidden bg-paper-photo dark:bg-night-surface">
+        <img src={cover} alt={record.titulo} class="w-full h-full object-cover" />
       </div>
+    )}
 
-      <!-- Back Link -->
-      <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-        <a href="/blog" class="text-primary hover:text-secondary-teal font-semibold transition-colors">
-          ← Volver al blog
-        </a>
-      </div>
-    </article>
-  </div>
+    <div class="w-full max-w-[720px] px-5 flex flex-col gap-7 pb-16 md:pb-24">
+      {restBlocks.map(b => (
+        b.type === 'h2' ? (
+          <h2 class="font-display font-medium text-[26px] leading-[1.14] -tracking-[0.015em] text-paper-ink dark:text-night-ink mt-4">{b.text}</h2>
+        ) : (
+          <p class="text-[17.5px] leading-[1.8] text-[#3B333A] dark:text-night-ink" set:html={boldify(b.text)} />
+        )
+      ))}
+
+      {article.partial && (
+        <p class="text-[14px] text-[#A79CA3] italic border-t border-paper-hairline dark:border-night-hairline pt-6 mt-2">
+          Este es un extracto — el artículo completo aún no está disponible en el archivo digital.
+        </p>
+      )}
+
+      {article.fuentes && (
+        <div class="border-t border-paper-hairline dark:border-night-hairline pt-7 mt-3 flex flex-col gap-4">
+          <h2 class="font-display font-medium text-[16px] text-paper-ink dark:text-night-ink">Fuentes</h2>
+          <ul class="flex flex-col gap-3">
+            {article.fuentes.map(f => (
+              <li class="text-[14px] leading-[1.6] text-paper-muted dark:text-night-muted">
+                <a href={f.url} target="_blank" rel="noopener noreferrer" class="text-brand-600 dark:text-brand-dark hover:underline">{f.text}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <a href="/blog" class="text-[13px] tracking-[0.14em] uppercase text-paper-ink dark:text-night-ink border-b border-brand-600 pb-[5px] font-medium mt-4 self-start">
+        ← Volver al blog
+      </a>
+    </div>
+  </article>
 
   <Footer />
 </BaseLayout>
-
-<style>
-  :global(.prose) {
-    @apply space-y-4;
-  }
-
-  :global(.prose h2) {
-    @apply text-2xl font-bold font-poppins mt-8 mb-4 text-gray-900 dark:text-white;
-  }
-
-  :global(.prose p) {
-    @apply text-gray-700 dark:text-gray-300 leading-relaxed;
-  }
-
-  :global(.prose ul) {
-    @apply list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300;
-  }
-
-  :global(.prose li) {
-    @apply pl-2;
-  }
-
-  :global(.prose strong) {
-    @apply font-semibold text-gray-900 dark:text-white;
-  }
-</style>

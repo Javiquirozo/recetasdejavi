@@ -3,62 +3,54 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 
-const title = 'Blog - Vlog de Javi';
-const description = 'Artículos sobre salud, nutrición y estilo de vida vegano';
+const recipes = await import('@/data/recetas.json').then(m => m.default);
 
-const posts = [
-  {
-    slug: 'mi-experiencia-con-artritis',
-    titulo: 'Mi experiencia con la Artritis',
-    fecha: '2024-01-15',
-    resumen: 'Cómo cambié mi vida a través de la alimentación vegana y el manejo del estrés para controlar los síntomas de artritis.',
-    categoria: 'Salud'
-  }
+const postSlugs = [
+  'mi-experiencia-con-la-artritis',
+  'consejos-para-una-alimentacion-saludable',
+  'charla-enfermedades-autoinmunes-y-estilo-de-vida',
+  'ser-vegano-es-por-los-animales-pero-y-nuestra-salud',
 ];
+const posts = postSlugs
+  .map(slug => recipes.find(r => r.slug === slug))
+  .filter(Boolean)
+  .sort((a, b) => new Date(b.fechaPublicacion) - new Date(a.fechaPublicacion));
+
+const title = 'Blog — Vlog de Javi';
+const description = 'Artículos sobre salud, nutrición y estilo de vida vegano';
 ---
 
 <BaseLayout title={title} description={description}>
   <Header />
 
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <h1 class="section-title">Blog</h1>
-    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-12">
-      Artículos y reflexiones sobre salud, nutrición y el estilo de vida vegano.
+  <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pt-14 pb-8">
+    <span class="text-[11px] tracking-[0.22em] uppercase text-brand-600 dark:text-brand-dark font-medium">Salud y nutrición</span>
+    <h1 class="font-display font-medium text-[32px] md:text-[40px] leading-[1.06] -tracking-[0.02em] text-paper-ink dark:text-night-ink mt-3">Blog</h1>
+    <p class="text-[16.5px] text-paper-muted dark:text-night-muted font-body font-light mt-3 max-w-[60ch]">
+      Reflexiones sobre salud, nutrición y el estilo de vida vegano.
     </p>
+  </div>
 
-    <div class="space-y-8">
-      {posts.map(post => (
-        <article class="card p-6">
-          <div class="flex items-start justify-between mb-4">
-            <div>
-              <h2 class="text-2xl font-bold font-poppins mb-2">
-                <a href={`/blog/${post.slug}`} class="hover:text-primary transition-colors">
-                  {post.titulo}
-                </a>
-              </h2>
-              <div class="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
-                <time datetime={post.fecha}>
-                  {new Date(post.fecha).toLocaleDateString('es-CL', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
-                </time>
-                <span class="px-3 py-1 bg-primary text-white rounded-full text-xs font-semibold">
-                  {post.categoria}
-                </span>
-              </div>
-            </div>
-          </div>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">
-            {post.resumen}
+  <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pb-20 md:pb-[110px] flex flex-col">
+    {posts.map((post, i) => (
+      <a
+        href={`/blog/${post.slug}`}
+        class={`group flex flex-col md:flex-row gap-4 md:gap-10 py-9 ${i === 0 ? 'border-t' : ''} border-b border-paper-hairline dark:border-night-hairline`}
+      >
+        <time class="text-[13px] text-[#A79CA3] font-body font-light md:w-[120px] flex-shrink-0 pt-1">
+          {new Date(post.fechaPublicacion).toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+        <div class="flex flex-col gap-2 flex-1">
+          <h2 class="font-display font-medium text-[22px] md:text-[26px] leading-[1.18] -tracking-[0.015em] text-paper-ink dark:text-night-ink group-hover:text-brand-600 dark:group-hover:text-brand-dark transition-colors">
+            {post.titulo}
+          </h2>
+          <p class="text-[16px] leading-[1.65] text-paper-muted dark:text-night-muted font-body font-light line-clamp-2 max-w-[70ch]">
+            {post.descripcion}
           </p>
-          <a href={`/blog/${post.slug}`} class="text-primary hover:text-secondary-teal font-semibold transition-colors">
-            Leer más →
-          </a>
-        </article>
-      ))}
-    </div>
+          <span class="text-[13px] tracking-[0.14em] uppercase text-brand-600 dark:text-brand-dark font-medium mt-2">Leer más →</span>
+        </div>
+      </a>
+    ))}
   </div>
 
   <Footer />
