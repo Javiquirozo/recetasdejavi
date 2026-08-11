@@ -8,8 +8,6 @@ export const prerender = true;
 export async function getStaticPaths() {
   return [
     { params: { slug: 'mi-experiencia-con-la-artritis' } },
-    { params: { slug: 'consejos-para-una-alimentacion-saludable' } },
-    { params: { slug: 'charla-enfermedades-autoinmunes-y-estilo-de-vida' } },
     { params: { slug: 'ser-vegano-es-por-los-animales-pero-y-nuestra-salud' } },
   ];
 }
@@ -43,23 +41,6 @@ const articles = {
       { type: 'p', text: 'A la fecha, estoy feliz e impresionada de los cambios que generó mi alimentación con respecto a la enfermedad. Pasé de pincharme cada dos semanas y tomar muchos medicamentos, a llevar casi un año sin pincharme y sin tomar ni una sola pastilla.' },
       { type: 'p', text: 'No digo que mi enfermedad se haya sanado, porque la verdad no sé si eso sea posible. Espero poder averiguar pronto, mediante exámenes, si la enfermedad ha avanzado. Pero lo que sí sé es que he podido llevarla increíblemente bien y estoy mejor que nunca.' },
       { type: 'p', text: 'Comparto esta experiencia porque estoy totalmente convencida de que la alimentación sí importa. He podido comprobarlo en mi propio cuerpo y puedo ver, con paciencia, que da resultados positivos. Creo que tenemos el poder de decidir qué es lo que le damos de combustible a nuestras células, por eso invito siempre a cocinar y a ser más conscientes de lo que tenemos cada día en nuestros platos.' },
-    ],
-  },
-  'consejos-para-una-alimentacion-saludable': {
-    partial: true,
-    blocks: [
-      { type: 'p', text: 'Les comparto este artículo que escribí para el blog de Dhanayoga.' },
-      { type: 'p', text: 'Para alimentarnos de forma saludable debemos tener en cuenta que necesitamos adoptar nuevos hábitos. Esto en un principio puede parecer un poco difícil de conseguir, pero te aseguro que con constancia y conciencia puedes lograrlo. Una vez que te adaptes a estos cambios comenzarás a sentirte mucho mejor física y mentalmente. ¡Tu cuerpo lo agradecerá!' },
-      { type: 'p', text: 'A continuación, te comparto algunos consejos o tips que debes considerar si quieres llevar una alimentación saludable:' },
-      { type: 'p', text: '1) Toma conciencia. Para cambiar hábitos alimenticios debemos preguntarnos: ¿por qué queremos hacerlo?' },
-    ],
-  },
-  'charla-enfermedades-autoinmunes-y-estilo-de-vida': {
-    partial: true,
-    blocks: [
-      { type: 'p', text: 'Otro enfoque en la medicina: los hábitos influyen en nuestras enfermedades. Pacientes activos, médicos coach y alimentación basada en plantas, es la tendencia de la medicina con enfoque preventivo.' },
-      { type: 'p', text: '¿Sabía usted que un estilo de vida saludable puede evitar el 80% de enfermedades? Esta es la premisa con la que dos médicos especialistas en estilo de vida y una chef especialista en cocina basada en plantas se reunieron para entregar herramientas sobre cómo mejorar la calidad de vida, en esta ocasión, para personas con diagnósticos de enfermedades autoinmunes.' },
-      { type: 'p', text: 'Con más de 200 personas conectadas, se realizó esta charla que destacó la importancia de la vida saludable para poder superar enfermedades del sistema inmune. A cargo de la médica Paloma Correo, el médico José Izcue —ambos certificados en medicina de estilo de vida (IBLM)— y la chef y activista vegana Javiera Quiroz.' },
     ],
   },
   'ser-vegano-es-por-los-animales-pero-y-nuestra-salud': {
