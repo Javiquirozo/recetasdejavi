@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import RecipeCard from '@/components/RecipeCard.astro';
-import { isRealValue, isRealRecipe, categoryLabel as getCategoryLabel } from '@/lib/recipeMeta.js';
+import { isRealValue, isRealRecipe, categoryLabel as getCategoryLabel, isSectionHeader, sectionHeaderText } from '@/lib/recipeMeta.js';
 
 export const prerender = true;
 
@@ -26,6 +26,13 @@ if (!recipe) {
 
 const categoryLabel = getCategoryLabel(recipe.categoria);
 const images = recipe.imagenes_locales || [];
+
+let stepCounter = 0;
+const preparacionRows = (recipe.preparacion || []).map((paso) =>
+  isSectionHeader(paso)
+    ? { header: true, text: sectionHeaderText(paso) }
+    : { header: false, text: paso, number: ++stepCounter }
+);
 
 const related = recipes
   .filter(r => r.categoria === recipe.categoria && r.slug !== slug)
@@ -150,10 +157,16 @@ const related = recipes
       {recipe.ingredientes && recipe.ingredientes.length > 0 ? (
         <div id="ingredientList" class="flex flex-col">
           {recipe.ingredientes.map((ing, i) => (
-            <div class="ing-item flex items-center gap-[14px] py-[14px] border-b border-[#F0EAE2] dark:border-night-hairline cursor-pointer" data-i={i}>
-              <span class="ing-box w-[18px] h-[18px] border border-[#DED5CB] dark:border-night-hairline flex-shrink-0 grid place-items-center text-white text-[11px]"></span>
-              <span class="ing-label text-[16px] text-paper-ink dark:text-night-ink">{ing}</span>
-            </div>
+            isSectionHeader(ing) ? (
+              <div class="pt-[18px] pb-[6px] first:pt-0">
+                <span class="font-display font-medium text-[14px] text-paper-ink dark:text-night-ink">{sectionHeaderText(ing)}</span>
+              </div>
+            ) : (
+              <div class="ing-item flex items-center gap-[14px] py-[14px] border-b border-[#F0EAE2] dark:border-night-hairline cursor-pointer" data-i={i}>
+                <span class="ing-box w-[18px] h-[18px] border border-[#DED5CB] dark:border-night-hairline flex-shrink-0 grid place-items-center text-white text-[11px]"></span>
+                <span class="ing-label text-[16px] text-paper-ink dark:text-night-ink">{ing}</span>
+              </div>
+            )
           ))}
         </div>
       ) : (
@@ -167,11 +180,15 @@ const related = recipes
       <h2 class="font-display font-medium text-[22px] text-paper-ink dark:text-night-ink">Preparación</h2>
       {recipe.preparacion && recipe.preparacion.length > 0 ? (
         <div class="flex flex-col gap-[30px]">
-          {recipe.preparacion.map((paso, i) => (
-            <div class="grid grid-cols-[52px_1fr] gap-[22px] items-start">
-              <span class="font-display font-medium text-[15px] text-brand-600 dark:text-brand-dark pt-[3px]">{String(i + 1).padStart(2, '0')}</span>
-              <p class="text-[16.5px] leading-[1.75] text-paper-ink dark:text-night-ink max-w-[66ch]">{paso}</p>
-            </div>
+          {preparacionRows.map((row) => (
+            row.header ? (
+              <h3 class="font-display font-medium text-[18px] text-paper-ink dark:text-night-ink -mb-[8px] first:mt-0">{row.text}</h3>
+            ) : (
+              <div class="grid grid-cols-[52px_1fr] gap-[22px] items-start">
+                <span class="font-display font-medium text-[15px] text-brand-600 dark:text-brand-dark pt-[3px]">{String(row.number).padStart(2, '0')}</span>
+                <p class="text-[16.5px] leading-[1.75] text-paper-ink dark:text-night-ink max-w-[66ch]">{row.text}</p>
+              </div>
+            )
           ))}
         </div>
       ) : (

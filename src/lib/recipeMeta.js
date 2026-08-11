@@ -28,3 +28,15 @@ export function categoryLabel(cat) {
   if (!cat) return CATEGORY_LABELS.otros;
   return CATEGORY_LABELS[cat] || cat.replace('_', ' ');
 }
+
+// Convención para marcar subtítulos de sección dentro de listas planas de
+// ingredientes/preparación (ej. recetas con "Para el queque" / "Para la cobertura").
+const SECTION_PREFIX = '## ';
+
+export function isSectionHeader(line) {
+  return typeof line === 'string' && line.startsWith(SECTION_PREFIX);
+}
+
+export function sectionHeaderText(line) {
+  return line.slice(SECTION_PREFIX.length);
+}
