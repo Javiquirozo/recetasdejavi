@@ -194,7 +194,7 @@ const articles = {
       { text: 'T13, 2026. Natalia Duco y sus declaraciones sobre el rodeo', url: 'https://www.t13.cl/noticia/politica/ministra-duco-criticas-dichos-rodeo-me-impacto-mucho-pero-las-respeto-5-4-2026' },
       { text: 'Memoria Chilena. Historia del rodeo chileno', url: 'https://www.memoriachilena.gob.cl/602/w3-article-3402.html' },
     ],
-    coverCredit: { text: 'Radio Universidad de Chile', url: 'https://radio.uchile.cl/2023/09/02/los-peligros-del-rodeo-como-deporte-nacional-animalistas-arremeten-contra-enmienda-republicana/rodeo' },
+    coverCredit: { text: 'Ilustración generada con IA' },
   },
 };
 
@@ -243,7 +243,11 @@ const readingTime = Math.max(1, Math.round(wordCount / 200));
     )}
     {article.coverCredit && (
       <p class="w-full max-w-[1120px] mx-5 -mt-8 mb-11 text-[12.5px] text-[#A79CA3] text-right">
-        Foto: <a href={article.coverCredit.url} target="_blank" rel="noopener noreferrer" class="underline hover:text-brand-600 dark:hover:text-brand-dark">{article.coverCredit.text}</a>
+        {article.coverCredit.url ? (
+          <>Foto: <a href={article.coverCredit.url} target="_blank" rel="noopener noreferrer" class="underline hover:text-brand-600 dark:hover:text-brand-dark">{article.coverCredit.text}</a></>
+        ) : (
+          article.coverCredit.text
+        )}
       </p>
     )}
 
