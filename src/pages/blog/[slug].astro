@@ -95,6 +95,7 @@ const articles = {
       { type: 'p', text: 'Que es tradición. Que es cultura. Que forma parte de nuestra historia. Que hay que regularlo mejor.' },
       { type: 'p', text: 'Pero **que algo sea tradición no significa que esté bien ni que sea justo**.' },
       { type: 'p', text: 'En el rodeo, dos jinetes a caballo persiguen a un novillo y buscan detenerlo contra las quinchas de la medialuna para obtener puntaje.' },
+      { type: 'img', src: '/images/rodeo-rove-inline.jpg', alt: 'Dos jinetes persiguiendo a un novillo en un rodeo', credit: 'rove.me' },
       { type: 'p', text: 'Podemos crear más reglas, mejorar las instalaciones y sumar protocolos de bienestar animal, pero nada cambia lo esencial: **estamos utilizando animales para entretenernos**.' },
       { type: 'p', text: 'Para mí, el problema no está solamente en cómo se hace. Está en que se haga.' },
       { type: 'h2', text: 'Y no, el daño no es solamente una opinión' },
@@ -141,6 +142,7 @@ const articles = {
       { type: 'h2', text: 'Hay algo mucho más básico: los animales no están para entretenernos' },
       { type: 'p', text: 'A veces siento que en medio de tanta discusión sobre tradición, deporte y cultura nos olvidamos de lo más evidente: **hay animales siendo utilizados para que nosotros nos entretengamos.**' },
       { type: 'p', text: 'En el rodeo, el novillo es perseguido y detenido mediante el impacto contra la quincha. Y esto no es inocuo. El propio Colegio Médico Veterinario ha advertido que tanto bovinos como caballos pueden estar expuestos a golpes, lesiones y situaciones de estrés.' },
+      { type: 'img', src: '/images/rodeo-caballoyrodeo-inline.jpg', alt: 'Jinetes deteniendo a un novillo contra la quincha en un rodeo', credit: 'caballoyrodeo.cl' },
       { type: 'p', text: 'Y para mí acá hay una pregunta que va incluso más allá del rodeo:' },
       { type: 'p', text: '**¿por qué creemos que tenemos derecho a decidir que otros animales tienen que estar a nuestro servicio?**' },
       { type: 'p', text: 'No nos pertenecen. No existen para entretenernos, competir por nosotros ni demostrar la destreza de una persona.' },
@@ -205,7 +207,7 @@ const images = record.imagenes_locales || [];
 const authorPhoto = images.find(img => img.toLowerCase().includes('javi')) || null;
 const cover = images[0];
 
-const wordCount = blocks.map(b => b.text).join(' ').split(/\s+/).length;
+const wordCount = blocks.filter(b => b.text).map(b => b.text).join(' ').split(/\s+/).length;
 const readingTime = Math.max(1, Math.round(wordCount / 200));
 ---
 
@@ -249,6 +251,13 @@ const readingTime = Math.max(1, Math.round(wordCount / 200));
       {restBlocks.map(b => (
         b.type === 'h2' ? (
           <h2 class="font-display font-medium text-[26px] leading-[1.14] -tracking-[0.015em] text-paper-ink dark:text-night-ink mt-4">{b.text}</h2>
+        ) : b.type === 'img' ? (
+          <figure class="self-center w-full max-w-[340px] my-2">
+            <div class="aspect-[4/3] overflow-hidden bg-paper-photo dark:bg-night-surface">
+              <img src={b.src} alt={b.alt || ''} class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            {b.credit && <figcaption class="text-[11.5px] text-[#A79CA3] text-right mt-1.5">Fuente: {b.credit}</figcaption>}
+          </figure>
         ) : (
           <p class="text-[17.5px] leading-[1.8] text-[#3B333A] dark:text-night-ink" set:html={boldify(b.text)} />
         )
