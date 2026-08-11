@@ -7293,7 +7293,9 @@
     "ingredientes": [],
     "preparacion": [],
     "notas": [],
-    "imagenes_locales": [],
+    "imagenes_locales": [
+      "/images/blog-salud-y-veganismo.jpg"
+    ],
     "imagenes_originales": [],
     "fechaPublicacion": "2026-08-10",
     "url_original": null
