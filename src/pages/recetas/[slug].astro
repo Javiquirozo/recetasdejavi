@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import RecipeCard from '@/components/RecipeCard.astro';
-import { isRealValue, isRealRecipe } from '@/lib/recipeMeta.js';
+import { isRealValue, isRealRecipe, categoryLabel as getCategoryLabel } from '@/lib/recipeMeta.js';
 
 export const prerender = true;
 
@@ -24,7 +24,7 @@ if (!recipe) {
   return Astro.redirect('/404');
 }
 
-const categoryLabel = (recipe.categoria || 'otros').replace('_', ' ');
+const categoryLabel = getCategoryLabel(recipe.categoria);
 const images = recipe.imagenes_locales || [];
 
 const related = recipes
@@ -38,7 +38,7 @@ const related = recipes
   <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pt-10 flex flex-col gap-6">
     <span class="text-[13px] text-[#A79CA3] font-body font-light">
       <a href="/recetas" class="hover:text-brand-600">Recetas</a> <span class="text-[#DED5CB]">/</span>
-      <a href={`/recetas/${recipe.categoria}`} class="capitalize hover:text-brand-600">{categoryLabel}</a> <span class="text-[#DED5CB]">/</span>
+      <a href={`/recetas/${recipe.categoria}`} class="hover:text-brand-600">{categoryLabel}</a> <span class="text-[#DED5CB]">/</span>
       <span class="text-paper-muted dark:text-night-muted">{recipe.titulo}</span>
     </span>
 

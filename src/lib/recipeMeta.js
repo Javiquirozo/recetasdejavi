@@ -10,3 +10,21 @@ export function isRealValue(v) {
 export function isRealRecipe(r) {
   return Boolean(r.ingredientes && r.ingredientes.length > 0);
 }
+
+// Nombres para mostrar por categoría — sobreescriben el simple "reemplazar guion bajo"
+// para los casos donde ese nombre no queda bien (ej. plural, o con conector "y").
+const CATEGORY_LABELS = {
+  plato_principal: 'Plato principal',
+  postre: 'Postre',
+  salsa: 'Salsas',
+  desayuno: 'Desayunos',
+  entrada: 'Entrada',
+  acompañamiento: 'Acompañamiento',
+  sopa: 'Sopas y cremas',
+  otros: 'Otros',
+};
+
+export function categoryLabel(cat) {
+  if (!cat) return CATEGORY_LABELS.otros;
+  return CATEGORY_LABELS[cat] || cat.replace('_', ' ');
+}

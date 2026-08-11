@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import RecipeCard from '@/components/RecipeCard.astro';
-import { isRealRecipe } from '@/lib/recipeMeta.js';
+import { isRealRecipe, categoryLabel } from '@/lib/recipeMeta.js';
 import { BLOG_POST_SLUGS } from '@/lib/blogPosts.js';
 
 const allRecipes = await import('@/data/recetas.json').then(m => m.default);
@@ -45,10 +45,18 @@ const categoryCounts = recipes.reduce((acc, r) => {
   return acc;
 }, {});
 const sortedCategories = Object.entries(categoryCounts).sort((a, b) => b[1] - a[1]);
-const topCategories = sortedCategories.slice(0, 4);
-const restCategories = sortedCategories.slice(4);
-
-const categoryImage = (cat) => recipes.find(r => r.categoria === cat && r.imagenes_locales?.length > 0)?.imagenes_locales?.[0];
+// Selección curada a mano por foto de mejor calidad y plato terminado (no fotos de
+// antes de cocinar) — se revisaron varias opciones por categoría, ver conversación.
+const CATEGORY_IMAGES = {
+  plato_principal: '/images/IMG-0457.jpg',
+  postre: '/images/IMG-3987.jpg',
+  salsa: '/images/IMG-7303.jpg',
+  desayuno: '/images/IMG-2036.jpg',
+  entrada: '/images/albondigas-de-berenjena.jpg',
+  acompañamiento: '/images/IMG_6467.jpg',
+  sopa: '/images/IMG_8248.jpg',
+};
+const categoryImage = (cat) => CATEGORY_IMAGES[cat] || recipes.find(r => r.categoria === cat && r.imagenes_locales?.length > 0)?.imagenes_locales?.[0];
 
 const title = 'Vlog de Javi — Recetas veganas';
 const description = 'Recetas veganas deliciosas y nutritivas. Más de 167 recetas para una vida más saludable.';
@@ -72,7 +80,7 @@ const description = 'Recetas veganas deliciosas y nutritivas. Más de 167 receta
       <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6 md:px-16">
         {heroRecipes.map((r, i) => (
           <div class={`hero-caption flex flex-col items-center gap-4 md:gap-5 max-w-[720px] ${i === 0 ? '' : 'hidden'}`} data-index={i}>
-            <span class="text-[12px] md:text-[12.5px] tracking-[0.22em] uppercase text-white font-medium capitalize bg-black/35 backdrop-blur-sm px-4 py-[7px] rounded-full">{(r.categoria || '').replace('_', ' ')}</span>
+            <span class="text-[12px] md:text-[12.5px] tracking-[0.22em] uppercase text-white font-medium bg-black/35 backdrop-blur-sm px-4 py-[7px] rounded-full">{categoryLabel(r.categoria)}</span>
             <h1 class="font-display font-medium text-[30px] md:text-[48px] leading-[1.1] md:leading-[1.06] -tracking-[0.02em] text-white text-balance">{r.titulo}</h1>
             <a href={`/recetas/${r.slug}`} class="text-[12.5px] md:text-[13px] tracking-[0.14em] uppercase text-white border-b border-white/80 pb-1 font-medium mt-1">Ver receta</a>
           </div>
@@ -101,28 +109,23 @@ const description = 'Recetas veganas deliciosas y nutritivas. Más de 167 receta
       <span class="flex-1 h-px bg-paper-hairline dark:bg-night-hairline"></span>
       <span class="text-[13px] text-[#9a8f95]">{recipes.length} recetas</span>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-      {topCategories.map(([cat, count]) => (
-        <a href={`/recetas/${cat}`} class="flex flex-col gap-[13px]">
-          <div class="aspect-square overflow-hidden bg-paper-photo dark:bg-night-surface">
-            {categoryImage(cat) && <img src={categoryImage(cat)} alt={cat} class="w-full h-full object-cover" loading="lazy" />}
-          </div>
-          <div class="flex justify-between items-baseline">
-            <span class="font-display font-medium text-[15px] text-paper-ink dark:text-night-ink capitalize">{cat.replace('_', ' ')}</span>
-            <span class="text-[12.5px] text-paper-muted dark:text-night-muted">{count}</span>
-          </div>
-        </a>
-      ))}
-    </div>
-    {restCategories.length > 0 && (
-      <div class="flex gap-8 flex-wrap mt-8 pt-6 border-t border-paper-hairline dark:border-night-hairline">
-        {restCategories.map(([cat, count]) => (
-          <a href={`/recetas/${cat}`} class="text-[14.5px] text-paper-muted dark:text-night-muted hover:text-brand-600 dark:hover:text-brand-dark transition-colors capitalize">
-            {cat.replace('_', ' ')} <span class="text-[12.5px] text-[#A79CA3]">{count}</span>
+    <div class="relative">
+      <div id="categoryScroll" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {sortedCategories.map(([cat, count]) => (
+          <a href={`/recetas/${cat}`} class="flex flex-col gap-[13px] w-[150px] md:w-[180px] flex-shrink-0 snap-start">
+            <div class="aspect-square overflow-hidden bg-paper-photo dark:bg-night-surface">
+              {categoryImage(cat) && <img src={categoryImage(cat)} alt={categoryLabel(cat)} class="w-full h-full object-cover" loading="lazy" />}
+            </div>
+            <div class="flex justify-between items-baseline">
+              <span class="font-display font-medium text-[15px] text-paper-ink dark:text-night-ink">{categoryLabel(cat)}</span>
+              <span class="text-[12.5px] text-paper-muted dark:text-night-muted">{count}</span>
+            </div>
           </a>
         ))}
       </div>
-    )}
+      <button id="catPrev" aria-label="Categorías anteriores" class="hidden md:flex items-center justify-center absolute -left-5 top-[64px] md:top-[76px] -translate-y-1/2 w-10 h-10 rounded-full bg-paper-surface dark:bg-night-surface border border-paper-hairline dark:border-night-hairline shadow-sm hover:border-brand-600 transition-colors">←</button>
+      <button id="catNext" aria-label="Siguientes categorías" class="hidden md:flex items-center justify-center absolute -right-5 top-[64px] md:top-[76px] -translate-y-1/2 w-10 h-10 rounded-full bg-paper-surface dark:bg-night-surface border border-paper-hairline dark:border-night-hairline shadow-sm hover:border-brand-600 transition-colors">→</button>
+    </div>
   </div>
 
   <!-- Últimas recetas -->
@@ -223,7 +226,7 @@ const description = 'Recetas veganas deliciosas y nutritivas. Más de 167 receta
         <span class="text-[11px] tracking-[0.22em] uppercase text-white/80 font-medium">Recursos gratis</span>
         <h2 class="font-display font-medium text-[24px] md:text-[28px] leading-[1.15] -tracking-[0.01em] text-white">Descarga guías PDF gratis</h2>
         <p class="text-[15.5px] leading-[1.65] text-white/85 font-body font-light max-w-[56ch]">
-          Guías y recetarios que hice con cariño hace un tiempo, pero que siguen 100% vigentes — muchas me las siguen pidiendo. Colaboraron además otras personas del mundo foodie que vale la pena conocer.
+          Guías y recetarios que hice hace un tiempo, pero que siguen 100% vigentes: muchas me las siguen pidiendo. Colaboraron además otras personas del mundo foodie que vale la pena conocer.
         </p>
         <span class="text-[13px] tracking-[0.14em] uppercase text-white border-b border-white/80 pb-1 font-medium mt-1 group-hover:opacity-80 transition-opacity">Ver recursos →</span>
       </div>
@@ -314,4 +317,18 @@ const description = 'Recetas veganas deliciosas y nutritivas. Más de 167 receta
       if (isSwiping) e.preventDefault();
     });
   });
+
+  // Carrusel de categorías
+  const categoryScroll = document.getElementById('categoryScroll');
+  const catPrev = document.getElementById('catPrev');
+  const catNext = document.getElementById('catNext');
+  if (categoryScroll && catPrev && catNext) {
+    const scrollByCards = (dir) => {
+      const card = categoryScroll.querySelector('a');
+      const amount = card ? (card.offsetWidth + 24) * 2 : 300;
+      categoryScroll.scrollBy({ left: dir * amount, behavior: 'smooth' });
+    };
+    catPrev.addEventListener('click', () => scrollByCards(-1));
+    catNext.addEventListener('click', () => scrollByCards(1));
+  }
 </script>

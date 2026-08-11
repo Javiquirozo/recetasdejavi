@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import RecipeCard from '@/components/RecipeCard.astro';
-import { isRealRecipe } from '@/lib/recipeMeta.js';
+import { isRealRecipe, categoryLabel } from '@/lib/recipeMeta.js';
 
 const allRecipes = await import('@/data/recetas.json').then(m => m.default);
 const recipes = allRecipes.filter(isRealRecipe);
@@ -50,9 +50,9 @@ const title = 'Recetas — Vlog de Javi';
       {categories.map(cat => (
         <button
           data-cat={cat}
-          class:list={["chip", "rounded-full px-[18px] py-[9px] text-[14px] capitalize transition-all", initialCategory === cat ? "border border-paper-ink bg-paper-ink text-paper dark:border-night-ink dark:bg-night-ink dark:text-night" : "border border-[#DED5CB] dark:border-night-hairline text-paper-muted dark:text-night-muted"]}
+          class:list={["chip", "rounded-full px-[18px] py-[9px] text-[14px] transition-all", initialCategory === cat ? "border border-paper-ink bg-paper-ink text-paper dark:border-night-ink dark:bg-night-ink dark:text-night" : "border border-[#DED5CB] dark:border-night-hairline text-paper-muted dark:text-night-muted"]}
         >
-          {cat.replace('_', ' ')}
+          {categoryLabel(cat)}
         </button>
       ))}
     </div>

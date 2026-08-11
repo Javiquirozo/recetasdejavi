@@ -1,5 +1,5 @@
 ---
-import { isRealRecipe } from '@/lib/recipeMeta.js';
+import { isRealRecipe, categoryLabel } from '@/lib/recipeMeta.js';
 
 const recipes = await import('@/data/recetas.json').then(m => m.default).then(r => r.filter(isRealRecipe));
 const categories = [...new Set(recipes.map(r => r.categoria).filter(Boolean))].sort();
@@ -40,9 +40,9 @@ const links = [
       {categories.map(cat => (
         <a
           href={`/recetas/${cat}`}
-          class="block px-4 py-2 text-[14px] text-paper-muted dark:text-night-muted hover:text-brand-600 dark:hover:text-brand-dark capitalize transition-colors"
+          class="block px-4 py-2 text-[14px] text-paper-muted dark:text-night-muted hover:text-brand-600 dark:hover:text-brand-dark transition-colors"
         >
-          {cat.replace('_', ' ')}
+          {categoryLabel(cat)}
         </a>
       ))}
     </div>
@@ -66,7 +66,7 @@ const links = [
     <a href={link.href} class="text-[15px] text-paper-ink dark:text-night-ink">{link.label}</a>
   ))}
   {categories.map(cat => (
-    <a href={`/recetas/${cat}`} class="text-[14px] text-paper-muted dark:text-night-muted capitalize pl-3">{cat.replace('_', ' ')}</a>
+    <a href={`/recetas/${cat}`} class="text-[14px] text-paper-muted dark:text-night-muted pl-3">{categoryLabel(cat)}</a>
   ))}
   <div class="flex items-center gap-[9px] border-b border-[#DED5CB] py-2">
     <span class="text-[14px] text-[#B0A5AB]">⌕</span>

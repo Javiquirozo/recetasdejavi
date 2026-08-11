@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import RecipeCard from '@/components/RecipeCard.astro';
-import { isRealRecipe } from '@/lib/recipeMeta.js';
+import { isRealRecipe, categoryLabel as getCategoryLabel } from '@/lib/recipeMeta.js';
 
 export const prerender = true;
 
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 
 const { categoria } = Astro.params;
 const categoryRecipes = recipes.filter(r => r.categoria === categoria);
-const categoryLabel = categoria.replace('_', ' ');
+const categoryLabel = getCategoryLabel(categoria);
 ---
 
 <BaseLayout title={`${categoryLabel} — Vlog de Javi`} description={`${categoryRecipes.length} recetas veganas en la categoría ${categoryLabel}`}>
@@ -32,13 +32,13 @@ const categoryLabel = categoria.replace('_', ' ');
   <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pt-14 flex flex-col gap-7">
     <span class="text-[13px] text-[#A79CA3] font-body font-light">
       <a href="/recetas" class="hover:text-brand-600">Recetas</a> <span class="text-[#DED5CB]">/</span>
-      <span class="text-paper-muted dark:text-night-muted capitalize">{categoryLabel}</span>
+      <span class="text-paper-muted dark:text-night-muted">{categoryLabel}</span>
     </span>
 
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-10">
       <div class="flex flex-col gap-3">
         <span class="text-[11px] tracking-[0.22em] uppercase text-paper-muted dark:text-night-muted font-medium">Categoría</span>
-        <h1 class="font-display font-medium text-[32px] md:text-[40px] leading-[1.06] -tracking-[0.02em] text-paper-ink dark:text-night-ink capitalize">{categoryLabel}</h1>
+        <h1 class="font-display font-medium text-[32px] md:text-[40px] leading-[1.06] -tracking-[0.02em] text-paper-ink dark:text-night-ink">{categoryLabel}</h1>
       </div>
       <span class="text-[13.5px] text-[#A79CA3]">{categoryRecipes.length} recetas</span>
     </div>
@@ -50,9 +50,9 @@ const categoryLabel = categoria.replace('_', ' ');
       {categories.map(cat => (
         <a
           href={`/recetas/${cat}`}
-          class={`rounded-full px-[18px] py-[9px] text-[14px] capitalize transition-colors ${cat === categoria ? 'border border-paper-ink bg-paper-ink text-paper dark:border-night-ink dark:bg-night-ink dark:text-night' : 'border border-[#DED5CB] dark:border-night-hairline text-paper-muted dark:text-night-muted hover:border-brand-600 hover:text-brand-600'}`}
+          class={`rounded-full px-[18px] py-[9px] text-[14px] transition-colors ${cat === categoria ? 'border border-paper-ink bg-paper-ink text-paper dark:border-night-ink dark:bg-night-ink dark:text-night' : 'border border-[#DED5CB] dark:border-night-hairline text-paper-muted dark:text-night-muted hover:border-brand-600 hover:text-brand-600'}`}
         >
-          {cat.replace('_', ' ')}
+          {getCategoryLabel(cat)}
         </a>
       ))}
     </div>

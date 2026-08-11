@@ -1,5 +1,5 @@
 ---
-import { isRealRecipe } from '@/lib/recipeMeta.js';
+import { isRealRecipe, categoryLabel } from '@/lib/recipeMeta.js';
 
 const recipes = await import('@/data/recetas.json').then(m => m.default).then(r => r.filter(isRealRecipe));
 const counts = recipes.reduce((acc, r) => {
@@ -19,8 +19,8 @@ const topCategories = Object.entries(counts)
       <div class="flex flex-col gap-[11px]">
         <span class="text-[11px] tracking-[0.22em] uppercase text-paper-muted dark:text-night-muted font-medium">Recetas</span>
         {topCategories.map((cat) => (
-          <a href={`/recetas/${cat}`} class="text-[14.5px] text-paper-muted dark:text-night-muted hover:text-brand-600 dark:hover:text-brand-dark transition-colors capitalize">
-            {cat.replace('_', ' ')}
+          <a href={`/recetas/${cat}`} class="text-[14.5px] text-paper-muted dark:text-night-muted hover:text-brand-600 dark:hover:text-brand-dark transition-colors">
+            {categoryLabel(cat)}
           </a>
         ))}
       </div>

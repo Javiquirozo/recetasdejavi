@@ -1,5 +1,5 @@
 ---
-import { isRealValue } from '@/lib/recipeMeta.js';
+import { isRealValue, categoryLabel as getCategoryLabel } from '@/lib/recipeMeta.js';
 
 interface Props {
   titulo: string;
@@ -14,7 +14,7 @@ interface Props {
 
 const { titulo, slug, categoria, dificultad, tiempo, descripcion, imagenes_locales, porciones } = Astro.props;
 const imagen = imagenes_locales?.[0];
-const categoryLabel = (categoria || 'otros').replace('_', ' ');
+const categoryLabel = getCategoryLabel(categoria);
 const url = `${Astro.site}recetas/${slug}`;
 
 const categoryColorClass: Record<string, string> = {
