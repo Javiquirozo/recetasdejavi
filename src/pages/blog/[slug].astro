@@ -124,6 +124,7 @@ const articles = {
       { type: 'p', text: 'Quizás significa simplemente celebrar de una forma que represente mejor al Chile que somos hoy.' },
       { type: 'p', text: '**Uno donde nuestra entretención no tenga que ser a costa de otro animal.**' },
     ],
+    coverCredit: { text: 'El País', url: 'https://elpais.com/chile/2022-05-10/la-cruzada-animalista-acorrala-al-rodeo-chileno.html' },
   },
 };
 
@@ -166,9 +167,14 @@ const readingTime = Math.max(1, Math.round(wordCount / 200));
     </div>
 
     {cover && (
-      <div class="w-full max-w-[1120px] mx-5 my-11 aspect-video overflow-hidden bg-paper-photo dark:bg-night-surface">
+      <div class="w-full max-w-[1120px] mx-5 mt-11 mb-11 aspect-video overflow-hidden bg-paper-photo dark:bg-night-surface">
         <img src={cover} alt={record.titulo} class="w-full h-full object-cover" />
       </div>
+    )}
+    {article.coverCredit && (
+      <p class="w-full max-w-[1120px] mx-5 -mt-8 mb-11 text-[12.5px] text-[#A79CA3] text-right">
+        Foto: <a href={article.coverCredit.url} target="_blank" rel="noopener noreferrer" class="underline hover:text-brand-600 dark:hover:text-brand-dark">{article.coverCredit.text}</a>
+      </p>
     )}
 
     <div class="w-full max-w-[720px] px-5 flex flex-col gap-7 pb-16 md:pb-24">
