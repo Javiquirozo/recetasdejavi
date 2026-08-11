@@ -4,6 +4,7 @@ import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import RecipeCard from '@/components/RecipeCard.astro';
 import { isRealRecipe } from '@/lib/recipeMeta.js';
+import { BLOG_POST_SLUGS } from '@/lib/blogPosts.js';
 
 const allRecipes = await import('@/data/recetas.json').then(m => m.default);
 const recipes = allRecipes.filter(isRealRecipe);
@@ -31,7 +32,13 @@ const heroRecipes = heroSlugs
   .filter(Boolean)
   .map(r => ({ ...r, imagenes_locales: [heroImageOverride[r.slug], ...(r.imagenes_locales || [])] }));
 
-const latestRecipes = withPhotos.filter(r => !heroSlugs.includes(r.slug)).slice(0, 3);
+const latestRecipes = withPhotos.filter(r => !heroSlugs.includes(r.slug)).slice(0, 9);
+
+const latestPosts = BLOG_POST_SLUGS
+  .map(slug => allRecipes.find(r => r.slug === slug))
+  .filter(Boolean)
+  .sort((a, b) => new Date(b.fechaPublicacion) - new Date(a.fechaPublicacion))
+  .slice(0, 3);
 
 const categoryCounts = recipes.reduce((acc, r) => {
   if (r.categoria) acc[r.categoria] = (acc[r.categoria] || 0) + 1;
@@ -138,6 +145,89 @@ const description = 'Recetas veganas deliciosas y nutritivas. Más de 167 receta
         />
       ))}
     </div>
+  </div>
+
+  <!-- Del blog -->
+  {latestPosts.length > 0 && (
+    <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pb-20 md:pb-[110px]">
+      <div class="flex items-baseline gap-5 mb-10">
+        <h2 class="font-display font-medium text-[12px] tracking-[0.24em] uppercase text-[#9a8f95]">Del blog</h2>
+        <span class="flex-1 h-px bg-paper-hairline dark:bg-night-hairline"></span>
+        <a href="/blog" class="text-[13px] text-brand-600 dark:text-brand-dark">Ver todos</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 md:gap-x-10 md:gap-y-[52px]">
+        {latestPosts.map(post => (
+          <a href={`/blog/${post.slug}`} class="group flex flex-col gap-4">
+            <div class="aspect-[4/5] overflow-hidden bg-paper-photo dark:bg-night-surface">
+              {post.imagenes_locales?.[0] ? (
+                <img
+                  src={post.imagenes_locales[0]}
+                  alt={post.titulo}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              ) : (
+                <div class="w-full h-full grid place-items-center">
+                  <img src="/logo-icono.png" alt="" class="w-14 opacity-20" />
+                </div>
+              )}
+            </div>
+            <div class="flex flex-col gap-[9px]">
+              <span class="text-[11px] tracking-[0.22em] uppercase font-medium text-brand-600 dark:text-brand-dark">Blog</span>
+              <h3 class="font-display font-medium text-[19px] leading-[1.22] -tracking-[0.01em] text-paper-ink dark:text-night-ink group-hover:text-brand-600 dark:group-hover:text-brand-dark transition-colors line-clamp-2">
+                {post.titulo}
+              </h3>
+              <p class="text-[13px] text-paper-muted dark:text-night-muted font-body font-light line-clamp-2">
+                {post.descripcion}
+              </p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <!-- Sobre mí -->
+  <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pb-20 md:pb-[110px]">
+    <div class="bg-paper-photo dark:bg-night-surface flex flex-col sm:flex-row items-center gap-7 sm:gap-10 p-8 md:p-12">
+      <div class="w-[120px] h-[120px] md:w-[150px] md:h-[150px] rounded-full overflow-hidden flex-shrink-0">
+        <img
+          src="/images/javi-avatar.jpg"
+          alt="Javiera Quiroz"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div class="flex flex-col gap-3 text-center sm:text-left">
+        <span class="text-[11px] tracking-[0.22em] uppercase text-brand-600 dark:text-brand-dark font-medium">Sobre mí</span>
+        <h2 class="font-display font-medium text-[24px] md:text-[28px] leading-[1.15] -tracking-[0.01em] text-paper-ink dark:text-night-ink">Hola, soy Javi 👋</h2>
+        <p class="text-[15.5px] leading-[1.65] text-paper-muted dark:text-night-muted font-body font-light max-w-[52ch]">
+          Soy chef, creadora de contenido y la persona detrás de Vlog de Javi. Llevo años compartiendo recetas veganas para demostrar que la cocina vegetal puede ser rica, entretenida y accesible.
+        </p>
+        <a href="/sobre-mi" class="text-[13px] tracking-[0.14em] uppercase text-brand-600 dark:text-brand-dark font-medium mt-1">Conóceme →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recursos gratis -->
+  <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pb-20 md:pb-[110px]">
+    <a href="/recursos" class="group flex flex-col sm:flex-row items-center gap-7 sm:gap-10 bg-brand-600 p-8 md:p-12">
+      <div class="flex -space-x-8 flex-shrink-0">
+        <div class="w-[90px] h-[120px] md:w-[110px] md:h-[146px] shadow-lg rotate-[-6deg] overflow-hidden bg-paper-photo">
+          <img src="/images/cover-plan-de-javi-1.png" alt="" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="w-[90px] h-[120px] md:w-[110px] md:h-[146px] shadow-lg rotate-[4deg] overflow-hidden bg-paper-photo">
+          <img src="/images/cover-parrilla-veggie.png" alt="" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+      </div>
+      <div class="flex flex-col gap-3 text-center sm:text-left items-center sm:items-start">
+        <span class="text-[11px] tracking-[0.22em] uppercase text-white/80 font-medium">Recursos gratis</span>
+        <h2 class="font-display font-medium text-[24px] md:text-[28px] leading-[1.15] -tracking-[0.01em] text-white">Descarga guías PDF gratis</h2>
+        <p class="text-[15.5px] leading-[1.65] text-white/85 font-body font-light max-w-[52ch]">
+          Planificaciones semanales y recetarios para imprimir, como el Plan de Javi y La Parrilla Veggie.
+        </p>
+        <span class="text-[13px] tracking-[0.14em] uppercase text-white border-b border-white/80 pb-1 font-medium mt-1 group-hover:opacity-80 transition-opacity">Ver recursos →</span>
+      </div>
+    </a>
   </div>
 
   <Footer />

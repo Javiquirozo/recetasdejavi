@@ -3,15 +3,11 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 
+import { BLOG_POST_SLUGS } from '@/lib/blogPosts.js';
+
 const recipes = await import('@/data/recetas.json').then(m => m.default);
 
-const postSlugs = [
-  'mi-experiencia-con-la-artritis',
-  'consejos-para-una-alimentacion-saludable',
-  'charla-enfermedades-autoinmunes-y-estilo-de-vida',
-  'ser-vegano-es-por-los-animales-pero-y-nuestra-salud',
-];
-const posts = postSlugs
+const posts = BLOG_POST_SLUGS
   .map(slug => recipes.find(r => r.slug === slug))
   .filter(Boolean)
   .sort((a, b) => new Date(b.fechaPublicacion) - new Date(a.fechaPublicacion));
