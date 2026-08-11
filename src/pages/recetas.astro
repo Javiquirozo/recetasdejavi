@@ -24,7 +24,7 @@ const title = 'Recetas — Vlog de Javi';
         <span class="text-[11px] tracking-[0.22em] uppercase text-paper-muted dark:text-night-muted font-medium">Todas las recetas</span>
         <h1 class="font-display font-medium text-[32px] md:text-[40px] leading-[1.06] -tracking-[0.02em] text-paper-ink dark:text-night-ink">{recipes.length} recetas veganas</h1>
       </div>
-      <span id="resultsCount" class="text-[13.5px] text-[#A79CA3]">Mostrando {recipes.length} de {recipes.length}</span>
+      <span id="resultsCount" class="text-[13.5px] text-[#A79CA3]">Mostrando 1–{Math.min(12, recipes.length)} de {recipes.length}</span>
     </div>
 
     <div class="mb-2">
@@ -59,6 +59,12 @@ const title = 'Recetas — Vlog de Javi';
   </div>
 
   <div class="max-w-[1440px] mx-auto px-5 md:px-[72px] pt-11 pb-20 md:pb-[110px]">
+    <div id="paginationTop" class="hidden items-center justify-center gap-6 pb-10">
+      <button data-page-nav="prev" class="pagination-btn text-[13px] tracking-[0.14em] uppercase text-paper-ink dark:text-night-ink disabled:opacity-30 disabled:cursor-not-allowed">← Anterior</button>
+      <span data-page-info class="text-[13.5px] text-[#A79CA3]">Página 1 de 1</span>
+      <button data-page-nav="next" class="pagination-btn text-[13px] tracking-[0.14em] uppercase text-paper-ink dark:text-night-ink disabled:opacity-30 disabled:cursor-not-allowed">Siguiente →</button>
+    </div>
+
     <div id="grid" class="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-9">
       {recipes.map(recipe => (
         <div
@@ -78,6 +84,12 @@ const title = 'Recetas — Vlog de Javi';
           />
         </div>
       ))}
+    </div>
+
+    <div id="paginationBottom" class="hidden items-center justify-center gap-6 pt-14">
+      <button data-page-nav="prev" class="pagination-btn text-[13px] tracking-[0.14em] uppercase text-paper-ink dark:text-night-ink disabled:opacity-30 disabled:cursor-not-allowed">← Anterior</button>
+      <span data-page-info class="text-[13.5px] text-[#A79CA3]">Página 1 de 1</span>
+      <button data-page-nav="next" class="pagination-btn text-[13px] tracking-[0.14em] uppercase text-paper-ink dark:text-night-ink disabled:opacity-30 disabled:cursor-not-allowed">Siguiente →</button>
     </div>
 
     <div id="emptyState" class="hidden flex-col items-center gap-[18px] py-24 md:py-[120px] text-center">
@@ -103,8 +115,14 @@ const title = 'Recetas — Vlog de Javi';
   const emptyState = document.getElementById('emptyState');
   const resultsCount = document.getElementById('resultsCount');
   const clearAll = document.getElementById('clearAll');
+  const paginationBars = document.querySelectorAll('#paginationTop, #paginationBottom');
+  const pageInfos = document.querySelectorAll('[data-page-info]');
+  const prevButtons = document.querySelectorAll('[data-page-nav="prev"]');
+  const nextButtons = document.querySelectorAll('[data-page-nav="next"]');
 
+  const PAGE_SIZE = 12;
   let activeCategory = initialCategory;
+  let currentPage = 1;
 
   const activeClasses = ['border-paper-ink', 'bg-paper-ink', 'text-paper', 'dark:border-night-ink', 'dark:bg-night-ink', 'dark:text-night'];
   const inactiveClasses = ['border-[#DED5CB]', 'dark:border-night-hairline', 'text-paper-muted', 'dark:text-night-muted'];
@@ -119,20 +137,52 @@ const title = 'Recetas — Vlog de Javi';
     });
   }
 
-  function filter() {
+  function getMatches() {
     const q = searchInput.value.trim().toLowerCase();
-    let visible = 0;
-    items.forEach(item => {
+    return Array.from(items).filter(item => {
       const matchesSearch = !q || item.dataset.titulo.includes(q) || item.dataset.descripcion.includes(q);
       const matchesCategory = !activeCategory || item.dataset.categoria === activeCategory;
-      const show = matchesSearch && matchesCategory;
-      item.classList.toggle('hidden', !show);
-      if (show) visible++;
+      return matchesSearch && matchesCategory;
     });
-    resultsCount.textContent = `Mostrando ${visible} de ${items.length}`;
-    grid.classList.toggle('hidden', visible === 0);
-    emptyState.classList.toggle('hidden', visible > 0);
-    emptyState.classList.toggle('flex', visible === 0);
+  }
+
+  function render() {
+    const matches = getMatches();
+    const totalPages = Math.max(1, Math.ceil(matches.length / PAGE_SIZE));
+    currentPage = Math.min(currentPage, totalPages);
+    const start = (currentPage - 1) * PAGE_SIZE;
+    const pageItems = new Set(matches.slice(start, start + PAGE_SIZE));
+
+    items.forEach(item => {
+      item.classList.toggle('hidden', !pageItems.has(item));
+    });
+
+    const rangeEnd = Math.min(matches.length, start + PAGE_SIZE);
+    resultsCount.textContent = matches.length > 0
+      ? `Mostrando ${start + 1}–${rangeEnd} de ${matches.length}`
+      : `Mostrando 0 de ${items.length}`;
+    grid.classList.toggle('hidden', matches.length === 0);
+    emptyState.classList.toggle('hidden', matches.length > 0);
+    emptyState.classList.toggle('flex', matches.length === 0);
+
+    paginationBars.forEach(bar => {
+      bar.classList.toggle('hidden', totalPages <= 1);
+      bar.classList.toggle('flex', totalPages > 1);
+    });
+    pageInfos.forEach(el => { el.textContent = `Página ${currentPage} de ${totalPages}`; });
+    prevButtons.forEach(btn => { btn.disabled = currentPage <= 1; });
+    nextButtons.forEach(btn => { btn.disabled = currentPage >= totalPages; });
+  }
+
+  function filter() {
+    currentPage = 1;
+    render();
+  }
+
+  function goToPage(page) {
+    currentPage = page;
+    render();
+    grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   searchInput.addEventListener('input', filter);
@@ -149,7 +199,9 @@ const title = 'Recetas — Vlog de Javi';
     setActiveChip();
     filter();
   });
+  prevButtons.forEach(btn => btn.addEventListener('click', () => goToPage(currentPage - 1)));
+  nextButtons.forEach(btn => btn.addEventListener('click', () => goToPage(currentPage + 1)));
 
   setActiveChip();
-  filter();
+  render();
 </script>
