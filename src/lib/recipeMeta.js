@@ -15,7 +15,7 @@ export function isRealRecipe(r) {
 // para los casos donde ese nombre no queda bien (ej. plural, o con conector "y").
 const CATEGORY_LABELS = {
   plato_principal: 'Plato principal',
-  postre: 'Postre',
+  postre: 'Dulces',
   salsa: 'Salsas',
   desayuno: 'Desayunos',
   entrada: 'Entrada',
